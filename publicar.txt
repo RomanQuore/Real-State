@@ -1,0 +1,34 @@
+    <button type="submit "class="publicar"> <span><a href="../MODEL/Publicar.php" class="publicar1">Publicar</span></a></button></p>
+
+.publicar {
+  background-color: #329B93;
+  border: none;
+  color: #fff;
+  font-size: 0.875em;
+  font-weight: bold;
+  padding: 0.2em;
+  cursor: pointer;
+  width: 100%;
+  max-width: 150px;
+  border-radius: 4px;
+  height: 2.7rem;
+  margin-right: 20px; /* Espacio derecho */
+  margin-left: 10px; /* Espacio izquierdo */
+  position: flex; /* Posición fija */
+}
+
+
+.publicar span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+/* Estilos para el enlace de cerrar */
+.publicar1 {
+  display: relative;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 2%;
+  color: #ffffff;
+}

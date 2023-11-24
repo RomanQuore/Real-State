@@ -1,0 +1,207 @@
+/* Establece el fondo del body con un gradiente lineal */
+body {
+    background-color: rgba(255, 255, 255, 0.555);
+    background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);
+    background: linear-gradient(to right, #FFFDE4, #005AA7);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 6em; /* Usando em para la altura */
+    font-family: "Open Sans", sans-serif;
+    flex-direction: column;
+    width: 100%;
+}
+
+img
+{
+    border-radius: 20px;
+}
+
+/* Define la tipografía para los títulos h1, h2, h3 */
+h1, h2, h3 {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Establece estilos para el título (que no es un selector HTML válido) */
+title {
+    font-size: 1.5em; /* Tamaño de fuente relativo */
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+}
+
+/* Configuración del contenedor principal */
+#contenedor {
+    display: flex;
+    width: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja1 {
+    width: 40em; /* 40 veces el tamaño de la fuente del elemento raíz */
+    padding: 2em; /* 2 veces el tamaño de la fuente del elemento raíz */
+    text-align: center;
+}
+
+.caja2 h1 {
+    color: #000000;
+    font-size: 2em; /* 2 veces el tamaño de la fuente del elemento raíz */
+}
+  
+/* Estilos para la caja 1 */
+.caja2 {
+    text-align: center;
+    width: 50%; /* Porcentaje para adaptabilidad */
+    padding: 5em; /* Usando em para el relleno */
+    background-color: rgba(255, 255, 255, 0.555);
+    color: #000;
+    margin-left: 15em; /* 30em de margen izquierdo */
+    border-radius: 20px;
+}
+
+/* Estilos para el separador (elemento flotante) */
+.separator {
+    float: left;
+    height: 100%;
+    background-color: #329B93;
+}
+
+/* Establece el box-sizing y la tipografía para todos los elementos */
+* {
+    font-family: 'lato', 'open sans', 'PT sans', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Estilos para los títulos h1 */
+h1 {
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    margin: 15px;
+    height: 100%;
+    text-align: center;
+}
+
+/* Estilos para las etiquetas */
+label {
+    color: black;
+    font-size: 1.125em; /* Tamaño de fuente relativo */
+}
+
+/* Estilos para los campos de entrada de texto, contraseña, email, fecha y teléfono */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+input[type="number"],
+select {
+    background-color: #eee; /* Corrección del color sin comillas */
+    border: none;
+    padding: 2%; /* Usando porcentajes para el relleno */
+    margin: 1% 0; /* Usando porcentajes para el margen superior e inferior */
+    width: 50%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Estilos para los botones de envío */
+button[type="submit"] {
+    background-color: #329B93;
+    border: 1px solid #329B93;
+    color: #fff;
+    font-size: 1em; /* Tamaño de fuente relativo */
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 3%; /* Usando porcentajes para el relleno */
+    cursor: pointer;
+    width: 50%;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+/* Estilos para el botón al hacer clic */
+button:active {
+    transform: scale(0.95);
+}
+
+/* Estilos para el botón enfocado */
+button:focus {
+    outline: none;
+}
+
+/* Estilos para los enlaces */
+a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2%; /* Usando porcentajes para el margen superior */
+    color: #521c7e;
+}
+
+/* Estilos para los enlaces al pasar el mouse */
+a:hover {
+    color: #005AA7;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #000000; /* Establece el color de fondo en negro */
+    background-repeat: infinite; /* Configura la repetición del fondo */
+    padding: 1em 0.625em; /* Establece el espaciado en la parte superior e inferior del footer */
+    width: 100%; /* Establece el ancho al 100% para abarcar toda la pantalla */
+    font-size: 1.125em; /* Define el tamaño de fuente relativo */
+    font-weight: bold; /* Hace que el texto sea negrita */
+    color: #ffffff; /* Define el color del texto en blanco */
+    margin-top: 1.25em; /* Establece el margen superior usando "em" para adaptabilidad */
+}
+
+/* Estilos para el elemento de navegación social en el footer */
+.footer-nav-social {
+    float: left;
+    width: 15.125em; /* Establece el ancho en "em" */
+    display: flex;
+}
+
+/* Estilos para los enlaces dentro del elemento de navegación social */
+.footer-nav-social a {
+    margin: 0.625em; /* Establece el margen usando "em" para adaptabilidad */
+}
+
+/* Estilos para el elemento de contacto en el footer */
+.footer-nav-contact {
+    float: left;
+    width: 15.125em; /* Establece el ancho en "em" */
+    display: flex;
+}
+
+/* Estilos para los enlaces dentro del elemento de contacto */
+.footer-nav-contact a {
+    color: #eee;
+}
+
+/* Estilos para el elemento de navegación en el footer */
+.footer-nav-link {
+    float: left;
+    width: 15.125em; /* Establece el ancho en "em" */
+    display: flex;
+}
+
+.footer-nav-link a
+{
+    color: #eee;
+}
+
+/* Estilos para las imágenes dentro del contenido del footer */
+.hello {
+    width: 3.125em; /* Establece el ancho en "em" */
+    display: block;
+}
+
+.footer-nav-copyright
+{
+    width: 8.125em; /* Establece el ancho en "em" */
+    display: block;
+}
