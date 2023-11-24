@@ -5,56 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/P_U.css">
+    <script src="../JS/imagenperfil.js"></script>
     <title>Perfil Comprador</title>
 </head>
 <body>
     <center>   
         <p class="hola"><img src="http://imgfz.com/i/nzv3l4K.png" alt="Descripción de la imagen" style="width: 70px; float: left; margin-right: 10px;"><br><br><br>Real State
         
-       <a href="../Model/cuenta.php"> <button type="button" class="cerrar_sesion" >Cerrar sesion</button></p></a> 
+       <a href="../MODEL/loginsignup.php"> <button type="button" class="cerrar_sesion" >Cerrar sesion</button></a></p> 
                  
-        <div class="profile">
-                <img src="../Image/iconoperfil.png"class="usuario"alt="Imagen de perfil" >
-              
-                    <div class="Formulario"><br>
-                        <span class="input-group-text" id="Nombre"></span><br><br>
-                        <input type="text" class="text" placeholder="Nombre" aria-label="text" aria-describedby="text" style="size: 40px;"><br><br>
-                                       
-                        <span class="input-group-text" id="Apellido"name="Apellido"></span>
-                        <input type="text" class="text" placeholder="Apellido" aria-label="text" aria-describedby="text"><br><br>
-                    
-                        <span class="input-group-text" id="Telefono"></span>
-                        <input type="tel" class="tel" placeholder="Telefono" aria-label="tel" aria-describedby="tel"><br><br>
-                   
-                        <span class="input-group-text" id="email"></span>
-                        <input type="email" class="email" placeholder="email" aria-label="email" aria-describedby="email"><br><br>
-                    
-                        <span class="input-group-text" id="Calificación"></span>
-                        <input type="text" class="text" placeholder="Calificación" aria-label="text" aria-describedby="text"><br><br>
-                    
-                        <span class="input-group-text" id="Reseña"></span>
-                        <input id="reseña" type="text" class="text" placeholder="Reseña" aria-label="text" aria-describedby="text">
-                        
-                            <div class="container">
-                                <form action="../Model/upload.php" method="post" enctype="multipart/form-data">
-                                    <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" />
-                                    <input type="submit" value="Cargar Imagen" name="submit" />
-                                </form>
-                                <div class="image-preview">
-                                <?php
-                                    // Mostrar la imagen cargada, si existe
-                                    if (isset($_GET['image'])) {
-                                        echo '<img src="' . $_GET['image'] . '" alt="Imagen Cargada">';
-                                    }
-                                    ?>
-                                </div>       
-                            </div>
-                        <a href="../Model/Publicar.php"><input type="submit" value="Publicar"></a>
-                    </div>
-            </div>
+       <div class="profile">
+    <img src="" class="usuario" alt="Imagen de perfil">
 
-       
-       
+    <div class="Formulario">
+        <form action="../Model/upload.php" method="post" enctype="multipart/form-data" id="profileForm">
+            <div class="input-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="text" placeholder="Nombre" required>
+            </div><br>
+
+            <div class="input-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" class="text" placeholder="Apellido" required>
+            </div><br>
+
+            <div class="input-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" class="tel" placeholder="Teléfono" required>
+            </div><br>
+
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="email" placeholder="Email" required>
+            </div><br>
+
+            <div class="input-group">
+                <label for="resena">Reseña:</label>
+                <textarea id="resena" name="resena" class="text" placeholder="Reseña"></textarea>
+            </div><br>
+
+            <div class="input-group">
+                <label for="fileToUpload">Cargar Imagen de Perfil:</label>
+                <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" required>
+            </div><br>
+
+            <input type="submit" value="Guardar Perfil">
+        </form>
+
+        <div class="formulario-publicacion">
+            <h2>Formulario de Publicación</h2>
+            <form action="procesar_publicacion.php" method="post" enctype="multipart/form-data">
+                <div>
+                    <label for="nombreProduc">Nombre del Producto:</label>
+                    <input type="text" id="nombreProduc" name="nombreProduc" required>
+                </div>
+                <div>
+                    <label for="valor">Valor:</label>
+                    <input type="text" id="valor" name="valor" required>
+                </div>
+                <div>
+                    <label for="imagen">Imagen:</label>
+                    <input type="file" id="imagen" name="imagen" accept="image/*" required>
+                </div>
+                <div>
+                    <label for="Categoria">Categoría:</label>
+                    <input type="text" id="Categoria" name="Categoria" required>
+                </div>
+                <div>
+                    <input type="submit" value="Publicar">
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
             <footer class="footer">
                 <div class="footer-heading">Conoce más sobre nosotros!</div>
                 <div class="footer-content">
@@ -70,8 +93,6 @@
                     </div>
                 </div>
             </footer>
-
-         
     </center>
 </body>
 </html>
