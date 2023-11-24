@@ -1,5 +1,5 @@
 <?php
-include '../CONTROLLER/Conexion.php';
+include '../CONTROLLER/conexion.php';
 
 session_start();
 
@@ -19,7 +19,7 @@ if (isset($_SESSION['Rol'])) {
             break;
             
         case 3:
-            header('location: ../VIEW/pagComprador.php');
+            header('location: ../VIEW/Pagprincipal.php');
             exit(); // Add exit to prevent further execution
             break;
 
@@ -53,7 +53,7 @@ if ($row) {
     $_SESSION['Rol'] = $row['Rol'];
     switch ($row['Rol']) {
         case 2:
-            header('location: ../VIEW/pagComprador.php'); // Redirect to the Vendedor page for Rol 1
+            header('location: ../VIEW/Pagprincipal.php'); // Redirect to the Vendedor page for Rol 1
             exit();
             break;
 
