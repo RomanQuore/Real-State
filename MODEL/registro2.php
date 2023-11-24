@@ -1,5 +1,5 @@
 <?php
-    include("../CONTROLLER/Conexion.php");
+    include("../CONTROLLER/conexion.php");
     if ($conex)
     {
         echo "todo bien";
