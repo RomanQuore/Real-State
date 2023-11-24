@@ -1,3 +1,8 @@
+<?php
+include '../CONTROLLER/Conexion.php';
+session_start();
+$_SESSION['Usuario']
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style_index.css">
+    <link rel="stylesheet" href="../CSS/style_principal.css">
     <script src="../JS/Principal.js"></script>
     <title> Pagina Principal </title>
     <div class="container">
@@ -28,11 +33,12 @@
         <option value="apartamento">Apartamentos</option>
         <option value="local">Locales</option>
     </select>
-    <button type="submit "class="register"> <span><a href="../MODEL/registro1.php" class="register1">Registrarse</span></a></button>
-    <button type="submit "class="login"> <span><a href="../MODEL/iniciosesion1.php" class="login1">Iniciar sesion</span></a></button>
-
-    </p>
-
+    <?php echo $_SESSION['Usuario']; ?>
+    <form action="../MODEL/cerrar_sesion.php" method="POST">
+    <button name="cerrar_sesion" type="submit" class="exit">
+        <span><a class="cerrar">Cerrar sesión</span></a>
+    </button>
+</form>
 </div>
 <script>
     function redireccionar() {
@@ -40,14 +46,17 @@
         var opcionSeleccionada = select.options[select.selectedIndex].value;
 
         if (opcionSeleccionada === "casa") {
-            window.location.href = "../MODEL/loggeoIndex.php";
+            window.location.href = "../MODEL/iniciosesion1.php";
         } else if (opcionSeleccionada === "apartamento") {
-            window.location.href = "../MODEL/loggeoIndex.php";
+            window.location.href = "../VIEW/compra.html";
         } else if (opcionSeleccionada === "local") {
-            window.location.href = "../MODEL/loggeoIndex.php";
+            window.location.href = "pagina_locales.html";
         }
     }
 </script>
+<?php
+echo '<a href="perfil_Comprador.php">Editar perfil</a>';
+?>
 </head>
 <body>
 <div class="contenedor">
@@ -63,7 +72,7 @@
             <div class="precio">
             <label class="label1">Filtro de busqueda:</label>
             <br>
-                <input type="text" id="precio_desde" class="busqueda1" placeholder="Precio desde (COP)"/>
+                <input type="text" id="precio_desde" class="busqueda1" placeholder="Precio desde (COP)" value/>
             </div>
             <hr class="hr"/>
             <div class="habitaciones">
@@ -96,6 +105,7 @@
                     <option value="5+">200m2+</option>
                 </select>
             </div>
+            <button class="dirigir"><a href="" class="dirigir1">Aceptar</a></button>
             </div>
     </div>
 
@@ -119,7 +129,7 @@
                     <div class="info1">1</div>
                 </div>
             </div>
-            <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="../VIEW/compraComprador.html" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
         <div class="ventana2">
@@ -142,7 +152,7 @@
                 </div>
             </div>
 
-            <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="../VIEW/compraComprador.html" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
         <div class="ventana3">
@@ -164,10 +174,11 @@
                     <div class="info1">1</div>
                 </div>
             </div>
-            <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="../VIEW/compraComprador.html" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
     </div>
 </div>
+
 </body>
 <footer class="footer">
     <div class="footer-content">
