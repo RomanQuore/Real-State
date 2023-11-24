@@ -1,51 +1,52 @@
 <?php
-
-include("../CONTROLLLER/Conexion.php");
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
-{
-    $mysqli = new mysqli($host,$user,$pw,$db); 
-    $usuario = $_POST["Usuario"];
-    $contrasenau = $_POST["contrasena"];
-    $nombres = $_POST["nombres"];
-    $apellidos = $_POST["apellidos"];
-    $fechaNacimiento = $_POST["fechaNacimiento"];
-    $tipoDocumento = $_POST["tipoDocumento"];
-    $numeroDocumento = $_POST["numeroDocumento"];
-    $direccion = $_POST["direccion"];
-    $numeroTelefono = $_POST["numeroTelefono"];
-    $correoElectronico = $_POST["correoElectronico"];
-    $rol = $_POST["rol"];
-
-    $query = "INSERT INTO registro (Usuario,contrasena, nombres,apellidos,fechaNacimiento,tipoDocumento,numeroDocumento,direccion,numeroTelefono,correoElectronico,rol) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-     
-$stmt = $mysqli->prepare($query);
-
-if ($stmt) 
-{
-
-    $stmt->bind_param
-    ("sssssssssss",$usuario,$contrasenau,$nombres,$apellidos,$fechaNacimiento,$tipoDocumento,$numeroDocumento,$direccion,$numeroTelefono,$correoElectronico,$rol);
-
-    if ($stmt->execute()) 
+    include("../CONTROLLER/Conexion.php");
+    if ($conex)
     {
-        header("Location: ../Pagprincipal.php");
-        exit();
-    } 
-    else 
-    {
-        echo "Error al insertar datos: " . $stmt->error;
+        echo "todo bien";
     }
+    if (isset($_POST['registrate'])){
+       if (
+         strlen($_POST['Usuario']) >=5 &&
+         strlen($_POST['contrasena']) >=1 && 
+         strlen($_POST['nombres']) >=1 &&
+         strlen($_POST['apellidos']) >=1 &&
+         strlen($_POST['fechaNacimiento']) >=1 &&
+         strlen($_POST['tipoDocumento']) >=1 &&
+         strlen($_POST['numeroDocumento']) >=1 &&
+         strlen($_POST['direccion']) >=1 &&
+         strlen($_POST['correoElectronico']) >=1 &&
+         strlen($_POST['Rol']) >=1 &&
+         strlen($_POST['activo']) >=1 )
+            {
+                $usuario = isset($_POST["Usuario"]) ? trim($_POST["Usuario"]) : '';
+                $contrasena = isset($_POST["contrasena"]) ? trim($_POST["contrasena"]) : '';
+                $nombres = isset($_POST["nombres"]) ? trim($_POST["nombres"]) : '';
+                $apellidos = isset($_POST["apellidos"]) ? trim($_POST["apellidos"]) : '';
+                $fechaNacimiento = isset($_POST["fechaNacimiento"]) ? $_POST['fechaNacimiento']: '';
+                $tipoDocumento = isset($_POST["tipoDocumento"]) ? trim ($_POST["tipoDocumento"]): '';
+                $numeroDocumento = isset($_POST["numeroDocumento"]) ? trim ($_POST["numeroDocumento"]): '';
+                $direccion = isset($_POST["direccion"]) ? trim ($_POST["direccion"]): '';
+                $numeroTelefono = isset($_POST["numeroTelefono"]) ? trim ($_POST["numeroTelefono"]): '';
+                $correoElectronico = isset($_POST["correoElectronico"]) ? trim ($_POST["correoElectronico"]): '';
+                $Rol = isset($_POST["Rol"]) ? trim ($_POST["Rol"]): '';
+                $activo = isset($_POST["activo"]) ? trim ($_POST["activo"]): '';
+                $consulta = "INSERT INTO registro (Usuario, Contrasena, nombres, apellidos, fechaNacimiento, tipoDocumento, numeroDocumento, direccion, numeroTelefono, correoElectronico, Rol, activo) 
+                VALUES ('$usuario','$contrasena','$nombres','$apellidos','$fechaNacimiento','$tipoDocumento','$numeroDocumento','$direccion','$numeroTelefono','$correoElectronico','$Rol','$activo')";
+                $resultado = mysqli_query($conex,$consulta);
+                if ($resultado){
+                    ?>
+                    <h3 class="ok">¡Te has registrado correctamente!</h3>
+                    <?php
+                }else{
+                    ?>
+                    <h3 class="bad">¡No se pudo realizar el registro!</h3>
+                    <?php
+                }
+            } else {
+                ?>
+                <h3 class="ok">¡El minimo de digitos es 5!</h3>
+                <?php
+            }
+        }
 
-    $stmt->close();
-} else 
-{
-    echo "Error en la preparación de la consulta: " . $con->error;
-}
-
-$con->close();
-} 
-else
-{
-echo "El formulario no se ha enviado correctamente.";
-}
 ?>
