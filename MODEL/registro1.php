@@ -8,9 +8,7 @@
     <title>Crear Cuenta</title>
 </head>
 <body>
-<?php if(!empty($message)):?>
-                <p> <?php $message ?></p>
-            <?php endif ?>
+<form method="post">
     <div id="contenedor">
     <div id="caja1">
         <img src="https://i.pinimg.com/564x/a8/9c/91/a89c91aa782b6352d0aca22d2ebad8a3.jpg" alt="Real State">
@@ -24,9 +22,9 @@
                         <div class="col-md-12 mx-auto">
                         <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="usuario">Usuario</label>
+                            <label for="Usuario">Usuario</label>
                             <br>
-                            <input type="text" name="usuario" id="usuario" placeholder="Usuario" required>
+                            <input type="text" name="Usuario" id="Usuario" placeholder="Usuario" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="contrasena">Contraseña</label>
@@ -58,9 +56,9 @@
                             <label for="tipoDocumento">Tipo de Documento</label>
                             <br>
                             <select name="tipoDocumento" id="tipoDocumento" required>
-                                <option value="cedula_ciudadania">Cédula de Ciudadanía</option>
-                                <option value="cedula_extranjeria">Cédula de Extranjería</option>
-                                <option value="tarjeta_identidad">Tarjeta de Identidad</option>
+                                <option value= 1 >Cédula de Ciudadanía</option>
+                                <option value= 2 >Cédula de Extranjería</option>
+                                <option value= 3 >Tarjeta de Identidad</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
@@ -86,29 +84,32 @@
                     <div>
                         <label for="correo">Correo Electrónico</label>
                         <br>
-                        <input type="email" name="correo" id="correo" placeholder="Correo Electrónico" required>
+                        <input type="email" name="correoElectronico" id="correoElectronico" placeholder="Correo Electrónico" required>
                         <br>
-                            <label for="tiporol">Tipo de Rol</label>
+                            <label for="Rol">Tipo de Rol</label>
                             <br>
-                            <select placeholder="Tipo de rol" name="tiporol" id="tiporol" required>
+                            <select placeholder="Tipo de rol" name="Rol" id="Rol" required>
                                 <option value="2">Comprador</option>
                                 <option value="3">Vendedor</option>
                             </select>
                         </div>
-                    <input type="hidden" name="rol" value="2">
-                    <input type="hidden" name="Activo" value="1">
+                    
+                    <input type="hidden" name="activo" value="1">
                 </div>
                 <br>
                 <hr>
                 <br>
-                <button type="submit" a href="../MODEL/registro1.php">Registrate </a></button>
+                <button type="submit" name="registrate" a href="../VIEW/Pagprincipal.php">Registrate</a></button>
                 <br> <br> ¿Ya tienes una cuenta?
                 <a href="../MODEL/iniciosesion1.php">Inicia sesión</a> 
                 </div>
-</div>
-</div>
-</div>
+            </div>
+        </div>
+    </div>
 </form>
+<?php
+include("registro2.php")
+?>
 </body> 
 <footer class="footer">
     <div class="footer-heading">Conoce más sobre nosotros</div>
