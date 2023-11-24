@@ -28,7 +28,11 @@
         <option value="apartamento">Apartamentos</option>
         <option value="local">Locales</option>
     </select>
-    <button type="submit "class="exit"> <span><a href="../MODEL/iniciosesion1.php" class="cerrar">Cerrar sesion</span></a></button></p>
+    <form action="../MODEL/cerrar_sesion.php" method="POST">
+    <button name="cerrar_sesion" type="submit" class="exit">
+        <span><a class="cerrar">Cerrar sesión</span></a>
+    </button>
+</form>
 
 </div>
 <script>
@@ -120,7 +124,7 @@ echo '<a href="perfil_Vendedor.php">Editar perfil</a>';
                     <div class="info1">1</div>
                 </div>
             </div>
-            <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="../VIEW/compraVendedor.html" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
         <div class="ventana2">
@@ -143,7 +147,7 @@ echo '<a href="perfil_Vendedor.php">Editar perfil</a>';
                 </div>
             </div>
 
-            <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="../VIEW/compraVendedor.html" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
         <div class="ventana3">
@@ -165,7 +169,7 @@ echo '<a href="perfil_Vendedor.php">Editar perfil</a>';
                     <div class="info1">1</div>
                 </div>
             </div>
-            <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="../VIEW/compraVendedor.html" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
     </div>
     <div class="publicacion">
