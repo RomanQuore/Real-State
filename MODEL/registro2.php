@@ -2,7 +2,7 @@
     include("../CONTROLLER/conexion.php");
     if ($conex)
     {
-        echo "todo bien";
+        echo "";
     }
     if (isset($_POST['registrate'])){
        if (
