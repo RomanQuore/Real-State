@@ -1,5 +1,5 @@
 <?php
-include '../CONTROLLER/Conexion.php';
+include '../CONTROLLER/conexion.php';
 session_start();
 $_SESSION['Usuario']
 ?>
@@ -14,101 +14,78 @@ $_SESSION['Usuario']
     <script src="../JS/Principal.js"></script>
     <title> Pagina Principal </title>
     <div class="container">
-    <p style="text-align: left;" class="hola">Real State <img src="http://imgfz.com/i/nzv3l4K.png" alt="Descripción de la imagen" style="width: 70px; float: left; margin-right: px;">
-    <select id="scrollDownButton" onchange="redireccionar()">
-        <option disabled selected value>Arriendo</option>
-        <option value="casa">Casas</option>
-        <option value="apartamento">Apartamentos</option>
-        <option value="local">Locales</option>
-    </select>
-    <select id="scrollDownButton" onchange="redireccionar()">
-        <option disabled selected value>Venta</option>
-        <option value="casa">Casas</option>
-        <option value="apartamento">Apartamentos</option>
-        <option value="local">Locales</option>
-    </select>
-    <select id="scrollDownButton" onchange="redireccionar()">
-        <option disabled selected value>Permutacion</option>
-        <option value="casa">Casas</option>
-        <option value="apartamento">Apartamentos</option>
-        <option value="local">Locales</option>
-    </select>
-    <?php echo $_SESSION['Usuario']; ?>
-    <form action="../MODEL/cerrar_sesion.php" method="POST">
-    <button name="cerrar_sesion" type="submit" class="exit">
-        <span><a class="cerrar">Cerrar sesión</span></a>
-    </button>
-</form>
-</div>
-<script>
-    function redireccionar() {
-        var select = document.getElementById("scrollDownButton");
-        var opcionSeleccionada = select.options[select.selectedIndex].value;
+    <p style="text-align: left;" class="hola">Real State 
+        <img src="http://imgfz.com/i/nzv3l4K.png" alt="Descripción de la imagen" style="width: 70px; float: left; margin-right: px;">
 
-        if (opcionSeleccionada === "casa") {
-            window.location.href = "../MODEL/iniciosesion1.php";
-        } else if (opcionSeleccionada === "apartamento") {
-            window.location.href = "../VIEW/compra.html";
-        } else if (opcionSeleccionada === "local") {
-            window.location.href = "pagina_locales.html";
-        }
+<select id="arriendo" onchange="redireccionar(this)">
+    <option disabled selected value>Arriendo</option>
+    <option value="casa">Casas</option>
+    <option value="apartamento">Apartamentos</option>
+    <option value="local">Locales</option>
+</select>
+
+<select id="venta" onchange="redireccionar(this)">
+    <option disabled selected value>Venta</option>
+    <option value="casa">Casas</option>
+    <option value="apartamento">Apartamentos</option>
+    <option value="local">Locales</option>
+</select>
+
+<select id="permutacion" onchange="redireccionar(this)">
+    <option disabled selected value>Permutacion</option>
+    <option value="casa">Casas</option>
+    <option value="apartamento">Apartamentos</option>
+    <option value="local">Locales</option>
+</select>
+
+<select id="accionesSelect" onchange="redireccionar()">
+    <option disabled selected value>Opciones ⚙︎</option>
+    <option value="editar_perfil">Perfil</option>
+    <option value="cerrar_sesion">Cerrar sesión</option>
+</select>
+
+<form id="cerrarSesionForm" action="../MODEL/cerrarsesion.php" method="POST">
+</form>
+    </p>
+</div>
+
+<script>
+function redireccionar() {
+    var select = document.getElementById("arriendo");
+  var opcionSeleccionada = select.options[select.selectedIndex].value;
+
+  console.log("Opción seleccionada:", opcionSeleccionada);
+
+  if (opcionSeleccionada === "casa") {
+    console.log("Redirigiendo a la página de compra de casas...");
+    window.location.href = "../VIEW/compraComprador.php";
+  } else if (opcionSeleccionada === "apartamento") {
+    console.log("Redirigiendo a la página de compra de apartamentos...");
+    window.location.href = "../VIEW/compraApartamento.php";
+  } else if (opcionSeleccionada === "local") {
+    console.log("Redirigiendo a la página de compra de locales...");
+    window.location.href = "../VIEW/compraLocal.php";
+  }
+}
+
+
+    function redireccionar() {
+    var select = document.getElementById("accionesSelect");
+    var opcionSeleccionada = select.value;
+
+    if (opcionSeleccionada === "cerrar_sesion") {
+
+        var formCerrarSesion = document.getElementById("cerrarSesionForm");
+        formCerrarSesion.style.display = "block";
+        formCerrarSesion.submit();
+    } else if (opcionSeleccionada === "editar_perfil") {
+        window.location.href = "Perfil_Vendedor.php";
     }
+}
 </script>
-<?php
-echo '<a href="perfil_Comprador.php">Editar perfil</a>';
-?>
 </head>
 <body>
 <div class="contenedor">
-    <div class="subcontenedor1">
-        <div class="filtros">
-            <h2 class="label1"><br>Filtrado por:</h2>
-            <div class="busqueda">
-            <label class="label1">Buscar:</label>
-            <br>
-                <input class="search" name="text" placeholder="Busqueda..." type="search" >
-            </div>
-            <hr class="hr"/>
-            <div class="precio">
-            <label class="label1">Filtro de busqueda:</label>
-            <br>
-                <input type="text" id="precio_desde" class="busqueda1" placeholder="Precio desde (COP)" value/>
-            </div>
-            <hr class="hr"/>
-            <div class="habitaciones">
-                <select id="habitaciones" class="busqueda2">
-                <option disabled selected value>Habitaciones</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5+">5+</option>
-                </select>
-                </div>
-            <div class="banos">
-                <select id="banos" class="busqueda3">
-                    <option disabled selected value>Baños</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5+">5+</option>
-                </select>
-            </div>
-            <div class="m2">
-                <select id="m2" class="busqueda3">
-                    <option disabled selected value>m2</option>
-                    <option value="1">5m2</option>
-                    <option value="2">50m2</option>
-                    <option value="3">100m2</option>
-                    <option value="4">150m2</option>
-                    <option value="5+">200m2+</option>
-                </select>
-            </div>
-            <button class="dirigir"><a href="" class="dirigir1">Aceptar</a></button>
-            </div>
-    </div>
-
     <div class="subcontenedor2">
         <div class="ventana">
             <img src="https://i.postimg.cc/MHQ87Lny/438430723.jpg" alt="Casa 1" style="width: 250px; float: center;">

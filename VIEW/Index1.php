@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,9 +29,7 @@
     </select>
     <button type="submit "class="register"> <span><a href="../MODEL/registro1.php" class="register1">Registrarse</span></a></button>
     <button type="submit "class="login"> <span><a href="../MODEL/iniciosesion1.php" class="login1">Iniciar sesion</span></a></button>
-
     </p>
-
 </div>
 <script>
     function redireccionar() {
@@ -51,56 +48,8 @@
 </head>
 <body>
 <div class="contenedor">
-    <div class="subcontenedor1">
-        <div class="filtros">
-            <h2 class="label1"><br>Filtrado por:</h2>
-            <div class="busqueda">
-            <label class="label1">Buscar:</label>
-            <br>
-                <input class="search" name="text" placeholder="Busqueda..." type="search" >
-            </div>
-            <hr class="hr"/>
-            <div class="precio">
-            <label class="label1">Filtro de busqueda:</label>
-            <br>
-                <input type="text" id="precio_desde" class="busqueda1" placeholder="Precio desde (COP)"/>
-            </div>
-            <hr class="hr"/>
-            <div class="habitaciones">
-                <select id="habitaciones" class="busqueda2">
-                <option disabled selected value>Habitaciones</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5+">5+</option>
-                </select>
-                </div>
-            <div class="banos">
-                <select id="banos" class="busqueda3">
-                    <option disabled selected value>Baños</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5+">5+</option>
-                </select>
-            </div>
-            <div class="m2">
-                <select id="m2" class="busqueda3">
-                    <option disabled selected value>m2</option>
-                    <option value="1">5m2</option>
-                    <option value="2">50m2</option>
-                    <option value="3">100m2</option>
-                    <option value="4">150m2</option>
-                    <option value="5+">200m2+</option>
-                </select>
-            </div>
-            </div>
-    </div>
-
     <div class="subcontenedor2">
-        <div class="ventana">
+        <div class="ventana ventana1">
             <img src="https://i.postimg.cc/MHQ87Lny/438430723.jpg" alt="Casa 1" style="width: 250px; float: center;">
             <div class="titulo">Apartamento en venta. Fontibon. Bogotá</div>
             <div class="subtitulo">Precio de venta:</div>
@@ -122,7 +71,7 @@
             <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
-        <div class="ventana2">
+        <div class="ventana ventana2">
             <img src="https://i.postimg.cc/tRWqV1W8/casa-en-collywood-disenada-por-olson-kundig-en-los-angeles-4-eac9aa6d-1704x958.jpg" alt="Casa 2" style="width: 250px; float: center;">
             <div class="titulo">Casa en arriendo. Chapinero. Bogotá</div>
             <div class="subtitulo">Precio de arriendo:</div>
@@ -145,7 +94,7 @@
             <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
-        <div class="ventana3">
+        <div class="ventana ventana3">
             <img src="https://i.postimg.cc/wMQY4mkv/fer7861a-7ef04580-1981x1486.jpg" alt="Casa 3" style="width: 250px; float: center;">
             <div class="titulo">Casa en venta. Conjunto en Bosa</div>
             <div class="subtitulo">Precio de venta:</div>
@@ -164,9 +113,64 @@
                     <div class="info1">1</div>
                 </div>
             </div>
-            <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
-        </div>
+                <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
+            </div>
+                <button class="prev"> < </button>
+                <button class="next"> > </button>
     </div>
+
+<script>
+const ventanaItems = document.querySelectorAll('.ventana, .ventana2, .ventana3');
+let currentIndex = 0;
+let autoSlideInterval;
+
+function mostrarVentana(index) {
+    ventanaItems.forEach((ventana, idx) => {
+        if (idx === index) {
+            ventana.style.display = 'block';
+        } else {
+            ventana.style.display = 'none';
+        }
+    });
+}
+
+function nextVentana() {
+    if (currentIndex < ventanaItems.length - 1) {
+        currentIndex++;
+    } else {
+        currentIndex = 0;
+    }
+    mostrarVentana(currentIndex);
+}
+
+function prevVentana() {
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = ventanaItems.length - 1;
+    }
+    mostrarVentana(currentIndex);
+}
+
+document.querySelector('.next').addEventListener('click', nextVentana);
+document.querySelector('.prev').addEventListener('click', prevVentana);
+
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
+
+mostrarVentana(currentIndex); // Muestra solo la primera ventana al cargar la página
+startAutoSlide(); // Comienza el carrusel automático al cargar la página
+</script>
+<div class="subcontenedor1">
+    <h2>Información de la Empresa</h2>
+    <p>Nombre: Nombre de la Empresa</p>
+    <p>Descripción: Breve descripción sobre la empresa...</p>
+    <p>Dirección: Dirección física de la empresa</p>
+    <p>Teléfono: Número de contacto</p>
+    <p>Correo electrónico: Dirección de correo electrónico</p>
+    <!-- Puedes agregar más información aquí -->
+</div>
 </div>
 </body>
 <footer class="footer">
