@@ -25,80 +25,7 @@ body {
 
 }
 
-/* Estilos para el elemento de búsqueda */
-.search {
-  width: 50%;
-  background-color: #ffffff;
-  border-color: #CCC;
-  color: #242424;
-  padding: .15rem .5rem;
-  min-height: 40px;
-  border-radius: 4px;
-  line-height: 1.15;
-  margin-right: 40px; /* Espacio derecho */
-  margin-left: 20px; /* Espacio izquierdo */
-  margin-top: 10px;
-}
-
-.search:hover {
-  outline: 1px solid lightgrey;
-}
-
-/* Estilos para el botón de salida */
-.exit {
-  background-color: #329B93;
-  border: none;
-  color: #fff;
-  font-size: 0.75em;
-  font-weight: bold;
-  padding: 0.2em;
-  cursor: pointer;
-  width: 150px;
-  margin: 5px;
-  border-radius: 4px;
-  height: 2.7rem;
-  margin-right: 5em; /* Espacio derecho */
-  margin-left: 20em; /* 30em de margen izquierdo */
-  position: absolute; /* Posición fija */
-  margin-top: 1em;
-}
-
-.exit span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.exit span:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -15px;
-  transition: 0.5s;
-}
-
-.exit:hover span {
-  padding-right: 15px;
-}
-
-.exit:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-/* Estilos para el enlace de cerrar */
-.cerrar {
-  display: relative;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 2%;
-  color: #ffffff;
-}
-
-/* Estilos para el botón de scroll */
-#scrollDownButton {
+#accionesSelect {
   display: inline-block;
   border-radius: none;
   background-color: #dddddd;
@@ -112,11 +39,60 @@ body {
   cursor: pointer;
   margin: 15px;
   height: 33px;
-  margin-right: 0.2em; /* Espacio derecho */
-  margin-left: 8em; /* Espacio izquierdo */
+
   margin-top: 1.3em;
 }
 
+/* Estilos para el botón de scroll */
+#arriendo {
+  display: inline-block;
+  border-radius: none;
+  background-color: #dddddd;
+  border: none;
+  color: #329B93;
+  text-align: center;
+  font-size: 17px;
+  padding: 0.4em;
+  width: 140%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 15px;
+  height: 33px;
+  margin-top: 1.3em;
+}
+
+#venta {
+  display: inline-block;
+  border-radius: none;
+  background-color: #dddddd;
+  border: none;
+  color: #329B93;
+  text-align: center;
+  font-size: 17px;
+  padding: 0.4em;
+  width: 140%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 15px;
+  height: 33px;
+  margin-top: 1.3em;
+}
+#permutacion {
+  display: inline-block;
+  border-radius: none;
+  background-color: #dddddd;
+  border: none;
+  color: #329B93;
+  text-align: center;
+  font-size: 17px;
+  padding: 0.4em;
+  width: 140%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 15px;
+  height: 33px;
+  margin-top: 1.3em;
+}
 /* Estilos para el elemento de selección */
 select {
   width: 100%;
@@ -335,87 +311,174 @@ margin-top: 0.6em;
     font-size: 1.1em;
 }
 
+.login {
+  background-color: #329B93;
+  border: none;
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 0.2em;
+  cursor: pointer;
+  width: 150px;
+  margin: 5px;
+  border-radius: 4px;
+  height: 2.7rem;
+  margin-top: 1em;
+}
+
+.login span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.login span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+}
+
+.login:hover span {
+  padding-right: 15px;
+}
+
+.login:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.login1 {
+  display: relative;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 2%;
+  color: #ffffff;
+}
+
+.register {
+  background-color: #329B93;
+  border: none;
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 0.2em;
+  cursor: pointer;
+  width: 150px;
+  margin: 5px;
+  border-radius: 4px;
+  height: 2.7rem;
+  margin-top: 1em;
+}
+
+.register span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.register span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+}
+
+.register:hover span {
+  padding-right: 15px;
+}
+
+.register:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.register1 {
+  display: relative;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 2%;
+  color: #ffffff;
+}
 .footer {
-  position: relative; /* Posición relativa para el contenido */
-  width: 100%; /* Ancho completo */
+  position: relative;
+  width: 100%;
   background-color: #000000;
   color: #ffffff;
   margin-top: 50px;
 }
-.footer-heading
-{
+
+.footer-heading {
   margin-top: 0.6em;
 }
+
 .footer:before {
-    content: "";
-    position: absolute;
-    top: 100%; /* Se posiciona después del contenido del footer */
-    left: 0;
-    width: 100%;
-    height: 100%; /* Alto suficientemente grande para simular infinitud */
-    background-color: #000000; /* Mismo color de fondo */
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
 }
 
 .footer .footer-content {
-    position: relative; /* Posición relativa para el contenido */
-    z-index: 1; /* Coloca el contenido del footer sobre el pseudo-elemento */
-    padding: 20px; /* Ajusta el espaciado interno según tu preferencia */
+  position: relative;
+  z-index: 1;
+  padding: 20px;
 }
 
-/* Estilos para los enlaces del footer */
 .footer a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .footer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* Estilos para el elemento de navegación social en el footer */
 .footer-nav-social {
-    float: left;
-    width: 15.125em; /* Establece el ancho en "em" */
-    display: flex;
+  float: left;
+  width: 15.125em;
+  display: flex;
 }
 
-/* Estilos para los enlaces dentro del elemento de navegación social */
 .footer-nav-social a {
-    margin: 0.625em; /* Establece el margen usando "em" para adaptabilidad */
+  margin: 0.625em;
 }
 
-/* Estilos para el elemento de contacto en el footer */
 .footer-nav-contact {
-    float: left;
-    width: 15.125em; /* Establece el ancho en "em" */
-    display: flex;
+  float: left;
+  width: 15.125em;
+  display: flex;
 }
 
-/* Estilos para los enlaces dentro del elemento de contacto */
 .footer-nav-contact a {
-    color: #eee;
+  color: #eee;
 }
 
-/* Estilos para el elemento de navegación en el footer */
 .footer-nav-link {
-    float: left;
-    width: 15.125em; /* Establece el ancho en "em" */
-    display: flex;
+  float: left;
+  width: 15.125em;
+  display: flex;
 }
 
-.footer-nav-link a
-{
-    color: #eee;
+.footer-nav-link a {
+  color: #eee;
 }
 
-/* Estilos para las imágenes dentro del contenido del footer */
 .hello {
-    width: 3.125em; /* Establece el ancho en "em" */
-    display: block;
+  width: 3.125em;
+  display: block;
 }
 
-.footer-nav-copyright
-{
-    width: 8.125em; /* Establece el ancho en "em" */
-    display: block;
+.footer-nav-copyright {
+  width: 8.125em;
+  display: block;
 } 
