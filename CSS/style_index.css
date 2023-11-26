@@ -23,25 +23,6 @@ body {
     margin-bottom: 25px;
     position: relative;
   }
-  
-  /* Estilos para el elemento de búsqueda */
-  .search {
-    width: 50%;
-    background-color: #ffffff;
-    border-color: #CCC;
-    color: #242424;
-    padding: .15rem .5rem;
-    min-height: 40px;
-    border-radius: 4px;
-    line-height: 1.15;
-    margin-right: 40px; /* Espacio derecho */
-    margin-left: 20px; /* Espacio izquierdo */
-    margin-top: 10px;
-  }
-  
-  .search:hover {
-    outline: 1px solid lightgrey;
-  }
 
 .login {
     background-color: #329B93;
@@ -157,8 +138,6 @@ body {
     cursor: pointer;
     margin: 15px;
     height: 33px;
-    margin-right: 0.2em; /* Espacio derecho */
-    margin-left: 8em; /* Espacio izquierdo */
     margin-top: 1.3em;
   }
   
@@ -191,145 +170,70 @@ body {
   }
   
   .contenedor {
-    max-width: fit-content;
     display: flex;
-  }
-  
-  .subcontenedor1 {
-    width: 30em; /* Ocupará todo el ancho en pantallas pequeñas y se ajustará dinámicamente */
-    max-width: 100%;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255); /* Color de fondo para el elemento con clase "filtros" */
-    height: 28em;
-    margin-left: 2em; /* Se ajusta el margen izquierdo a 2em */
-    margin-right: 5em;
-  }
-  .filtros {
-    padding: 1em;
-  }
-  h2 {
-    font-size: 1em; /* Tamaño de fuente para encabezados de nivel 2 */
-    margin-bottom: 20px; /* Márgen inferior para separación */
-    margin-top: 1px;
-    margin-left: 1px;
-  }
-  
-  .hr {
-   color: #000;
-  }
-  .busqueda {
-    margin-bottom: 15px; /* Márgen inferior para separación */
-  }
-  
-  .label1 {
-    margin-left: 20px; /* Espacio izquierdo */
-  }
-  
-  .busqueda1 {
-    width: 50%;
-    background-color: #ffffff;
-    border-color: #CCC;
-    color: #242424;
-    padding: .15rem .5rem;
-    min-height: 30px;
-    border-radius: 4px;
-    line-height: 1.15;
-    margin-right: 40px; /* Espacio derecho */
-    margin-left: 20px; /* Espacio izquierdo */
-    margin-top: 10px;
-  }
-  
-  .busqueda2 {
-    width: 100%; /* Ocupar todo el ancho disponible */
-    padding: 5px; /* Espacio interno alrededor del elemento */
-    border: 1px solid #ffffff; /* Estilo del borde */
-    color: #7a7a7a; /* Color del texto */
-    border-color: #CCC;
-    background-color: #ffffff; /* Color de fondo */
-    margin-left: 15px;
-    border-radius: 3px;
-  }
-  
-  .busqueda3
-  {
-    width: 100%; /* Ocupar todo el ancho disponible */
-    padding: 5px; /* Espacio interno alrededor del elemento */
-    border: 1px solid #ffffff; /* Estilo del borde */
-    color: #7a7a7a; /* Color del texto */
-    border-color: #CCC;
-    background-color: #ffffff; /* Color de fondo */
-    margin-left: 20px;
-    border-radius: 3px;
-  }
-  
-  hr {
-    border: 1px solid #ccc; /* Estilo del borde horizontal */
-    margin: 10px ; /* Márgenes superior e inferior */
-  }
-  
-  .habitaciones,
-  .banos
-  .m2 {
-    display: flex; /* Utilizar el modelo de caja flexible */
-    margin-right: 5px; /* Espacio derecho */
-    margin-left: 5px; /* Espacio izquierdo */
-  }
-  
-  .subcontenedor2 {
-    width: 100%; /* Ocupar todo el ancho disponible */
-    display: flex;
-  }
-  
-  .ventana,
-  .ventana2,
-  .ventana3 {
-    width: 15em; /* Ancho fijo para los elementos con clase "ventana" */
-    margin: 10px; /* Márgenes externos */
-    padding: 2em; /* Espacio interno alrededor del elemento */
-    text-align: center; /* Alineación del texto al centro */
-    background-color: #ffffff; /* Color de fondo */
-    border-radius: 0px; /* Radio de borde */
-    margin-top: 10px; /* Márgen superior para separación */
-    height: auto;
-    flex-direction: row;
-    border-radius: 10px;
-  
-  }
-  
-  .titulo {
-  margin-top: 0.6em;
-  }
-  
-  .subtitulo{
-    margin-top: 0.6em;
-  
-  }
-  .ventana h2 {
-    margin-top: 2; /* Márgen superior para el encabezado h2 */
-  }
-  
-  .ventana p {
-    color: #333333; /* Color del texto de párrafo */
-  }
-  
-  .info-contenedor {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .info-fila {
-    justify-content: space-between;
-    margin-bottom: 0.2em;
-    margin: 1em;
-  }
-  
-  .info {
-    display: inline-flex;
-  }
-  
-  .info1 {
-    display: block;
-  }
+    justify-content: center;
+    align-items: center;
+    gap: 30em;
+}
+
+.subcontenedor2 {
+  display: flex;
+  overflow: hidden; /* Ocultar las ventanas adicionales */
+  position: relative; /* Añadir posición relativa para que los botones se posicionen correctamente */
+}
+
+.ventana {
+  padding: 1em;
+  width: 40em; /* Ancho fijo para todas las ventanas */
+  flex-shrink: 0; /* Evitar que las ventanas se reduzcan */
+}
+
+.ventana1,
+.ventana2,
+.ventana3 {
+  text-align: center;
+  transition: transform 0.5s ease;
+  background-color: #eee;
+  border-color: #555;
+  height: 39.6em; /* Establecer una altura fija para todas las ventanas */
+  overflow: hidden; /* Para evitar desbordamiento del contenido si excede la altura */
+  display: flex; /* Alinear elementos verticalmente en caso de ser necesario */
+  flex-direction: column; /* Alinear elementos verticalmente */
+}
+
+.slider {
+  text-align: center;
+  position: relative; /* Añadir posición relativa para que los botones se posicionen correctamente */
+}
+
+.prev,
+.next {
+  position: absolute;
+  padding: 10px 15px;
+  background-color: #329b93;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 8em;
+  height: 50em;
+  top: 50%; /* Posicionar en el centro verticalmente */
+  transform: translateY(-50%); /* Ajustar verticalmente */
+}
+
+.next {
+  right: 0;
+}
+
+.prev {
+  left: 0;
+}
+
+
+
+.prev:hover,
+.next:hover {
+  background-color: #555;
+}
   
   .comprar
   {
@@ -340,10 +244,13 @@ body {
     font-weight: bold;
     padding: 0.2em;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
     border-radius: 4px;
     height: 3rem;
     position: flex; /* Posición fija */
+  }
+  .comprar:hover{
+    background-color: #555;
   }
   .comprar_estilo {
       display: block;
@@ -353,7 +260,11 @@ body {
       color: #ffffff;
       font-size: 1.1em;
   }
-  
+  .subcontenedor1
+  {
+    width: 20%; /* Ancho igual a la suma de todas las ventanas */
+    background-color: #eee;
+  }
   .footer {
     position: relative; /* Posición relativa para el contenido */
     width: 100%; /* Ancho completo */
