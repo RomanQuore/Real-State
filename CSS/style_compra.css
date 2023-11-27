@@ -35,8 +35,9 @@ body {
     margin: 5px;
     border-radius: 4px;
     height: 2.7rem;
-    position: flex; /* Posición fija */
+    position: flex; 
     margin-top: 1em;
+    margin-left: 94.4em;
   }
   
   .volver span {
@@ -63,8 +64,7 @@ body {
     opacity: 1;
     right: 0;
   }
-  
-  /* Estilos para el enlace de cerrar */
+
   .volver1 {
     display: relative;
     text-align: center;
@@ -110,9 +110,133 @@ body {
     color: orange;
   }
   
+  .contenedor {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ventana1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+.img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .img1 {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .ventana1 p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  #contacto {
+    margin-bottom: 20px;
+  }
+  
+  .contenedor px-4 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .fila gx-4 {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .centrar-contenido {
+    justify-content: center;
+  }
+  
+  .columna-1g-8 {
+  width: 20em;
+ 
+  }
+  
+  .columna-xs-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  
+  .grupo-formulario {
+    margin-bottom: 10px;
+  }
+  
+  .etiqueta-formulario {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .campo-formulario {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  .boton-enviar {
+    padding: 10px 20px;
+    border: none;
+    background-color: #329B93;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .boton-enviar:hover {
+    background-color: #555;
+  }
+  
+  .clasificacion {
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .clasificacion p {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .clasificacion input {
+    display: none;
+  }
+  
+  .clasificacion label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .clasificacion input:checked + label {
+    background-color: #555;
+    color: #fff;
+  }
+  
   .footer {
-    position: relative; /* Posición relativa para el contenido */
-    width: 100%; /* Ancho completo */
+    position: relative;
+    width: 100%; 
     background-color: #000000;
     color: #ffffff;
     margin-top: 50px;
@@ -124,11 +248,11 @@ body {
   .footer:before {
       content: "";
       position: absolute;
-      top: 100%; /* Se posiciona después del contenido del footer */
+      top: 100%; 
       left: 0;
       width: 100%;
-      height: 100%; /* Alto suficientemente grande para simular infinitud */
-      background-color: #000000; /* Mismo color de fondo */
+      height: 100%; 
+      background-color: #000000; 
   }
   
   .footer .footer-content {

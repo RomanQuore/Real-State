@@ -184,7 +184,7 @@ body {
 
 .ventana {
   padding: 1em;
-  width: 40em; /* Ancho fijo para todas las ventanas */
+  width: 40em;
   flex-shrink: 0; /* Evitar que las ventanas se reduzcan */
 }
 
