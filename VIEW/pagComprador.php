@@ -14,8 +14,7 @@ $_SESSION['Usuario']
     <script src="../JS/Principal.js"></script>
     <title> Pagina Principal </title>
     <div class="container">
-    <p style="text-align: left;" class="hola">Real State 
-        <img src="http://imgfz.com/i/nzv3l4K.png" alt="Descripción de la imagen" style="width: 70px; float: left; margin-right: px;">
+    <p style="text-align: left;" class="hola">Real State<img src="http://imgfz.com/i/nzv3l4K.png" alt="Descripción de la imagen" style="width: 70px; float: left; margin-right: px;">
 
 <select id="arriendo" onchange="redireccionar(this)">
     <option disabled selected value>Arriendo</option>
@@ -58,13 +57,13 @@ function redireccionar() {
 
   if (opcionSeleccionada === "casa") {
     console.log("Redirigiendo a la página de compra de casas...");
-    window.location.href = "../VIEW/compraComprador.php";
+    window.location.href = "compraComprador.php";
   } else if (opcionSeleccionada === "apartamento") {
     console.log("Redirigiendo a la página de compra de apartamentos...");
-    window.location.href = "../VIEW/compraApartamento.php";
+    window.location.href = "compraComprador.php";
   } else if (opcionSeleccionada === "local") {
     console.log("Redirigiendo a la página de compra de locales...");
-    window.location.href = "../VIEW/compraLocal.php";
+    window.location.href = "compraComprador.php";
   }
 }
 
@@ -106,7 +105,7 @@ function redireccionar() {
                     <div class="info1">1</div>
                 </div>
             </div>
-            <button class="comprar"><a href="../VIEW/compraComprador.html" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="compraComprador.php" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
         <div class="ventana2">
@@ -129,7 +128,7 @@ function redireccionar() {
                 </div>
             </div>
 
-            <button class="comprar"><a href="../VIEW/compraComprador.html" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="compraComprador.php" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
         <div class="ventana3">
@@ -151,7 +150,7 @@ function redireccionar() {
                     <div class="info1">1</div>
                 </div>
             </div>
-            <button class="comprar"><a href="../VIEW/compraComprador.html" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="compraComprador.php" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
     </div>
 </div>

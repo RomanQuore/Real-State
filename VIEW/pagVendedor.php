@@ -104,7 +104,7 @@ function redireccionar() {
                 <div class="info1">1</div>
             </div>
         </div>
-        <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
+        <button class="comprar"><a href="compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
     </div>
 
     <div class="ventana2">
@@ -126,7 +126,7 @@ function redireccionar() {
                 <div class="info1">1</div>
             </div>
         </div>
-        <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
+        <button class="comprar"><a href="compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
     </div>
 
     <div class="ventana3">
@@ -148,7 +148,7 @@ function redireccionar() {
                 <div class="info1">1</div>
             </div>
         </div>
-        <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
+        <button class="comprar"><a href="compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
     </div>
 </div>
 </div>
