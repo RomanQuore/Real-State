@@ -115,10 +115,9 @@
             </div>
                 <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
             </div>
-                <button class="prev"> < </button>
-                <button class="next"> > </button>
     </div>
-
+    <button class="prev"> < </button>
+                <button class="next"> > </button>
 <script>
 const ventanaItems = document.querySelectorAll('.ventana, .ventana2, .ventana3');
 let currentIndex = 0;
@@ -159,18 +158,19 @@ function stopAutoSlide() {
     clearInterval(autoSlideInterval);
 }
 
-mostrarVentana(currentIndex); // Muestra solo la primera ventana al cargar la página
-startAutoSlide(); // Comienza el carrusel automático al cargar la página
+mostrarVentana(currentIndex); 
 </script>
 <div class="subcontenedor1">
+    <img src="http://imgfz.com/i/nzv3l4K.png" alt="Logo de la empresa" class="logo" style="width: 150px; height: 150px;">
+    <hr>
     <h2>Información de la Empresa</h2>
-    <p>Nombre: Nombre de la Empresa</p>
-    <p>Descripción: Breve descripción sobre la empresa...</p>
-    <p>Dirección: Dirección física de la empresa</p>
-    <p>Teléfono: Número de contacto</p>
-    <p>Correo electrónico: Dirección de correo electrónico</p>
-    <!-- Puedes agregar más información aquí -->
+    <p><strong>Nombre:</strong> Nombre de la Empresa</p>
+    <p><strong>Descripción:</strong> Breve descripción sobre la empresa...</p>
+    <p><strong>Dirección:</strong> Dirección física de la empresa</p>
+    <p><strong>Teléfono:</strong> Número de contacto</p>
+    <p><strong>Correo electrónico:</strong> Dirección de correo electrónico</p>
 </div>
+
 </div>
 </body>
 <footer class="footer">
