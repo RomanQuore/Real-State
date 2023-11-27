@@ -171,12 +171,11 @@ body {
   
   .contenedor {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30em;
+    gap: 45em;
 }
 
 .subcontenedor2 {
+  margin-left: 4.2em;
   display: flex;
   overflow: hidden; /* Ocultar las ventanas adicionales */
   position: relative; /* Añadir posición relativa para que los botones se posicionen correctamente */
@@ -184,7 +183,7 @@ body {
 
 .ventana {
   padding: 1em;
-  width: 40em;
+  width: 25em;
   flex-shrink: 0; /* Evitar que las ventanas se reduzcan */
 }
 
@@ -214,57 +213,79 @@ body {
   color: #fff;
   border: none;
   cursor: pointer;
-  width: 8em;
-  height: 50em;
+  width: 5em;
+  height: 5em;
   top: 50%; /* Posicionar en el centro verticalmente */
   transform: translateY(-50%); /* Ajustar verticalmente */
 }
 
 .next {
-  right: 0;
+  right: 94.2em;
 }
 
 .prev {
   left: 0;
 }
 
-
-
 .prev:hover,
 .next:hover {
   background-color: #555;
 }
-  
-  .comprar
-  {
-    background-color: #329B93;
-    border: none;
-    color: #fff;
-    font-size: 0.875em;
-    font-weight: bold;
-    padding: 0.2em;
-    cursor: pointer;
-    width: 50%;
-    border-radius: 4px;
-    height: 3rem;
-    position: flex; /* Posición fija */
+.comprar {
+  background-color: #329B93;
+  border: none;
+  color: #fff;
+  font-size: 0.875em;
+  font-weight: bold;
+  padding: 0.2em;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 4px;
+  height: 3rem;
+  position: flex;
   }
-  .comprar:hover{
-    background-color: #555;
+
+.comprar:hover {
+  background-color: #555;
   }
-  .comprar_estilo {
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      margin-top: none;
-      color: #ffffff;
-      font-size: 1.1em;
+.comprar_estilo {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin-top: none;
+  color: #ffffff;
+  font-size: 1.1em;
   }
-  .subcontenedor1
-  {
-    width: 20%; /* Ancho igual a la suma de todas las ventanas */
-    background-color: #eee;
-  }
+  .subcontenedor1 {
+    width: 25%;
+    height: 40em;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.subcontenedor1 img {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.subcontenedor1 h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #329B93;
+}
+
+.subcontenedor1 p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+
   .footer {
     position: relative; /* Posición relativa para el contenido */
     width: 100%; /* Ancho completo */
