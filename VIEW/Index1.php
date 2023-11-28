@@ -7,33 +7,37 @@
     <link rel="stylesheet" href="../CSS/style_index.css">
     <script src="../JS/Principal.js"></script>
     <title> Pagina Principal </title>
-    <div class="container">
-    <p style="text-align: left;" class="hola">Real State <img src="http://imgfz.com/i/nzv3l4K.png" alt="Descripción de la imagen" style="width: 70px; float: left; margin-right: px;">
-    <select id="scrollDownButton" onchange="redireccionar()">
+    <div class="header"><img src="http://imgfz.com/i/nzv3l4K.png" style="margin-left: 1em; width: 100px; height: 100px; float: left;"><div class="real-state">Real State</div>
+    <div class="container-select">
+        <div class="select-box">
+    <select id="scrollDownButton1" onchange="redireccionar()">
         <option disabled selected value>Arriendo</option>
         <option value="casa">Casas</option>
         <option value="apartamento">Apartamentos</option>
         <option value="local">Locales</option>
     </select>
-    <select id="scrollDownButton" onchange="redireccionar()">
+    <select id="scrollDownButton2" onchange="redireccionar()">
         <option disabled selected value>Venta</option>
         <option value="casa">Casas</option>
         <option value="apartamento">Apartamentos</option>
         <option value="local">Locales</option>
     </select>
-    <select id="scrollDownButton" onchange="redireccionar()">
+    <select id="scrollDownButton3" onchange="redireccionar()">
         <option disabled selected value>Permutacion</option>
         <option value="casa">Casas</option>
         <option value="apartamento">Apartamentos</option>
         <option value="local">Locales</option>
     </select>
+</div>
+    <div class="container-select2">
     <button type="submit "class="register"> <span><a href="../MODEL/registro1.php" class="register1">Registrarse</span></a></button>
     <button type="submit "class="login"> <span><a href="../MODEL/iniciosesion1.php" class="login1">Iniciar sesion</span></a></button>
-    </p>
+</div>
+</div>
 </div>
 <script>
     function redireccionar() {
-        var select = document.getElementById("scrollDownButton");
+        var select = document.getElementById("scrollDownButton1, scrollDownButton2, scrollDownButton3");
         var opcionSeleccionada = select.options[select.selectedIndex].value;
 
         if (opcionSeleccionada === "casa") {
@@ -48,23 +52,34 @@
 </head>
 <body>
 <div class="contenedor">
-    <div class="subcontenedor2">
+<div class="subcontenedor1">
+    <img src="http://imgfz.com/i/nzv3l4K.png" alt="Logo de la empresa" class="logo" style="width: 150px; height: 150px;">
+    <hr>
+    <h2>Información de la Empresa</h2>
+    <p><h3>Real State</h3></p>
+    <p> Proporcionamos un<br> espacio para facilitar<br> los trámites del<br> cliente en finca raíz, <br> actuando como <br>intermediario en la<br> compra y venta<br> de propieades.</p>
+</div>
+
+<div class="subcontenedor2">
+
         <div class="ventana ventana1">
-            <img src="https://i.postimg.cc/MHQ87Lny/438430723.jpg" alt="Casa 1" style="width: 250px; float: center;">
+            <div class="imagen">
+            <img src="https://i.postimg.cc/MHQ87Lny/438430723.jpg" alt="Casa 1">
+            </div>
             <div class="titulo">Apartamento en venta. Fontibon. Bogotá</div>
             <div class="subtitulo">Precio de venta:</div>
-            <h2>$120.000.000 COP</h2>
+            <h3>$120.000.000 COP</h3>
             <div class="info-contenedor">
                 <div class="info-fila">
-                    <div class="info"><h2>Area(m2)</h2></div>
+                    <div class="info"><h3>Area(m2)</h3></div>
                     <div class="info1">172m2</div>
                 </div>
                 <div class="info-fila">
-                    <div class="info"><h2>Hab</h2></div>
+                    <div class="info"><h3>Hab</h3></div>
                     <div class="info1">2</div>
                 </div>
                 <div class="info-fila">
-                    <div class="info"><h2>Baños</h2></div>
+                    <div class="info"><h3>Baños</h3></div>
                     <div class="info1">1</div>
                 </div>
             </div>
@@ -72,21 +87,23 @@
         </div>
 
         <div class="ventana ventana2">
-            <img src="https://i.postimg.cc/tRWqV1W8/casa-en-collywood-disenada-por-olson-kundig-en-los-angeles-4-eac9aa6d-1704x958.jpg" alt="Casa 2" style="width: 250px; float: center;">
+        <div class="imagen">
+            <img src="https://i.postimg.cc/tRWqV1W8/casa-en-collywood-disenada-por-olson-kundig-en-los-angeles-4-eac9aa6d-1704x958.jpg" alt="Casa 2">
+        </div>
             <div class="titulo">Casa en arriendo. Chapinero. Bogotá</div>
             <div class="subtitulo">Precio de arriendo:</div>
-            <h2>$1.400.000 COP</h2>
+            <h3>$1.400.000 COP</h3>
             <div class="info-contenedor">
                 <div class="info-fila">
-                    <div class="info"><h2>Area(m2)</h2></div>
+                    <div class="info"><h3>Area(m2)</h3></div>
                     <div class="info1">172m2</div>
                 </div>
                 <div class="info-fila">
-                    <div class="info"><h2>Hab</h2></div>
+                    <div class="info"><h3>Hab</h3></div>
                     <div class="info1">2</div>
                 </div>
                 <div class="info-fila">
-                    <div class="info"><h2>Baños</h2></div>
+                    <div class="info"><h3>Baños</h3></div>
                     <div class="info1">1</div>
                 </div>
             </div>
@@ -95,37 +112,47 @@
         </div>
 
         <div class="ventana ventana3">
-            <img src="https://i.postimg.cc/wMQY4mkv/fer7861a-7ef04580-1981x1486.jpg" alt="Casa 3" style="width: 250px; float: center;">
+        <div class="imagen">
+            <img src="https://i.postimg.cc/wMQY4mkv/fer7861a-7ef04580-1981x1486.jpg" alt="Casa 3">
+        </div>
             <div class="titulo">Casa en venta. Conjunto en Bosa</div>
             <div class="subtitulo">Precio de venta:</div>
-            <h2>$240.000.000 COP</h2>
+            <h3>$240.000.000 COP</h3>
             <div class="info-contenedor">
                 <div class="info-fila">
-                    <div class="info"><h2>Area(m2)</h2></div>
+                    <div class="info"><h3>Area(m2)</h3></div>
                     <div class="info1">172m2</div>
                 </div>
                 <div class="info-fila">
-                    <div class="info"><h2>Hab</h2></div>
+                    <div class="info"><h3>Hab</h3></div>
                     <div class="info1">2</div>
                 </div>
                 <div class="info-fila">
-                    <div class="info"><h2>Baños</h2></div>
+                    <div class="info"><h3>Baños</h3></div>
                     <div class="info1">1</div>
                 </div>
             </div>
                 <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
             </div>
     </div>
-    <button class="prev"> < </button>
-                <button class="next"> > </button>
+    <div class="ventana ventana4"> hola </div>
+        <div class="ventana ventana5"> <!-- Contenido ventana 5 --> </div>
+        <div class="ventana ventana6"> <!-- Contenido ventana 6 --> </div>
+    <button class="prev"> &lt; </button>
+    <button class="next"> &gt; </button>
+</div>
 <script>
-const ventanaItems = document.querySelectorAll('.ventana, .ventana2, .ventana3');
+const ventanaItems = document.querySelectorAll('.ventana');
+const ventanasPorSeccion = 3; // Cantidad de ventanas por sección
 let currentIndex = 0;
-let autoSlideInterval;
+const totalVentanas = ventanaItems.length;
 
-function mostrarVentana(index) {
+function mostrarVentanas(index) {
     ventanaItems.forEach((ventana, idx) => {
-        if (idx === index) {
+        const inicioSeccion = Math.floor(index / ventanasPorSeccion) * ventanasPorSeccion;
+        const finSeccion = inicioSeccion + ventanasPorSeccion - 1;
+
+        if (idx >= inicioSeccion && idx <= finSeccion) {
             ventana.style.display = 'block';
         } else {
             ventana.style.display = 'none';
@@ -133,44 +160,27 @@ function mostrarVentana(index) {
     });
 }
 
-function nextVentana() {
-    if (currentIndex < ventanaItems.length - 1) {
-        currentIndex++;
-    } else {
+function nextSeccion() {
+    currentIndex += ventanasPorSeccion;
+    if (currentIndex >= totalVentanas) {
         currentIndex = 0;
     }
-    mostrarVentana(currentIndex);
+    mostrarVentanas(currentIndex);
 }
 
-function prevVentana() {
-    if (currentIndex > 0) {
-        currentIndex--;
-    } else {
-        currentIndex = ventanaItems.length - 1;
+function prevSeccion() {
+    currentIndex -= ventanasPorSeccion;
+    if (currentIndex < 0) {
+        currentIndex = totalVentanas - ventanasPorSeccion;
     }
-    mostrarVentana(currentIndex);
+    mostrarVentanas(currentIndex);
 }
 
-document.querySelector('.next').addEventListener('click', nextVentana);
-document.querySelector('.prev').addEventListener('click', prevVentana);
+document.querySelector('.next').addEventListener('click', nextSeccion);
+document.querySelector('.prev').addEventListener('click', prevSeccion);
 
-function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-}
-
-mostrarVentana(currentIndex); 
+mostrarVentanas(currentIndex); 
 </script>
-<div class="subcontenedor1">
-    <img src="http://imgfz.com/i/nzv3l4K.png" alt="Logo de la empresa" class="logo" style="width: 150px; height: 150px;">
-    <hr>
-    <h2>Información de la Empresa</h2>
-    <p><strong>Nombre:</strong> Nombre de la Empresa</p>
-    <p><strong>Descripción:</strong> Breve descripción sobre la empresa...</p>
-    <p><strong>Dirección:</strong> Dirección física de la empresa</p>
-    <p><strong>Teléfono:</strong> Número de contacto</p>
-    <p><strong>Correo electrónico:</strong> Dirección de correo electrónico</p>
-</div>
-
 </div>
 </body>
 <footer class="footer">
