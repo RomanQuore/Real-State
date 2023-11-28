@@ -3,32 +3,28 @@ include '../CONTROLLER/conexion.php';
 
 session_start();
 
-// Check if the "cerrar_sesion" parameter is set in the URL
 if (isset($_GET['cerrar_sesion'])) {
-    // Unset and destroy the session
+
     session_unset();
     session_destroy();
 }
 
-// Check if the user is already logged in
 if (isset($_SESSION['Rol'])) {
     switch ($_SESSION['Rol']) {
         case 2:
-            header('location: ../VIEW/pagVendedor.php'); // Corrected file extension
-            exit(); // Add exit to prevent further execution
+            header('location: ../VIEW/pagVendedor.php'); 
+            exit(); 
             break;
             
         case 3:
             header('location: ../VIEW/pagComprador.php');
-            exit(); // Add exit to prevent further execution
+            exit(); 
             break;
 
         default:
-        // Handle any other cases if needed
     }
 }
 
-// Check if the login form is submitted
 if (isset($_POST['Usuario']) && isset($_POST['Contrasena'])) {
     $usuario = $_POST['Usuario'];
     $contrasena = $_POST['Contrasena'];
@@ -40,30 +36,29 @@ if (isset($_POST['Usuario']) && isset($_POST['Contrasena'])) {
 
         $conex = new PDO($dsn, $username, $password);
 
-        // Set the PDO error mode to exception
         $conex->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = $conex->prepare('SELECT Usuario, Contrasena, Rol FROM registro WHERE Usuario = :usuario AND Contrasena = :contrasena');
+        $query = $conex->prepare('SELECT Usuario, Contrasena, Rol FROM registro WHERE Usuario = :usuario AND Contrasena = :contrasena AND activo = 1');
         $query->execute(['usuario' => $usuario, 'contrasena' => $contrasena]);
         $row = $query->fetch(PDO::FETCH_ASSOC);
 
 if ($row) {
-    // Valid user, set session variables
+
     $_SESSION['Usuario'] = $row['Usuario'];
     $_SESSION['Rol'] = $row['Rol'];
     switch ($row['Rol']) {
         case 2:
-            header('location: ../VIEW/PagComprador.php'); // Redirect to the Vendedor page for Rol 1
+            header('location: ../VIEW/PagComprador.php');
             exit();
             break;
 
         case 3:
-            header('location: ../VIEW/pagVendedor.php'); // Redirect to the Comprador page for Rol 2
+            header('location: ../VIEW/pagVendedor.php'); 
             exit();
             break;
     }
 } else {
-    // Invalid credentials
+
     $error_message = "El Usuario o Contraseña son incorrectos";
 }
     } catch (PDOException $e) {
@@ -85,7 +80,11 @@ if ($row) {
 <body> 
     <div id="contenedor">
         <div class="caja1">
-            <img src="https://i.pinimg.com/564x/a8/9c/91/a89c91aa782b6352d0aca22d2ebad8a3.jpg">
+            <img src="https://i.postimg.cc/rph6LSWH/nzv3l4-K-removebg-preview.png" class="img">
+            <hr>
+            <div><h1>Real State</h1></div>
+            <br><br> ¿Aún no tienes una cuenta? <br> <br>
+            <a href="../MODEL/registro1.php">Registrate</a>
         </div>
         <div class="caja2">
             <form action="#" method="POST">
@@ -106,8 +105,6 @@ if ($row) {
                 <input type="password" name="Contrasena" id="contrasena" placeholder="Contraseña" required>
                 <br><br>
                 <button type="submit">Iniciar sesión </button>
-                <br><br> ¿Aún no tienes una cuenta? <br> <br>
-                <a href="../MODEL/registro1.php">Registrate</a>
             </form>
         </div>
     </div>

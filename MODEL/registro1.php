@@ -10,106 +10,116 @@
 <body>
 <form method="post">
     <div id="contenedor">
-    <div id="caja1">
-        <img src="https://i.pinimg.com/564x/a8/9c/91/a89c91aa782b6352d0aca22d2ebad8a3.jpg" alt="Real State">
+        <div class="caja1">
+            <img src="https://i.postimg.cc/rph6LSWH/nzv3l4-K-removebg-preview.png" class="img">
+            <hr>
+            <div class="real-state">
+                <h1>Real State</h1>
+            </div>
+            <br>
+            <br>
+            ¿Ya tienes una cuenta?
+            <a href="../MODEL/iniciosesion1.php">Inicia sesión</a>
         </div>
         <div class="caja2">
-            <form action="../VIEW/Pagprincipal.php" method="POST">
-            <h1>Crear Cuenta</h1>
-            
-                <hr>
-                    <div class="row">
-                        <div class="col-md-12 mx-auto">
-                        <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="Usuario">Usuario</label>
-                            <br>
-                            <input type="text" name="Usuario" id="Usuario" placeholder="Usuario" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="contrasena">Contraseña</label>
-                            <br>
-                            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="nombre">Nombres</label>
-                            <br>
-                            <input type="text" name="nombres" id="nombres" placeholder="Nombres" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="apellido">Apellidos</label>
-                            <br>
-                            <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" required>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                        <br>
-                        <input type="date" name="fechaNacimiento" id="fechaNacimiento" required>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="tipoDocumento">Tipo de Documento</label>
-                            <br>
-                            <select name="tipoDocumento" id="tipoDocumento" required>
-                                <option value= 1 >Cédula de Ciudadanía</option>
-                                <option value= 2 >Cédula de Extranjería</option>
-                                <option value= 3 >Tarjeta de Identidad</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="numeroDocumento">Número de Documento</label>
-                            <br>
-                            <input type="text" name="numeroDocumento" id="numeroDocumento" placeholder="Número de documento" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="direccion">Dirección</label>
-                            <br>
-                            <input type="text" name="direccion" id="direccion" placeholder="Dirección" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="numeroTelefono">Número de Teléfono</label>
-                            <br>
-                            <input type="tel" name="numeroTelefono" id="numeroTelefono" placeholder="Número de Teléfono" required>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="correo">Correo Electrónico</label>
-                        <br>
-                        <input type="email" name="correoElectronico" id="correoElectronico" placeholder="Correo Electrónico" required>
-                        <br>
-                            <label for="Rol">Tipo de Rol</label>
-                            <br>
-                            <select placeholder="Tipo de rol" name="Rol" id="Rol" required>
-                                <option value="2">Comprador</option>
-                                <option value="3">Vendedor</option>
-                            </select>
-                        </div>
-                    
-                    <input type="hidden" name="activo" value="1">
+        <form action="../VIEW/Pagprincipal.php" method="POST">
+    <h1>Crear Cuenta</h1>
+    <hr>
+    <?php
+include("registro2.php")
+?>
+    <div class="fila">
+        <div class="col-md-12 mx-auto">
+            <div class="fila-formulario">
+                <div class="grupo-formulario col-md-6">
+                    <label for="Usuario">Usuario</label>
+                    <br>
+                    <input type="text" name="Usuario" id="Usuario" placeholder="Usuario" required>
                 </div>
-                <br>
-                <hr>
-                <br>
-                <button type="submit" name="registrate" a href="../VIEW/Pagprincipal.php">Registrate</a></button>
-                <br> <br> ¿Ya tienes una cuenta?
-                <a href="../MODEL/iniciosesion1.php">Inicia sesión</a> 
+                <div class="grupo-formulario col-md-6">
+                    <label for="contrasena">Contraseña</label>
+                    <br>
+                    <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
                 </div>
             </div>
+            <div class="fila-formulario">
+                <div class="grupo-formulario col-md-6">
+                    <label for="nombre">Nombres</label>
+                    <br>
+                    <input type="text" name="nombres" id="nombres" placeholder="Nombres" required>
+                </div>
+                <div class="grupo-formulario col-md-6">
+                    <label for="apellido">Apellidos</label>
+                    <br>
+                    <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" required>
+                </div>
+            </div>
+
+            <div class="fila-formulario">
+                <div class="grupo-formulario col-md-6">
+                    <label for="numeroDocumento">Núm Documento</label>
+                    <br>
+                    <input type="text" name="numeroDocumento" id="numeroDocumento" placeholder="Número de documento" required>
+                </div>
+                <div class="grupo-formulario col-md-6">
+                    <label for="direccion">Dirección</label>
+                    <br>
+                    <input type="text" name="direccion" id="direccion" placeholder="Dirección" required>
+                </div>
+            </div>
+
+            <div class="fila-formulario">
+                <div class="grupo-formulario col-md-6">
+                    <label for="numeroTelefono">Núm Telefono</label>
+                    <br>
+                    <input type="tel" name="numeroTelefono" id="numeroTelefono" placeholder="Número de Teléfono" required>
+                </div>
+                <div class="grupo-formulario col-md-6">
+                    <label for="correo">Correo</label>
+                    <br>
+                    <input type="email" name="correoElectronico" id="correoElectronico" placeholder="Correo Electrónico" required>
+                </div>
+            </div>
+
+            <div class="fila-formulario">
+                <div class="grupo-formulario col-md-6">
+                    <label for="fechaNacimiento">Fecha Nacimiento</label>
+                    <br>
+                    <input type="date" name="fechaNacimiento" id="fechaNacimiento" required>
+                </div>
+                <div class="grupo-formulario col-md-6">
+                    <label for="tipoDocumento">Tipo Documento</label>
+                    <br>
+                    <select name="tipoDocumento" id="tipoDocumento" required>
+                        <option value=1>Cédula de Ciudadanía</option>
+                        <option value=2>Cédula de Extranjería</option>
+                        <option value=3>Tarjeta de Identidad</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div>
+                <br>
+                <label for="Rol">Tipo de Rol</label>
+                <br>
+                <select placeholder="Tipo de rol" name="Rol" id="Rol" required>
+                    <option value="2">Comprador</option>
+                    <option value="3">Vendedor</option>
+                </select>
+            </div>
+            <input type="hidden" name="activo" value="1">
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <button type="submit" name="registrate">Registrate</button>
+</form>
+
         </div>
     </div>
 </form>
-<?php
-include("registro2.php")
-?>
+
 </body> 
 <footer class="footer">
     <div class="footer-heading">Conoce más sobre nosotros</div>
