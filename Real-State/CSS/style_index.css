@@ -1,0 +1,443 @@
+body {
+    background-color: rgba(255, 255, 255, 0.555);
+    background: linear-gradient(to right, #FFFDE4, #005AA7);
+    display: block;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-family: "Open Sans", sans-serif;
+    flex-direction: column;
+    margin: 0;
+    height: 100px;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .header {
+    width: 100%;
+    margin: 0;
+    height: 5em;
+    font-size: 20px;
+    background-color: #ffffff;
+    text-align: left;
+    margin-top: auto;
+    position: relative;
+  }
+  .real-state{
+    transform: translateY(30px);
+    }
+  .container-select{
+    display: flex;
+    gap: 22em;
+  }
+  .select-box{
+    gap: 0.5em;
+    margin-left: 5em;
+  }
+  .container-select2{
+    display: flex;
+    gap: 0.5em;
+  }
+.login {
+    background-color: #329B93;
+    border: none;
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 0.2em;
+    cursor: pointer;
+    width: 150px;
+    margin: 5px;
+    border-radius: 4px;
+    height: 2.7rem;
+
+  }
+  .login:hover{
+    background-color: #555;
+  }
+  .login span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .login span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+  }
+  
+  .login:hover span {
+    padding-right: 15px;
+  }
+  
+  .login:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .login1 {
+    display: relative;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2%;
+    color: #ffffff;
+  }
+  
+  .register {
+    background-color: #329B93;
+    border: none;
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 0.2em;
+    cursor: pointer;
+    width: 150px;
+    margin: 5px;
+    border-radius: 4px;
+    height: 2.7rem;
+  }
+  
+  .register span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .register span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+  }
+  
+  .register:hover span {
+    padding-right: 15px;
+  }
+  
+  .register:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .register1 {
+    display: relative;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2%;
+    color: #ffffff;
+  }
+
+#scrollDownButton1,
+#scrollDownButton2,
+#scrollDownButton3 {
+    display: inline-block;
+    border-radius: none;
+    background-color: #dddddd;
+    border: none;
+    color: #329B93;
+    text-align: center;
+    font-size: 17px;
+    padding: 0.4em;
+    width: 140%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 15px;
+    height: 33px;
+  }
+
+  select {
+    width: 100%;
+    max-width: 130px;
+    height: 32px;
+    border-radius: none;
+    background-color: #329B93;
+    border: 1px solid #CCC;
+    color: #329B93;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  /* Estilos para las opciones desplegables */
+  #scrollDownOptions {
+    width: 100%;
+    height: 32px;
+    border-radius: none;
+    background-color: #FFFFFF;
+    border: 1px solid #CCC;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+
+  }
+  
+  .contenedor {
+    display: flex;
+    gap: 8em;
+}
+
+.subcontenedor2 {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  margin-top: 3em;
+  height: 38.2em;
+  gap: 1.5em;
+}
+
+.ventana {
+  position: relative;
+  padding: 0.5em;
+  width: 20em;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0); /* Añade un borde transparente */
+  background-color: #ffffff;
+}
+
+.ventana1
+.ventana2
+.ventana3 {
+  position: relative;
+  padding: 0.5em;
+  width: 20em;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; /* Alineación central vertical */
+  text-align: center; /* Alineación central horizontal */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.imagen {
+  width: 100%;
+  height: 30%;
+}
+.ventana img {
+  max-width: 70% ;
+  margin-left: 15%; /* Centrado horizontal */
+}
+
+.titulo,
+.subtitulo,
+.info-contenedor {
+  text-align: center;
+}
+
+.titulo {
+  height: 10%;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.subtitulo,
+.info-contenedor {
+  font-size: 1em;
+}
+
+.info-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.info-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+  flex: 1;
+  text-align: left;
+  padding-left: 0.5em;
+  font-weight: bold;
+}
+
+.info1 {
+  flex: 1;
+  text-align: right;
+  padding-right: 0.5em;
+}
+
+.comprar {
+  background-color: #329B93;
+  border: none;
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: bold;
+
+  cursor: pointer;
+  width: 60%;
+  border-radius: 4px;
+  margin-left: 20%;
+  height: 4em;
+}
+
+.comprar:hover {
+  background-color: #555;
+}
+
+.comprar_estilo {
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1em;
+}
+
+.slider {
+  text-align: center;
+  position: relative;
+}
+
+.prev,
+.next {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: #329b93;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 3.5em;
+  height: 10em;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 3em;
+}
+
+.next {
+  right: 3.4em;
+}
+
+.prev {
+  left: 25.4em;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: #555;
+}
+
+  .subcontenedor1 {
+    width: 15%;
+    height: 41.5em;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.subcontenedor1 img {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.subcontenedor1 h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #329B93;
+}
+
+.subcontenedor1 p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+
+  .footer {
+    position: relative; /* Posición relativa para el contenido */
+    width: 100%; /* Ancho completo */
+    background-color: #000000;
+    color: #ffffff;
+  }
+  .footer-heading
+  {
+    margin-top: 0.6em;
+  }
+  .footer:before {
+      content: "";
+      position: absolute;
+      top: 100%; /* Se posiciona después del contenido del footer */
+      left: 0;
+      width: 100%;
+      height: 100%; /* Alto suficientemente grande para simular infinitud */
+      background-color: #000000; /* Mismo color de fondo */
+  }
+  
+  .footer .footer-content {
+      position: relative; /* Posición relativa para el contenido */
+      z-index: 1; /* Coloca el contenido del footer sobre el pseudo-elemento */
+      padding: 20px; /* Ajusta el espaciado interno según tu preferencia */
+  }
+  
+  /* Estilos para los enlaces del footer */
+  .footer a {
+      color: #ffffff;
+      text-decoration: none;
+  }
+  
+  .footer a:hover {
+      text-decoration: underline;
+  }
+  
+  /* Estilos para el elemento de navegación social en el footer */
+  .footer-nav-social {
+      float: left;
+      width: 15.125em; /* Establece el ancho en "em" */
+      display: flex;
+  }
+  
+  /* Estilos para los enlaces dentro del elemento de navegación social */
+  .footer-nav-social a {
+      margin: 0.625em; /* Establece el margen usando "em" para adaptabilidad */
+  }
+  
+  /* Estilos para el elemento de contacto en el footer */
+  .footer-nav-contact {
+      float: left;
+      width: 15.125em; /* Establece el ancho en "em" */
+      display: flex;
+  }
+  
+  /* Estilos para los enlaces dentro del elemento de contacto */
+  .footer-nav-contact a {
+      color: #eee;
+  }
+  
+  /* Estilos para el elemento de navegación en el footer */
+  .footer-nav-link {
+      float: left;
+      width: 15.125em; /* Establece el ancho en "em" */
+      display: flex;
+  }
+  
+  .footer-nav-link a
+  {
+      color: #eee;
+  }
+  
+  /* Estilos para las imágenes dentro del contenido del footer */
+  .hello {
+      width: 3.125em; /* Establece el ancho en "em" */
+      display: block;
+  }
+  
+  .footer-nav-copyright
+  {
+      width: 8.125em; /* Establece el ancho en "em" */
+      display: block;
+  }

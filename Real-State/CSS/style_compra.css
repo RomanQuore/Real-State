@@ -1,0 +1,320 @@
+body {
+    background-color: rgba(255, 255, 255, 0.555);
+    background: linear-gradient(to right, #FFFDE4, #005AA7);
+    display: block;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-family: "Open Sans", sans-serif;
+    flex-direction: column;
+    margin: 0;
+    height: 100px;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .hola {
+    width: 100%;
+    margin: 0;
+    height: 4em;
+    font-size: 20px;
+    background-color: #ffffff;
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: 25px;
+    position: relative;
+  }
+  .volver {
+    background-color: #329B93;
+    border: none;
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 0.2em;
+    cursor: pointer;
+    width: 150px;
+    margin: 5px;
+    border-radius: 4px;
+    height: 2.7rem;
+    position: flex; 
+    margin-top: 1em;
+    margin-left: 94.4em;
+  }
+  
+  .volver span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .volver span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+  }
+  
+  .volver:hover span {
+    padding-right: 15px;
+  }
+  
+  .volver:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .volver1 {
+    display: relative;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2%;
+    color: #ffffff;
+  }
+
+  #form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  #form p {
+    text-align: center;
+  }
+  
+  #form label {
+    font-size: 20px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: grey;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    float: left;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }
+  
+  .contenedor {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ventana1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+.img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .img1 {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  .ventana1 p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  #contacto {
+    margin-bottom: 20px;
+  }
+  
+  .contenedor px-4 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .fila gx-4 {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .centrar-contenido {
+    justify-content: center;
+  }
+  
+  .columna-1g-8 {
+  width: 20em;
+ 
+  }
+  
+  .columna-xs-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  
+  .grupo-formulario {
+    margin-bottom: 10px;
+  }
+  
+  .etiqueta-formulario {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .campo-formulario {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  .boton-enviar {
+    padding: 10px 20px;
+    border: none;
+    background-color: #329B93;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .boton-enviar:hover {
+    background-color: #555;
+  }
+  
+  .clasificacion {
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .clasificacion p {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .clasificacion input {
+    display: none;
+  }
+  
+  .clasificacion label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .clasificacion input:checked + label {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .footer {
+    position: relative;
+    width: 100%; 
+    background-color: #000000;
+    color: #ffffff;
+    margin-top: 50px;
+  }
+  .footer-heading
+  {
+    margin-top: 0.6em;
+  }
+  .footer:before {
+      content: "";
+      position: absolute;
+      top: 100%; 
+      left: 0;
+      width: 100%;
+      height: 100%; 
+      background-color: #000000; 
+  }
+  
+  .footer .footer-content {
+      position: relative; /* Posición relativa para el contenido */
+      z-index: 1; /* Coloca el contenido del footer sobre el pseudo-elemento */
+      padding: 20px; /* Ajusta el espaciado interno según tu preferencia */
+  }
+  
+  /* Estilos para los enlaces del footer */
+  .footer a {
+      color: #ffffff;
+      text-decoration: none;
+  }
+  
+  .footer a:hover {
+      text-decoration: underline;
+  }
+  
+  /* Estilos para el elemento de navegación social en el footer */
+  .footer-nav-social {
+      float: left;
+      width: 15.125em; /* Establece el ancho en "em" */
+      display: flex;
+  }
+  
+  /* Estilos para los enlaces dentro del elemento de navegación social */
+  .footer-nav-social a {
+      margin: 0.625em; /* Establece el margen usando "em" para adaptabilidad */
+  }
+  
+  /* Estilos para el elemento de contacto en el footer */
+  .footer-nav-contact {
+      float: left;
+      width: 15.125em; /* Establece el ancho en "em" */
+      display: flex;
+  }
+  
+  /* Estilos para los enlaces dentro del elemento de contacto */
+  .footer-nav-contact a {
+      color: #eee;
+  }
+  
+  /* Estilos para el elemento de navegación en el footer */
+  .footer-nav-link {
+      float: left;
+      width: 15.125em; /* Establece el ancho en "em" */
+      display: flex;
+  }
+  
+  .footer-nav-link a
+  {
+      color: #eee;
+  }
+  
+  /* Estilos para las imágenes dentro del contenido del footer */
+  .hello {
+      width: 3.125em; /* Establece el ancho en "em" */
+      display: block;
+  }
+  
+  .footer-nav-copyright
+  {
+      width: 8.125em; /* Establece el ancho en "em" */
+      display: block;
+  } 

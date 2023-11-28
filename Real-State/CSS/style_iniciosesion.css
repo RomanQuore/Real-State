@@ -1,0 +1,231 @@
+/* Establece el fondo del body con un gradiente lineal */
+body {
+    background-color: rgba(255, 255, 255, 0.555);
+    background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);
+    background: linear-gradient(to right, #FFFDE4, #005AA7);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 6em; /* Usando em para la altura */
+    font-family: "Open Sans", sans-serif;
+    flex-direction: column;
+    width: 100%;
+}
+
+img
+{
+    border-radius: 20px;
+}
+/* Define la tipografía para los títulos h1, h2, h3 */
+h1, h2, h3 {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Configuración del contenedor principal */
+#contenedor {
+    display: flex;
+    width: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja1 {
+    width: 40em; /* 40 veces el tamaño de la fuente del elemento raíz */
+    padding: 2em; /* 2 veces el tamaño de la fuente del elemento raíz */
+    text-align: center;
+}
+
+.caja2 h1 {
+    color: #000000;
+    font-size: 2em; /* 2 veces el tamaño de la fuente del elemento raíz */
+}
+  
+/* Estilos para la caja 1 */
+.caja2 {
+    text-align: center;
+    width: 50%; /* Porcentaje para adaptabilidad */
+    padding: 3em; /* Usando em para el relleno */
+    background-color: rgba(255, 255, 255, 0.555);
+    color: #000;
+    margin-left: 15em; /* 30em de margen izquierdo */
+    border-radius: 20px;
+}
+
+/* Estilos para el separador (elemento flotante) */
+.separator {
+    float: left;
+    height: 100%;
+    background-color: #329B93;
+}
+
+/* Establece el box-sizing y la tipografía para todos los elementos */
+* {
+    font-family: 'lato', 'open sans', 'PT sans', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Estilos para los títulos h1 */
+h1 {
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    margin: 15px;
+    height: 100%;
+    text-align: center;
+}
+
+/* Estilos para las etiquetas */
+label {
+    color: black;
+    font-size: 1.125em; /* Tamaño de fuente relativo */
+}
+
+/* Estilos para los campos de entrada de texto y contraseñas */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    background-color: #eee; /* Color sin comillas */
+    border: none;
+    padding: 0.75em 0.9375em; /* Usando em para el relleno */
+    margin: 0.5em 0;
+    width: 50%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Estilos para los botones */
+button {
+    background-color: #329B93;
+    border: 1px solid #329B93;
+    color: #fff;
+    font-size: 0.875em; /* Tamaño de fuente relativo */
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 0.9375em; /* Usando em para el relleno */
+    cursor: pointer;
+    width: 50%;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+/* Estilos para el botón al hacer clic */
+button:active {
+    transform: scale(0.95);
+}
+
+/* Estilos para el botón enfocado */
+button:focus {
+    outline: none;
+}
+
+/* Estilos para los enlaces */
+button.ghost {
+    background-color: transparent;
+    border-color: #fff;
+}
+
+/* Estilos para los enlaces con efecto de escala al pasar el mouse */
+a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2%; /* Usando porcentajes para el margen superior */
+    color: #521c7e;
+}
+
+/* Estilos para los enlaces al pasar el mouse */
+a:hover {
+    color: #005AA7;
+}
+
+/* Estilos para los mensajes de error */
+.error {
+    background-color: crimson;
+    color: black;
+    padding: 1.875em; /* Usando em para el relleno */
+    width: 95%;
+    margin: 1.875em auto; /* Usando em para el margen */
+}
+
+.footer {
+    position: relative; /* Posición relativa para el contenido */
+    width: 100%; /* Ancho completo */
+    background-color: #000000;
+    color: #ffffff;
+    margin-top: 50px;
+  }
+
+.footer:before {
+    content: "";
+    position: absolute;
+    top: 100%; /* Se posiciona después del contenido del footer */
+    left: 0;
+    width: 100%;
+    height: 9999px; /* Alto suficientemente grande para simular infinitud */
+    background-color: #000000; /* Mismo color de fondo */
+}
+
+.footer .footer-content {
+    position: relative; /* Posición relativa para el contenido */
+    z-index: 1; /* Coloca el contenido del footer sobre el pseudo-elemento */
+    padding: 20px; /* Ajusta el espaciado interno según tu preferencia */
+}
+
+/* Estilos para los enlaces del footer */
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el elemento de navegación social en el footer */
+.footer-nav-social {
+    float: left;
+    width: 15.125em; /* Establece el ancho en "em" */
+    display: flex;
+}
+
+/* Estilos para los enlaces dentro del elemento de navegación social */
+.footer-nav-social a {
+    margin: 0.625em; /* Establece el margen usando "em" para adaptabilidad */
+}
+
+/* Estilos para el elemento de contacto en el footer */
+.footer-nav-contact {
+    float: left;
+    width: 15.125em; /* Establece el ancho en "em" */
+    display: flex;
+}
+
+/* Estilos para los enlaces dentro del elemento de contacto */
+.footer-nav-contact a {
+    color: #eee;
+}
+
+/* Estilos para el elemento de navegación en el footer */
+.footer-nav-link {
+    float: left;
+    width: 15.125em; /* Establece el ancho en "em" */
+    display: flex;
+}
+
+.footer-nav-link a
+{
+    color: #eee;
+}
+
+/* Estilos para las imágenes dentro del contenido del footer */
+.hello {
+    width: 3.125em; /* Establece el ancho en "em" */
+    display: block;
+}
+
+.footer-nav-copyright
+{
+    width: 8.125em; /* Establece el ancho en "em" */
+    display: block;
+}
