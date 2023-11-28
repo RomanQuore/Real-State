@@ -12,18 +12,31 @@ body {
     width: 100%;
   }
   
-  .hola {
+  .header {
     width: 100%;
     margin: 0;
-    height: 4em;
+    height: 5em;
     font-size: 20px;
     background-color: #ffffff;
     text-align: left;
     margin-top: auto;
-    margin-bottom: 25px;
     position: relative;
   }
-
+  .real-state{
+    transform: translateY(30px);
+    }
+  .container-select{
+    display: flex;
+    gap: 22em;
+  }
+  .select-box{
+    gap: 0.5em;
+    margin-left: 5em;
+  }
+  .container-select2{
+    display: flex;
+    gap: 0.5em;
+  }
 .login {
     background-color: #329B93;
     border: none;
@@ -36,9 +49,11 @@ body {
     margin: 5px;
     border-radius: 4px;
     height: 2.7rem;
-    margin-top: 1em;
+
   }
-  
+  .login:hover{
+    background-color: #555;
+  }
   .login span {
     cursor: pointer;
     display: inline-block;
@@ -63,8 +78,7 @@ body {
     opacity: 1;
     right: 0;
   }
-  
-  /* Estilos para el enlace de cerrar */
+
   .login1 {
     display: relative;
     text-align: center;
@@ -85,8 +99,6 @@ body {
     margin: 5px;
     border-radius: 4px;
     height: 2.7rem;
-    margin-top: 1em;
-    margin-left: 7em;
   }
   
   .register span {
@@ -113,8 +125,7 @@ body {
     opacity: 1;
     right: 0;
   }
-  
-  /* Estilos para el enlace de cerrar */
+
   .register1 {
     display: relative;
     text-align: center;
@@ -123,8 +134,9 @@ body {
     color: #ffffff;
   }
 
-  /* Estilos para el botón de scroll */
-#scrollDownButton {
+#scrollDownButton1,
+#scrollDownButton2,
+#scrollDownButton3 {
     display: inline-block;
     border-radius: none;
     background-color: #dddddd;
@@ -138,10 +150,8 @@ body {
     cursor: pointer;
     margin: 15px;
     height: 33px;
-    margin-top: 1.3em;
   }
-  
-  /* Estilos para el elemento de selección */
+
   select {
     width: 100%;
     max-width: 130px;
@@ -166,99 +176,161 @@ body {
     top: 0;
     left: 0;
     display: none;
-    margin-left:25em; /* 30em de margen izquierdo */
+
   }
   
   .contenedor {
     display: flex;
-    gap: 45em;
+    gap: 8em;
 }
 
 .subcontenedor2 {
-  margin-left: 4.2em;
   display: flex;
-  overflow: hidden; /* Ocultar las ventanas adicionales */
-  position: relative; /* Añadir posición relativa para que los botones se posicionen correctamente */
+  overflow: hidden;
+  position: relative;
+  margin-top: 3em;
+  height: 38.2em;
+  gap: 1.5em;
 }
 
 .ventana {
-  padding: 1em;
-  width: 25em;
-  flex-shrink: 0; /* Evitar que las ventanas se reduzcan */
+  position: relative;
+  padding: 0.5em;
+  width: 20em;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0); /* Añade un borde transparente */
+  background-color: #ffffff;
 }
 
-.ventana1,
-.ventana2,
+.ventana1
+.ventana2
 .ventana3 {
+  position: relative;
+  padding: 0.5em;
+  width: 20em;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; /* Alineación central vertical */
+  text-align: center; /* Alineación central horizontal */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.imagen {
+  width: 100%;
+  height: 30%;
+}
+.ventana img {
+  max-width: 70% ;
+  margin-left: 15%; /* Centrado horizontal */
+}
+
+.titulo,
+.subtitulo,
+.info-contenedor {
   text-align: center;
-  transition: transform 0.5s ease;
-  background-color: #eee;
-  border-color: #555;
-  height: 39.6em; /* Establecer una altura fija para todas las ventanas */
-  overflow: hidden; /* Para evitar desbordamiento del contenido si excede la altura */
-  display: flex; /* Alinear elementos verticalmente en caso de ser necesario */
-  flex-direction: column; /* Alinear elementos verticalmente */
+}
+
+.titulo {
+  height: 10%;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.subtitulo,
+.info-contenedor {
+  font-size: 1em;
+}
+
+.info-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.info-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+  flex: 1;
+  text-align: left;
+  padding-left: 0.5em;
+  font-weight: bold;
+}
+
+.info1 {
+  flex: 1;
+  text-align: right;
+  padding-right: 0.5em;
+}
+
+.comprar {
+  background-color: #329B93;
+  border: none;
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: bold;
+
+  cursor: pointer;
+  width: 60%;
+  border-radius: 4px;
+  margin-left: 20%;
+  height: 4em;
+}
+
+.comprar:hover {
+  background-color: #555;
+}
+
+.comprar_estilo {
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1em;
 }
 
 .slider {
   text-align: center;
-  position: relative; /* Añadir posición relativa para que los botones se posicionen correctamente */
+  position: relative;
 }
 
 .prev,
 .next {
   position: absolute;
-  padding: 10px 15px;
+  padding: 5px 10px;
   background-color: #329b93;
   color: #fff;
   border: none;
   cursor: pointer;
-  width: 5em;
-  height: 5em;
-  top: 50%; /* Posicionar en el centro verticalmente */
-  transform: translateY(-50%); /* Ajustar verticalmente */
+  width: 3.5em;
+  height: 10em;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 3em;
 }
 
 .next {
-  right: 94.2em;
+  right: 3.4em;
 }
 
 .prev {
-  left: 0;
+  left: 25.4em;
 }
 
 .prev:hover,
 .next:hover {
   background-color: #555;
 }
-.comprar {
-  background-color: #329B93;
-  border: none;
-  color: #fff;
-  font-size: 0.875em;
-  font-weight: bold;
-  padding: 0.2em;
-  cursor: pointer;
-  width: 50%;
-  border-radius: 4px;
-  height: 3rem;
-  position: flex;
-  }
 
-.comprar:hover {
-  background-color: #555;
-  }
-.comprar_estilo {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  margin-top: none;
-  color: #ffffff;
-  font-size: 1.1em;
-  }
   .subcontenedor1 {
-    width: 25%;
-    height: 40em;
+    width: 15%;
+    height: 41.5em;
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ccc;
@@ -291,7 +363,6 @@ body {
     width: 100%; /* Ancho completo */
     background-color: #000000;
     color: #ffffff;
-    margin-top: 50px;
   }
   .footer-heading
   {

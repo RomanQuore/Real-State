@@ -12,17 +12,26 @@ body {
   width: 100%;
 }
 
-.hola {
+.header {
   width: 100%;
   margin: 0;
-  height: 4em;
+  height: 5em;
   font-size: 20px;
   background-color: #ffffff;
   text-align: left;
   margin-top: auto;
-  margin-bottom: 25px;
   position: relative;
-
+}
+.real-state{
+  transform: translateY(30px);
+  }
+.container-select{
+  display: flex;
+  gap: 22em;
+}
+.select-box{
+  gap: 0.5em;
+  margin-left: 5em;
 }
 
 #accionesSelect {
@@ -93,6 +102,23 @@ body {
   height: 33px;
   margin-top: 1.3em;
 }
+#scrollDownButton1,
+#scrollDownButton2,
+#scrollDownButton3 {
+    display: inline-block;
+    border-radius: none;
+    background-color: #dddddd;
+    border: none;
+    color: #329B93;
+    text-align: center;
+    font-size: 17px;
+    padding: 0.4em;
+    width: 140%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 15px;
+    height: 33px;
+  }
 /* Estilos para el elemento de selección */
 select {
   width: 100%;
@@ -121,194 +147,184 @@ select {
   margin-left:25em; /* 30em de margen izquierdo */
 }
 
+
+
 .contenedor {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.subcontenedor1 {
-  width: 30em; /* Ocupará todo el ancho en pantallas pequeñas y se ajustará dinámicamente */
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255); /* Color de fondo para el elemento con clase "filtros" */
-  height: 29.3em;
-  margin-left: 2em; /* Se ajusta el margen izquierdo a 2em */
-  margin-right: 5em;
-}
-.filtros {
-  padding: 1em;
-}
-h2 {
-  font-size: 1em; /* Tamaño de fuente para encabezados de nivel 2 */
-  margin-bottom: 20px; /* Márgen inferior para separación */
-  margin-top: 1px;
-  margin-left: 1px;
-}
-
-.hr {
- color: #000;
-}
-.busqueda {
-  margin-bottom: 15px; /* Márgen inferior para separación */
-}
-
-.label1 {
-  margin-left: 20px; /* Espacio izquierdo */
-}
-
-.busqueda1 {
-  width: 50%;
-  background-color: #ffffff;
-  border-color: #CCC;
-  color: #242424;
-  padding: .15rem .5rem;
-  min-height: 30px;
-  border-radius: 4px;
-  line-height: 1.15;
-  margin-right: 40px; /* Espacio derecho */
-  margin-left: 20px; /* Espacio izquierdo */
-  margin-top: 10px;
-}
-
-.busqueda2 {
-  width: 100%; /* Ocupar todo el ancho disponible */
-  padding: 5px; /* Espacio interno alrededor del elemento */
-  border: 1px solid #ffffff; /* Estilo del borde */
-  color: #7a7a7a; /* Color del texto */
-  border-color: #CCC;
-  background-color: #ffffff; /* Color de fondo */
-  margin-left: 15px;
-  border-radius: 3px;
-}
-
-.busqueda3
-{
-  width: 100%; /* Ocupar todo el ancho disponible */
-  padding: 5px; /* Espacio interno alrededor del elemento */
-  border: 1px solid #ffffff; /* Estilo del borde */
-  color: #7a7a7a; /* Color del texto */
-  border-color: #CCC;
-  background-color: #ffffff; /* Color de fondo */
-  margin-left: 20px;
-  border-radius: 3px;
-}
-
-hr {
-  border: 1px solid #ccc; /* Estilo del borde horizontal */
-  margin: 10px ; /* Márgenes superior e inferior */
-}
-
-.habitaciones,
-.banos
-.m2 {
-  display: flex; /* Utilizar el modelo de caja flexible */
-  margin-right: 5px; /* Espacio derecho */
-  margin-left: 5px; /* Espacio izquierdo */
-}
-
-.dirigir {
-  background-color: #329B93;
-  border: none;
-  color: #fff;
-  font-size: 0.75em;
-  font-weight: bold;
-  padding: 0.2em;
-  cursor: pointer;
-  width: 100px;
-  margin: 5px;
-  border-radius: 4px;
-  height: 2em;
-  position: fixed; /* Posición fija */
-  margin-top: 1em;
-  margin-left: 1.8em;
-}
-.dirigir1 {
-  display: relative;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 2%;
-  color: #ffffff;
-
+  gap: 8em;
 }
 
 .subcontenedor2 {
-  width: 100%; /* Ocupar todo el ancho disponible */
-  display: flex;
+display: flex;
+overflow: hidden;
+position: relative;
+margin-top: 3em;
+height: 38.2em;
+gap: 1.5em;
 }
 
-.ventana,
-.ventana2,
-.ventana3 {
-  width: 15em; /* Ancho fijo para los elementos con clase "ventana" */
-  margin: 10px; /* Márgenes externos */
-  padding: 2em; /* Espacio interno alrededor del elemento */
-  text-align: center; /* Alineación del texto al centro */
-  background-color: #ffffff; /* Color de fondo */
-  border-radius: 0px; /* Radio de borde */
-  margin-top: 10px; /* Márgen superior para separación */
-  height: auto;
-  flex-direction: row;
-  border-radius: 10px;
+.ventana {
+position: relative;
+padding: 0.5em;
+width: 20em;
+flex-shrink: 0;
+border-radius: 10px;
+border: 1px solid rgba(0, 0, 0, 0); /* Añade un borde transparente */
+background-color: #ffffff;
+}
 
+.ventana1
+.ventana2
+.ventana3 {
+position: relative;
+padding: 0.5em;
+width: 20em;
+flex-shrink: 0;
+flex-direction: column;
+justify-content: space-between;
+align-items: center; /* Alineación central vertical */
+text-align: center; /* Alineación central horizontal */
+border: 1px solid #ccc;
+border-radius: 5px;
+overflow: hidden;
+}
+
+.imagen {
+width: 100%;
+height: 30%;
+}
+.ventana img {
+max-width: 70% ;
+margin-left: 15%; /* Centrado horizontal */
+}
+
+.titulo,
+.subtitulo,
+.info-contenedor {
+text-align: center;
 }
 
 .titulo {
-margin-top: 0.6em;
+height: 10%;
+font-size: 1.2em;
+font-weight: bold;
 }
 
-.subtitulo{
-  margin-top: 0.6em;
-
-}
-.ventana h2 {
-  margin-top: 2; /* Márgen superior para el encabezado h2 */
-}
-
-.ventana p {
-  color: #333333; /* Color del texto de párrafo */
+.subtitulo,
+.info-contenedor {
+font-size: 1em;
 }
 
 .info-contenedor {
-  display: flex;
-  flex-direction: row;
+display: flex;
+flex-direction: column;
+gap: 0.5em;
 }
 
 .info-fila {
-  justify-content: space-between;
-  margin-bottom: 0.2em;
-  margin: 1em;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .info {
-  display: inline-flex;
+flex: 1;
+text-align: left;
+padding-left: 0.5em;
+font-weight: bold;
 }
 
 .info1 {
-  display: block;
+flex: 1;
+text-align: right;
+padding-right: 0.5em;
 }
 
-.comprar
-{
-  background-color: #329B93;
-  border: none;
-  color: #fff;
-  font-size: 0.875em;
-  font-weight: bold;
-  padding: 0.2em;
-  cursor: pointer;
-  width: 100%;
-  border-radius: 4px;
-  height: 3rem;
-  position: flex; /* Posición fija */
+.comprar {
+background-color: #329B93;
+border: none;
+color: #fff;
+font-size: 0.75em;
+font-weight: bold;
+
+cursor: pointer;
+width: 60%;
+border-radius: 4px;
+margin-left: 20%;
+height: 4em;
+}
+
+.comprar:hover {
+background-color: #555;
 }
 
 .comprar_estilo {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    margin-top: none;
-    color: #ffffff;
-    font-size: 1.1em;
+text-align: center;
+text-decoration: none;
+color: #ffffff;
+font-size: 1em;
+}
+
+.slider {
+text-align: center;
+position: relative;
+}
+
+.prev,
+.next {
+position: absolute;
+padding: 5px 10px;
+background-color: #329b93;
+color: #fff;
+border: none;
+cursor: pointer;
+width: 3.5em;
+height: 10em;
+top: 50%;
+transform: translateY(-50%);
+margin-top: 3em;
+}
+
+.next {
+right: 3.4em;
+}
+
+.prev {
+left: 25.4em;
+}
+
+.prev:hover,
+.next:hover {
+background-color: #555;
+}
+
+.subcontenedor1 {
+  width: 15%;
+  height: 41.5em;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.subcontenedor1 img {
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.subcontenedor1 h2 {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #329B93;
+}
+
+.subcontenedor1 p {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .login {
@@ -411,7 +427,7 @@ margin-top: 0.6em;
   width: 100%;
   background-color: #000000;
   color: #ffffff;
-  margin-top: 50px;
+
 }
 
 .footer-heading {
