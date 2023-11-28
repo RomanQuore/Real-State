@@ -1,79 +1,67 @@
-/* Establece el fondo del body con un gradiente lineal */
 body {
     background-color: rgba(255, 255, 255, 0.555);
-    background: -webkit-linear-gradient(to right, #FFFDE4, #005AA7);
     background: linear-gradient(to right, #FFFDE4, #005AA7);
-    display: flex;
+    display: block;
     justify-content: flex-start;
-    align-items: center;
-    height: 6em; /* Usando em para la altura */
+    align-items: flex-end;
     font-family: "Open Sans", sans-serif;
     flex-direction: column;
+    margin: 0;
+    height: 100%;
+    padding: 0;
     width: 100%;
 }
 
-img
-{
-    border-radius: 20px;
+.caja1 img {
+    width: 10em;
+    height: 10em;
 }
 
-/* Define la tipografía para los títulos h1, h2, h3 */
 h1, h2, h3 {
     font-family: "Roboto", sans-serif;
 }
 
-/* Establece estilos para el título (que no es un selector HTML válido) */
-title {
-    font-size: 1.5em; /* Tamaño de fuente relativo */
-    font-weight: bold;
-    color: #000;
-    text-align: left;
+hr {
+    background-color: #000;
+    width: 70%;
 }
 
-/* Configuración del contenedor principal */
 #contenedor {
     display: flex;
     width: relative;
     justify-content: center;
     align-items: center;
+    gap: 5em;
+    margin-bottom: 12.5em;
 }
 
 .caja1 {
-    width: 40em; /* 40 veces el tamaño de la fuente del elemento raíz */
-    padding: 2em; /* 2 veces el tamaño de la fuente del elemento raíz */
+    transform: translateY(10%);
+    width: 40em; 
+    padding: 2em; 
     text-align: center;
 }
 
 .caja2 h1 {
     color: #000000;
-    font-size: 2em; /* 2 veces el tamaño de la fuente del elemento raíz */
+    font-size: 2em;
 }
-  
-/* Estilos para la caja 1 */
+
 .caja2 {
+    margin-top: 1em;
     text-align: center;
-    width: 50%; /* Porcentaje para adaptabilidad */
-    padding: 5em; /* Usando em para el relleno */
+    width: 30%; 
+    padding: 3em; 
     background-color: rgba(255, 255, 255, 0.555);
     color: #000;
-    margin-left: 15em; /* 30em de margen izquierdo */
     border-radius: 20px;
 }
 
-/* Estilos para el separador (elemento flotante) */
-.separator {
-    float: left;
-    height: 100%;
-    background-color: #329B93;
-}
-
-/* Establece el box-sizing y la tipografía para todos los elementos */
 * {
     font-family: 'lato', 'open sans', 'PT sans', sans-serif;
     box-sizing: border-box;
 }
 
-/* Estilos para los títulos h1 */
 h1 {
     align-items: center;
     width: 100%;
@@ -84,124 +72,173 @@ h1 {
     text-align: center;
 }
 
-/* Estilos para las etiquetas */
 label {
     color: black;
-    font-size: 1.125em; /* Tamaño de fuente relativo */
+    font-size: 1.125em;
 }
 
-/* Estilos para los campos de entrada de texto, contraseña, email, fecha y teléfono */
 input[type="text"],
 input[type="password"],
 input[type="email"],
-input[type="date"],
 input[type="tel"],
-input[type="number"],
-select {
-    background-color: #eee; /* Corrección del color sin comillas */
+input[type="number"] {
+    background-color: #eee;
     border: none;
-    padding: 2%; /* Usando porcentajes para el relleno */
-    margin: 1% 0; /* Usando porcentajes para el margen superior e inferior */
+    padding: 0.75em 0.9375em;
+    margin: 0.5em 0;
+    width: 90%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+input[type="date"] {
+    background-color: #eee;
+    border: none;
+    padding: 0.75em 0.9375em;
+    margin: 0.5em 0;
+    width: 96%;
+    text-align: center;
+    border-radius: 5px;
+    margin-left:  0.6em;
+    margin-right: 1em;
+    gap: 1em;
+}
+
+select[id="tipoDocumento"] {
+    background-color: #eee;
+    border: none;
+    padding: 0.75em 0.9375em;
+    margin: 0.5em 0;
+    width: 85%;
+    text-align: center;
+    border-radius: 5px;
+    margin-left:  1em;
+}
+
+select[placeholder="Tipo de rol"] {
+    background-color: #eee;
+    border: none;
+    padding: 0.75em 0.9375em;
+    margin: 0.5em 0;
     width: 50%;
     text-align: center;
     border-radius: 5px;
 }
 
-/* Estilos para los botones de envío */
 button[type="submit"] {
     background-color: #329B93;
-    border: 1px solid #329B93;
+    border: none;
     color: #fff;
-    font-size: 1em; /* Tamaño de fuente relativo */
+    font-size: 1em;
     font-weight: bold;
     letter-spacing: 1px;
-    padding: 3%; /* Usando porcentajes para el relleno */
+    padding: 3%;
     cursor: pointer;
     width: 50%;
     transition: 0.3s;
     border-radius: 5px;
 }
 
-/* Estilos para el botón al hacer clic */
+button:hover {
+    background-color: #555;
+}
+
 button:active {
     transform: scale(0.95);
 }
 
-/* Estilos para el botón enfocado */
 button:focus {
     outline: none;
 }
 
-/* Estilos para los enlaces */
 a {
     display: block;
     text-align: center;
     text-decoration: none;
-    margin-top: 2%; /* Usando porcentajes para el margen superior */
-    color: #521c7e;
+    margin-top: 2%;
+    color: #329B93;
 }
 
-/* Estilos para los enlaces al pasar el mouse */
 a:hover {
     color: #005AA7;
 }
 
-/* Estilos para el footer */
-footer {
-    background-color: #000000; /* Establece el color de fondo en negro */
-    background-repeat: infinite; /* Configura la repetición del fondo */
-    padding: 1em 0.625em; /* Establece el espaciado en la parte superior e inferior del footer */
-    width: 100%; /* Establece el ancho al 100% para abarcar toda la pantalla */
-    font-size: 1.125em; /* Define el tamaño de fuente relativo */
-    font-weight: bold; /* Hace que el texto sea negrita */
-    color: #ffffff; /* Define el color del texto en blanco */
-    margin-top: 1.25em; /* Establece el margen superior usando "em" para adaptabilidad */
+.footer {
+    position: relative;
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
 }
 
-/* Estilos para el elemento de navegación social en el footer */
+.footer-heading {
+    margin-top: 0.6em;
+}
+
+.footer:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+}
+
+.footer .footer-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
 .footer-nav-social {
     float: left;
-    width: 15.125em; /* Establece el ancho en "em" */
+    width: 15.125em;
     display: flex;
 }
 
-/* Estilos para los enlaces dentro del elemento de navegación social */
 .footer-nav-social a {
-    margin: 0.625em; /* Establece el margen usando "em" para adaptabilidad */
+    margin: 0.625em;
 }
 
-/* Estilos para el elemento de contacto en el footer */
 .footer-nav-contact {
     float: left;
-    width: 15.125em; /* Establece el ancho en "em" */
+    width: 15.125em;
     display: flex;
 }
 
-/* Estilos para los enlaces dentro del elemento de contacto */
 .footer-nav-contact a {
     color: #eee;
 }
 
-/* Estilos para el elemento de navegación en el footer */
 .footer-nav-link {
     float: left;
-    width: 15.125em; /* Establece el ancho en "em" */
+    width: 15.125em;
     display: flex;
 }
 
-.footer-nav-link a
-{
+.footer-nav-link a {
     color: #eee;
 }
 
-/* Estilos para las imágenes dentro del contenido del footer */
 .hello {
-    width: 3.125em; /* Establece el ancho en "em" */
+    width: 3.125em;
     display: block;
 }
 
-.footer-nav-copyright
-{
-    width: 8.125em; /* Establece el ancho en "em" */
+.footer-nav-copyright {
+    width: 8.125em;
     display: block;
+}
+
+.fila-formulario {
+    display: flex;
 }
