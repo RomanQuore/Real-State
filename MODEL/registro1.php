@@ -22,11 +22,18 @@
             <a href="../MODEL/iniciosesion1.php">Inicia sesión</a>
         </div>
         <div class="caja2">
-        <form action="../VIEW/Pagprincipal.php" method="POST">
-    <h1>Crear Cuenta</h1>
-    <hr>
-    <?php
-include("registro2.php")
+            <form method="post">
+                <h1>Crear Cuenta</h1>
+                <hr>
+                <?php
+ if (!empty($errores)) {
+    echo '<div class="error-container">';
+    foreach ($errores as $error) {
+    echo '<p class="error-message">Debes corregir el campo <strong>' . $error . '</strong> y ajustarlo a los parámetros establecidos.</p>';
+    }
+    echo '</div>';
+    }
+    
 ?>
     <div class="fila">
         <div class="col-md-12 mx-auto">
@@ -103,8 +110,8 @@ include("registro2.php")
                 <label for="Rol">Tipo de Rol</label>
                 <br>
                 <select placeholder="Tipo de rol" name="Rol" id="Rol" required>
-                    <option value="2">Comprador</option>
-                    <option value="3">Vendedor</option>
+                    <option value="3">Comprador</option>
+                    <option value="2">Vendedor</option>
                 </select>
             </div>
             <input type="hidden" name="activo" value="1">
