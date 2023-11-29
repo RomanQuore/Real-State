@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2023 a las 23:12:08
+-- Tiempo de generación: 29-11-2023 a las 22:39:14
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -131,7 +131,7 @@ CREATE TABLE `publicacion` (
 CREATE TABLE `registro` (
   `id` int(11) NOT NULL,
   `Usuario` varchar(30) DEFAULT NULL,
-  `Contrasena` varchar(30) DEFAULT NULL,
+  `Contrasena` varchar(255) DEFAULT NULL,
   `nombres` text DEFAULT NULL,
   `apellidos` text DEFAULT NULL,
   `fechaNacimiento` date DEFAULT NULL,
@@ -149,11 +149,8 @@ CREATE TABLE `registro` (
 --
 
 INSERT INTO `registro` (`id`, `Usuario`, `Contrasena`, `nombres`, `apellidos`, `fechaNacimiento`, `tipoDocumento`, `numeroDocumento`, `direccion`, `numeroTelefono`, `correoElectronico`, `Rol`, `activo`) VALUES
-(7, 'prueba1', '123', 'jose roberto', 'maldonado perez', '1970-12-31', 1, 1026558996, 'carrera 38#13-119', 3202026512, 'prueba1@gmail.com', NULL, b'0'),
-(8, 'rios', '123', 'juan david', 'rios martinez', '2000-01-20', 1, 1026558996, 'carrera 38#13-119', 3202026512, 'prueba1@gmail.com', 3, b'0'),
-(9, 'rios', '123', 'juan david', 'rios martinez', '2000-01-20', 2, 1026558996, 'carrera 38#13-119', 3202026512, 'prueba1@gmail.com', 3, b'0'),
-(10, 'sophya', '1234', 'Sophya', 'Rincon', '2006-02-07', 2, 6556585854, 'calle15bsur', 36666547, 'sophya@gmail.com', 3, b'0'),
-(11, 'sophya', '1555', 'Sophya', 'Rincon', '2023-11-08', 2, 6556585854, 'calle15bsur', 36666547, 'sophya@gmail.com', 2, b'1');
+(1, 'Daniel', '$2y$10$DaWbwVOArGPt6ktkQWcPHev/V.WH6rJ0Gv74d7DHfWxTkL6atM8he', 'Daniel', 'Roman', '2005-07-05', 1, 1022935545, 'calle 10b sur', 1111111, 'sophya@gmail.com', 2, b'1'),
+(2, 'juancho', '$2y$10$YFkFOxPWlXkXZR3idNS8neUKVv0NiBwzLj2oFvOAl03V.IKbaBA6e', 'Juan david', 'ramirez jara', '2005-04-12', 1, 1106770833, 'cra19#12121212', 3118716677, 'davidwibs12345@gmail.com', 2, b'1');
 
 -- --------------------------------------------------------
 
@@ -290,7 +287,7 @@ ALTER TABLE `publicacion`
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_establ`
