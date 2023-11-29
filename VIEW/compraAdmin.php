@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../CSS/style_compra.css">
     <title> Pagina Principal </title>
     <p style="text-align: left;" class="hola">Real State <img src="http://imgfz.com/i/nzv3l4K.png" alt="Descripción de la imagen" style="width: 70px; float: left; margin-right: px;">
-        <button type="submit" class="volver"><span><a href="../VIEW/pagComprador.php" class="volver1">volver</a></span></button>
+        <button type="submit" class="volver"><span><a href="../VIEW/pagAdmin.php" class="volver1">volver</a></span></button>
         <button type="submit" class="exit"> <span><a href="../MODEL/iniciosesion1.php" class="cerrar">Cerrar sesion</span></a></button>
     </p>
 </head>
@@ -37,7 +37,7 @@
           <label for="radio5">★</label>
         </p>
       </form>
-      <button type="submit" class="volver"><span><a href="formularioPublicacion.php" class="volver1">reportar</a></span></button>
+      <button type="submit" class="volver"><span><a href="../MODEL/formularioPublicacion.php" class="volver1">reportar</a></span></button>
 </div>
 <br>
 <br>
