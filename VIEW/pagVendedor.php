@@ -74,7 +74,7 @@ function redireccionar() {
         formCerrarSesion.style.display = "block";
         formCerrarSesion.submit();
     } else if (opcionSeleccionada === "editar_perfil") {
-        window.location.href = "Perfil_Vendedor.php";
+        window.location.href = "Editarvendedor.php";
     }
 }
 </script>
@@ -112,7 +112,7 @@ function redireccionar() {
                     <div class="info1">1</div>
                 </div>
             </div>
-            <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
         <div class="ventana ventana2">
@@ -137,7 +137,7 @@ function redireccionar() {
                 </div>
             </div>
 
-            <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
+            <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
         <div class="ventana ventana3">
@@ -161,7 +161,7 @@ function redireccionar() {
                     <div class="info1">1</div>
                 </div>
             </div>
-                <button class="comprar"><a href="../MODEL/loggeoIndex.php" class="comprar_estilo">Ver Propiedad</a></button>
+                <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
             </div>
     </div>
     <div class="ventana ventana4"> hola </div>
