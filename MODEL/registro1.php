@@ -26,14 +26,7 @@
                 <h1>Crear Cuenta</h1>
                 <hr>
                 <?php
- if (!empty($errores)) {
-    echo '<div class="error-container">';
-    foreach ($errores as $error) {
-    echo '<p class="error-message">Debes corregir el campo <strong>' . $error . '</strong> y ajustarlo a los parámetros establecidos.</p>';
-    }
-    echo '</div>';
-    }
-    
+include("registro2.php")
 ?>
     <div class="fila">
         <div class="col-md-12 mx-auto">
