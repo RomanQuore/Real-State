@@ -3,8 +3,7 @@ include '../CONTROLLER/conexion.php';
 
 session_start();
 
-if (isset($_GET['cerrar_sesion'])) {
-
+if (isset($_GET['cerrarsesion'])) {
     session_unset();
     session_destroy();
 }
@@ -12,13 +11,13 @@ if (isset($_GET['cerrar_sesion'])) {
 if (isset($_SESSION['Rol'])) {
     switch ($_SESSION['Rol']) {
         case 2:
-            header('location: ../VIEW/pagVendedor.php'); 
-            exit(); 
+            header('location: ../VIEW/pagVendedor.php');
+            exit();
             break;
-            
+
         case 3:
             header('location: ../VIEW/pagComprador.php');
-            exit(); 
+            exit();
             break;
 
         default:
@@ -38,35 +37,39 @@ if (isset($_POST['Usuario']) && isset($_POST['Contrasena'])) {
 
         $conex->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = $conex->prepare('SELECT Usuario, Contrasena, Rol FROM registro WHERE Usuario = :usuario AND Contrasena = :contrasena AND activo = 1');
-        $query->execute(['usuario' => $usuario, 'contrasena' => $contrasena]);
+        $query = $conex->prepare('SELECT Usuario, Contrasena, Rol FROM registro WHERE Usuario = :usuario AND activo = 1');
+        $query->execute(['usuario' => $usuario]);
         $row = $query->fetch(PDO::FETCH_ASSOC);
 
-if ($row) {
+        if ($row) {
+            // Verificar si la contraseña ingresada coincide con la contraseña encriptada almacenada en la base de datos
+            if (password_verify($contrasena, $row['Contrasena'])) {
+                $_SESSION['Usuario'] = $row['Usuario'];
+                $_SESSION['Rol'] = $row['Rol'];
+                switch ($row['Rol']) {
+                    case 2:
+                        header('location: ../VIEW/pagVendedor.php');
+                        exit();
+                        break;
 
-    $_SESSION['Usuario'] = $row['Usuario'];
-    $_SESSION['Rol'] = $row['Rol'];
-    switch ($row['Rol']) {
-        case 2:
-            header('location: ../VIEW/PagComprador.php');
-            exit();
-            break;
-
-        case 3:
-            header('location: ../VIEW/pagVendedor.php'); 
-            exit();
-            break;
-    }
-} else {
-
-    $error_message = "El Usuario o Contraseña son incorrectos";
-}
+                    case 3:
+                        header('location: ../VIEW/pagComprador.php');
+                        exit();
+                        break;
+                }
+            } else {
+                $error_message = "El Usuario o Contraseña son incorrectos";
+            }
+        } else {
+            $error_message = "El Usuario o Contraseña son incorrectos";
+        }
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
         die();
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
