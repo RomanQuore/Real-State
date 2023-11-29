@@ -29,6 +29,7 @@
         <option value="local">Locales</option>
     </select>
     <button type="submit "class="exit"> <span><a href="../MODEL/iniciosesion1.php" class="cerrar">Cerrar sesion</span></a></button></p>
+    <button type="submit "class="exit"> <span><a href="../VIEW/editarvendedor.php" class="cerrar">editar Usuarios</span></a></button></p>
 
 </div>
 <script>
@@ -46,7 +47,7 @@
     }
 </script>
 <?php
-echo '<a href="perfil_Comprador.php">Editar perfil</a>';
+echo '<a href="perfil_Admin.php">Editar perfil</a>';
 ?>
 </head>
 <body>
