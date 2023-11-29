@@ -44,6 +44,7 @@ $_SESSION['Usuario']
         </div>
         </div>
         <form id="cerrarSesionForm" action="../MODEL/cerrarsesion.php" method="POST"></form>
+        <button type="submit" class="volver"><span><a href="../VIEW/datosUsuarios.php" class="volver1">Ver usuarios</a></span></button>
     </div>
 
 </div>
