@@ -1,6 +1,10 @@
+<?php
+include '../CONTROLLER/conexion.php';
+session_start();
+$_SESSION['Usuario']
+?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,6 +34,7 @@
                 <option value="local">Locales</option>
             </select>
         </div>
+        <div class="a"><p><?php echo $_SESSION['Usuario']; ?></p></div>
         <div class="container-select2">
             <select id="accionesSelect" onchange="redireccionar()">
                 <option disabled selected value>Opciones ⚙︎</option>
