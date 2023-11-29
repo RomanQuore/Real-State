@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicar Finca Raíz</title>
     <link rel="stylesheet" href="../CSS/Publicarr.css">
+    <button type="submit" class="volver"><span><a href="../VIEW/pagVendedor.php" class="volver1">volver</a></span></button>
 </head>
 <body>
     
