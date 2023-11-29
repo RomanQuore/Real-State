@@ -1,8 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <title>Datos de la tabla</title>
+<meta charset="UTF-8">
+<title>Datos Usuarios</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <script src="../JS/Principal.js"></script>
+    <title> Pagina Principal </title>
+    <div class="header"><img src="http://imgfz.com/i/nzv3l4K.png" style="margin-left: 1em; width: 100px; height: 100px; float: left;"><div class="real-state">Real State</div>
+    <div class="container-select">
+        <div class="select-box">
+            <select id="scrollDownButton1" onchange="redireccionar()">
+                <option disabled selected value>Arriendo</option>
+                <option value="casa">Casas</option>
+                <option value="apartamento">Apartamentos</option>
+                <option value="local">Locales</option>
+            </select>
+            <select id="scrollDownButton2" onchange="redireccionar()">
+                <option disabled selected value>Venta</option>
+                <option value="casa">Casas</option>
+                <option value="apartamento">Apartamentos</option>
+                <option value="local">Locales</option>
+            </select>
+            <select id="scrollDownButton3" onchange="redireccionar()">
+                <option disabled selected value>Permutacion</option>
+                <option value="casa">Casas</option>
+                <option value="apartamento">Apartamentos</option>
+                <option value="local">Locales</option>
+            </select>
+        </div>
+            <div class="container-select2">
+        <select id="accionesSelect" onchange="redireccionar()">
+            <option disabled selected value>Opciones ⚙︎</option>
+            <option value="editar_perfil">Perfil</option>
+            <option value="cerrar_sesion">Cerrar sesión</option>
+        </select>
+        </div>
+        </div>
+        <form id="cerrarSesionForm" action="../MODEL/cerrarsesion.php" method="POST"></form>
+    </div>
+
+</div>
+
+<script>
+function redireccionar() {
+    var select = document.getElementById("arriendo");
+  var opcionSeleccionada = select.options[select.selectedIndex].value;
+
+  console.log("Opción seleccionada:", opcionSeleccionada);
+
+  if (opcionSeleccionada === "casa") {
+    console.log("Redirigiendo a la página de compra de casas...");
+    window.location.href = "compraComprador.php";
+  } else if (opcionSeleccionada === "apartamento") {
+    console.log("Redirigiendo a la página de compra de apartamentos...");
+    window.location.href = "compraComprador.php";
+  } else if (opcionSeleccionada === "local") {
+    console.log("Redirigiendo a la página de compra de locales...");
+    window.location.href = "compraComprador.php";
+  }
+}
+
+
+    function redireccionar() {
+    var select = document.getElementById("accionesSelect");
+    var opcionSeleccionada = select.value;
+
+    if (opcionSeleccionada === "cerrar_sesion") {
+
+        var formCerrarSesion = document.getElementById("cerrarSesionForm");
+        formCerrarSesion.style.display = "block";
+        formCerrarSesion.submit();
+    } else if (opcionSeleccionada === "editar_perfil") {
+        window.location.href = "Perfil_Vendedor.php";
+    }
+}
+</script>
+<button type="submit" class="volver"><span><a href="../VIEW/PagAdmin.php" class="volver1">volver</a></span></button>
 </head>
 <body>
     <?php
@@ -114,4 +189,23 @@
     mysqli_close($conex);
     ?>
 </body>
+<footer class="footer">
+    <div class="footer-content">
+    <div class="footer-heading">Conoce más sobre nosotros</div>
+        <div class="hello">
+        <img src="https://i.postimg.cc/504T57CV/userlmn-c28434f13729b9b1f7f1db10c7eb8d7a.png" width="100px" height="100px" alt="Real State">
+        </div>
+        <div class="footer-nav-copyright">©Real State 2023</div>
+        <div class="footer-nav-link"><a href="">Política de privacidad</a></div>
+        <br><br><br>
+        <div class="footer-nav-contact"><a href="">Contáctenos 3202026512</a></div>
+        <br><br><br>
+        <div class="footer-nav-social">
+            <a href="https://www.instagram.com/"><img src="https://i.postimg.cc/7P7rT5b2/logo-instagram-removebg-preview.png" width="50px" height="50px" alt="Instagram"></a>
+            <a href="https://bit.ly/3RR4ZEE"><img src="https://i.postimg.cc/ZqGBV9md/vecteezy-whatsapp-logo-icon-24996543-361-removebg-preview.png" width="50px" height="50px" alt="WhatsApp"></a>
+            <a href="https://www.facebook.com/"><img src="https://i.postimg.cc/Pqjnyhcq/vecteezy-facebook-png-icon-16716481-104-removebg-preview-1.png" width="50px" height="50px" alt="Facebook"></a>
+            <a href="https://twitter.com/real_sjr"><img src="https://i.postimg.cc/MGQb6JK1/download-removebg-preview-1.png" width="50px" height="50px" alt="Twitter"></a>
+    </div>
+    </div>
+</footer>
 </html>
