@@ -37,7 +37,7 @@
           <label for="radio5">★</label>
         </p>
       </form>
-      <button type="submit" class="volver"><span><a href="../MODEL/formularioPublicacion.php" class="volver1">reportar</a></span></button>
+      <button type="submit" class=""><span><a href="../MODEL/formularioPublicacion.php" class="">reportar</a></span></button>
 </div>
 <br>
 <br>
