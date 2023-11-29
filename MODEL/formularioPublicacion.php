@@ -34,5 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <form action="#" method="post">
     Publicación a eliminar: <input type="text" name="publicacion">
     <input type="submit" value="Eliminar">
+    <br>
+    <br>
+    <button type="submit" class=""><span><a href="../VIEW/compraAdmin.php" class="">volver</a></span></button>
 </form>
 </html>
