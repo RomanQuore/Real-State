@@ -10,6 +10,11 @@ if (isset($_GET['cerrarsesion'])) {
 
 if (isset($_SESSION['Rol'])) {
     switch ($_SESSION['Rol']) {
+        
+        case 1:
+            header('location: ../VIEW/datosUsuarios.php');
+            exit();
+            break;
         case 2:
             header('location: ../VIEW/pagVendedor.php');
             exit();
@@ -42,11 +47,14 @@ if (isset($_POST['Usuario']) && isset($_POST['Contrasena'])) {
         $row = $query->fetch(PDO::FETCH_ASSOC);
 
         if ($row) {
-            // Verificar si la contraseña ingresada coincide con la contraseña encriptada almacenada en la base de datos
             if (password_verify($contrasena, $row['Contrasena'])) {
                 $_SESSION['Usuario'] = $row['Usuario'];
                 $_SESSION['Rol'] = $row['Rol'];
                 switch ($row['Rol']) {
+                    case 1:
+                        header('location: ../VIEW/php');
+                        exit();
+                        break;
                     case 2:
                         header('location: ../VIEW/pagVendedor.php');
                         exit();

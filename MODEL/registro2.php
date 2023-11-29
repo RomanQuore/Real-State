@@ -1,13 +1,17 @@
 <?php
 include("../CONTROLLER/conexion.php");
 
+// Iniciar sesión
+session_start();
+
 if ($conex) {
     echo "";
 }
 
 if (isset($_POST['registrate'])) {
     // Obtener los datos del formulario
-    $usuario = isset($_POST["Usuario"]) ? trim($_POST["Usuario"]) : '';
+    $id = isset($_POST["id"]) ? trim($_POST["id"]) : '';
+    $usuario = isset($_POST["Usuario"]) ? mysqli_real_escape_string($conex, trim($_POST["Usuario"])) : '';
     $contrasena = isset($_POST["contrasena"]) ? $_POST["contrasena"] : '';
     $nombres = isset($_POST["nombres"]) ? trim($_POST["nombres"]) : '';
     $apellidos = isset($_POST["apellidos"]) ? trim($_POST["apellidos"]) : '';
@@ -57,13 +61,19 @@ if (isset($_POST['registrate'])) {
     if (empty($errores)) {
         // Encriptar la contraseña antes de guardarla en la base de datos
         $contrasena_encriptada = password_hash($contrasena, PASSWORD_DEFAULT);
-
+    
         // Insertar los datos en la base de datos
         $consulta = "INSERT INTO registro (Usuario, Contrasena, nombres, apellidos, fechaNacimiento, tipoDocumento, numeroDocumento, direccion, numeroTelefono, correoElectronico, Rol, activo) 
-                VALUES ('$usuario','$contrasena_encriptada','$nombres','$apellidos','$fechaNacimiento','$tipoDocumento','$numeroDocumento','$direccion','$numeroTelefono','$correoElectronico','$Rol','$activo')";
+        VALUES ('$usuario','$contrasena_encriptada','$nombres','$apellidos','$fechaNacimiento','$tipoDocumento','$numeroDocumento','$direccion','$numeroTelefono','$correoElectronico','$Rol','$activo')";
         $resultado = mysqli_query($conex, $consulta);
+        
         if ($resultado) {
-?>
+            // Obtener el ID del usuario recién registrado
+            $id = mysqli_insert_id($conex);
+        
+            // Almacenar el ID del usuario en la sesión
+            $_SESSION['id'] = $id;
+            ?>
             <h3 class="ok">¡Te has registrado correctamente!</h3>
 <?php
         } else {
@@ -73,9 +83,9 @@ if (isset($_POST['registrate'])) {
         }
     } else {
         foreach ($errores as $error) {
-?>
+            ?>
             <h3 class="error"><?php echo $error; ?></h3>
-<?php
+            <?php
         }
     }
 }

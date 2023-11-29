@@ -103,8 +103,8 @@ include("registro2.php")
                 <label for="Rol">Tipo de Rol</label>
                 <br>
                 <select placeholder="Tipo de rol" name="Rol" id="Rol" required>
-                    <option value="3">Comprador</option>
                     <option value="2">Vendedor</option>
+                    <option value="3">Comprador</option>
                 </select>
             </div>
             <input type="hidden" name="activo" value="1">

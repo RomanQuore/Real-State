@@ -20,12 +20,10 @@ if (!empty($_POST['usuario']) && !empty($_POST['contrasena'])) {
     // Realizar acciones dependiendo del resultado de la verificación
     if ($validUser && $validPassword) {
         $_SESSION['usuario_id'] = $userData['id'];
-        header('Location: ../VIEW/Pagprincipal.php');
+        header('Location: ../VIEW/pagVendedor.php');
         exit();
     } elseif (!$validUser) {
         $message = "Credenciales inválidas";
     }
-    // Retraso intencional para una respuesta constante
-    usleep(200000);
 }
 ?>
