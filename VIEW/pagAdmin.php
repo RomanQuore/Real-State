@@ -1,3 +1,8 @@
+<?php
+include '../CONTROLLER/conexion.php';
+session_start();
+$_SESSION['Usuario']
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,169 +13,208 @@
     <link rel="stylesheet" href="../CSS/style_principal.css">
     <script src="../JS/Principal.js"></script>
     <title> Pagina Principal </title>
-    <div class="container">
-    <p style="text-align: left;" class="hola">Real State <img src="http://imgfz.com/i/nzv3l4K.png" alt="Descripción de la imagen" style="width: 70px; float: left; margin-right: px;">
-    <select id="scrollDownButton" onchange="redireccionar()">
-        <option disabled selected value>Arriendo</option>
-        <option value="casa">Casas</option>
-        <option value="apartamento">Apartamentos</option>
-        <option value="local">Locales</option>
-    </select>
-    <select id="scrollDownButton" onchange="redireccionar()">
-        <option disabled selected value>Venta</option>
-        <option value="casa">Casas</option>
-        <option value="apartamento">Apartamentos</option>
-        <option value="local">Locales</option>
-    </select>
-    <select id="scrollDownButton" onchange="redireccionar()">
-        <option disabled selected value>Permutacion</option>
-        <option value="casa">Casas</option>
-        <option value="apartamento">Apartamentos</option>
-        <option value="local">Locales</option>
-    </select>
-    <button type="submit "class="exit"> <span><a href="../MODEL/iniciosesion1.php" class="cerrar">Cerrar sesion</span></a></button></p>
-    <button type="submit "class="exit"> <span><a href="../VIEW/editarvendedor.php" class="cerrar">editar Usuarios</span></a></button></p>
+    <div class="header"><img src="http://imgfz.com/i/nzv3l4K.png" style="margin-left: 1em; width: 100px; height: 100px; float: left;"><div class="real-state">Real State</div>
+    <div class="container-select">
+        <div class="select-box">
+            <select id="scrollDownButton1" onchange="redireccionar()">
+                <option disabled selected value>Arriendo</option>
+                <option value="casa">Casas</option>
+                <option value="apartamento">Apartamentos</option>
+                <option value="local">Locales</option>
+            </select>
+            <select id="scrollDownButton2" onchange="redireccionar()">
+                <option disabled selected value>Venta</option>
+                <option value="casa">Casas</option>
+                <option value="apartamento">Apartamentos</option>
+                <option value="local">Locales</option>
+            </select>
+            <select id="scrollDownButton3" onchange="redireccionar()">
+                <option disabled selected value>Permutacion</option>
+                <option value="casa">Casas</option>
+                <option value="apartamento">Apartamentos</option>
+                <option value="local">Locales</option>
+            </select>
+        </div>
+            <div class="container-select2">
+        <select id="accionesSelect" onchange="redireccionar()">
+            <option disabled selected value>Opciones ⚙︎</option>
+            <option value="editar_perfil">Perfil</option>
+            <option value="cerrar_sesion">Cerrar sesión</option>
+        </select>
+        </div>
+        </div>
+        <form id="cerrarSesionForm" action="../MODEL/cerrarsesion.php" method="POST"></form>
+    </div>
 
 </div>
-<script>
-    function redireccionar() {
-        var select = document.getElementById("scrollDownButton");
-        var opcionSeleccionada = select.options[select.selectedIndex].value;
 
-        if (opcionSeleccionada === "casa") {
-            window.location.href = "../MODEL/iniciosesion1.php";
-        } else if (opcionSeleccionada === "apartamento") {
-            window.location.href = "../VIEW/compra.html";
-        } else if (opcionSeleccionada === "local") {
-            window.location.href = "pagina_locales.html";
-        }
+<script>
+function redireccionar() {
+    var select = document.getElementById("arriendo");
+  var opcionSeleccionada = select.options[select.selectedIndex].value;
+
+  console.log("Opción seleccionada:", opcionSeleccionada);
+
+  if (opcionSeleccionada === "casa") {
+    console.log("Redirigiendo a la página de compra de casas...");
+    window.location.href = "compraComprador.php";
+  } else if (opcionSeleccionada === "apartamento") {
+    console.log("Redirigiendo a la página de compra de apartamentos...");
+    window.location.href = "compraComprador.php";
+  } else if (opcionSeleccionada === "local") {
+    console.log("Redirigiendo a la página de compra de locales...");
+    window.location.href = "compraComprador.php";
+  }
+}
+
+
+    function redireccionar() {
+    var select = document.getElementById("accionesSelect");
+    var opcionSeleccionada = select.value;
+
+    if (opcionSeleccionada === "cerrar_sesion") {
+
+        var formCerrarSesion = document.getElementById("cerrarSesionForm");
+        formCerrarSesion.style.display = "block";
+        formCerrarSesion.submit();
+    } else if (opcionSeleccionada === "editar_perfil") {
+        window.location.href = "Perfil_Vendedor.php";
     }
+}
 </script>
-<?php
-echo '<a href="perfil_Admin.php">Editar perfil</a>';
-?>
 </head>
 <body>
 <div class="contenedor">
-    <div class="subcontenedor1">
-        <div class="filtros">
-            <h2 class="label1"><br>Filtrado por:</h2>
-            <div class="busqueda">
-            <label class="label1">Buscar:</label>
-            <br>
-                <input class="search" name="text" placeholder="Busqueda..." type="search" >
-            </div>
-            <hr class="hr"/>
-            <div class="precio">
-            <label class="label1">Filtro de busqueda:</label>
-            <br>
-                <input type="text" id="precio_desde" class="busqueda1" placeholder="Precio desde (COP)" value/>
-            </div>
-            <hr class="hr"/>
-            <div class="habitaciones">
-                <select id="habitaciones" class="busqueda2">
-                <option disabled selected value>Habitaciones</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5+">5+</option>
-                </select>
-                </div>
-            <div class="banos">
-                <select id="banos" class="busqueda3">
-                    <option disabled selected value>Baños</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5+">5+</option>
-                </select>
-            </div>
-            <div class="m2">
-                <select id="m2" class="busqueda3">
-                    <option disabled selected value>m2</option>
-                    <option value="1">5m2</option>
-                    <option value="2">50m2</option>
-                    <option value="3">100m2</option>
-                    <option value="4">150m2</option>
-                    <option value="5+">200m2+</option>
-                </select>
-            </div>
-            <button class="dirigir"><a href="" class="dirigir1">Aceptar</a></button>
-            </div>
-    </div>
-
-    <div class="subcontenedor2">
-        <div class="ventana">
-            <img src="https://i.postimg.cc/MHQ87Lny/438430723.jpg" alt="Casa 1" style="width: 250px; float: center;">
-            <div class="titulo">Apartamento en venta. Fontibon. Bogotá</div>
-            <div class="subtitulo">Precio de venta:</div>
-            <h2>$120.000.000 COP</h2>
-            <div class="info-contenedor">
-                <div class="info-fila">
-                    <div class="info"><h2>Area(m2)</h2></div>
-                    <div class="info1">172m2</div>
-                </div>
-                <div class="info-fila">
-                    <div class="info"><h2>Hab</h2></div>
-                    <div class="info1">2</div>
-                </div>
-                <div class="info-fila">
-                    <div class="info"><h2>Baños</h2></div>
-                    <div class="info1">1</div>
-                </div>
-            </div>
-            <button class="comprar"><a href="../VIEW/compraAdmin.php" class="comprar_estilo">Ver</a></button>
-        </div>
-
-        <div class="ventana2">
-            <img src="https://i.postimg.cc/tRWqV1W8/casa-en-collywood-disenada-por-olson-kundig-en-los-angeles-4-eac9aa6d-1704x958.jpg" alt="Casa 2" style="width: 250px; float: center;">
-            <div class="titulo">Casa en arriendo. Chapinero. Bogotá</div>
-            <div class="subtitulo">Precio de arriendo:</div>
-            <h2>$1.400.000 COP</h2>
-            <div class="info-contenedor">
-                <div class="info-fila">
-                    <div class="info"><h2>Area(m2)</h2></div>
-                    <div class="info1">172m2</div>
-                </div>
-                <div class="info-fila">
-                    <div class="info"><h2>Hab</h2></div>
-                    <div class="info1">2</div>
-                </div>
-                <div class="info-fila">
-                    <div class="info"><h2>Baños</h2></div>
-                    <div class="info1">1</div>
-                </div>
-            </div>
-
-            <button class="comprar"><a href="../VIEW/compraAdmin.php" class="comprar_estilo">Ver</a></button>
-        </div>
-
-        <div class="ventana3">
-            <img src="https://i.postimg.cc/wMQY4mkv/fer7861a-7ef04580-1981x1486.jpg" alt="Casa 3" style="width: 250px; float: center;">
-            <div class="titulo">Casa en venta. Conjunto en Bosa</div>
-            <div class="subtitulo">Precio de venta:</div>
-            <h2>$240.000.000 COP</h2>
-            <div class="info-contenedor">
-                <div class="info-fila">
-                    <div class="info"><h2>Area(m2)</h2></div>
-                    <div class="info1">172m2</div>
-                </div>
-                <div class="info-fila">
-                    <div class="info"><h2>Hab</h2></div>
-                    <div class="info1">2</div>
-                </div>
-                <div class="info-fila">
-                    <div class="info"><h2>Baños</h2></div>
-                    <div class="info1">1</div>
-                </div>
-            </div>
-            <button class="comprar"><a href="../VIEW/compraAdmin.php" class="comprar_estilo">Ver</a></button>
-        </div>
-    </div>
+<div class="subcontenedor1">
+    <img src="http://imgfz.com/i/nzv3l4K.png" alt="Logo de la empresa" class="logo" style="width: 150px; height: 150px;">
+    <hr>
+    <h2>Información de la Empresa</h2>
+    <p><h3>Real State</h3></p>
+    <p> Proporcionamos un<br> espacio para facilitar<br> los trámites del<br> cliente en finca raíz, <br> actuando como <br>intermediario en la<br> compra y venta<br> de propieades.</p>
 </div>
 
+<div class="subcontenedor2">
+
+        <div class="ventana ventana1">
+            <div class="imagen">
+            <img src="https://i.postimg.cc/MHQ87Lny/438430723.jpg" alt="Casa 1">
+            </div>
+            <div class="titulo">Apartamento en venta. Fontibon. Bogotá</div>
+            <div class="subtitulo">Precio de venta:</div>
+            <h3>$120.000.000 COP</h3>
+            <div class="info-contenedor">
+                <div class="info-fila">
+                    <div class="info"><h3>Area(m2)</h3></div>
+                    <div class="info1">172m2</div>
+                </div>
+                <div class="info-fila">
+                    <div class="info"><h3>Hab</h3></div>
+                    <div class="info1">2</div>
+                </div>
+                <div class="info-fila">
+                    <div class="info"><h3>Baños</h3></div>
+                    <div class="info1">1</div>
+                </div>
+            </div>
+            <button class="comprar"><a href="../VIEW/compraComprador.php" class="comprar_estilo">Ver Propiedad</a></button>
+        </div>
+
+        <div class="ventana ventana2">
+        <div class="imagen">
+            <img src="https://i.postimg.cc/tRWqV1W8/casa-en-collywood-disenada-por-olson-kundig-en-los-angeles-4-eac9aa6d-1704x958.jpg" alt="Casa 2">
+        </div>
+            <div class="titulo">Casa en arriendo. Chapinero. Bogotá</div>
+            <div class="subtitulo">Precio de arriendo:</div>
+            <h3>$1.400.000 COP</h3>
+            <div class="info-contenedor">
+                <div class="info-fila">
+                    <div class="info"><h3>Area(m2)</h3></div>
+                    <div class="info1">172m2</div>
+                </div>
+                <div class="info-fila">
+                    <div class="info"><h3>Hab</h3></div>
+                    <div class="info1">2</div>
+                </div>
+                <div class="info-fila">
+                    <div class="info"><h3>Baños</h3></div>
+                    <div class="info1">1</div>
+                </div>
+            </div>
+
+            <button class="comprar"><a href="../VIEW/compraComprador.php" class="comprar_estilo">Ver Propiedad</a></button>
+        </div>
+
+        <div class="ventana ventana3">
+        <div class="imagen">
+            <img src="https://i.postimg.cc/wMQY4mkv/fer7861a-7ef04580-1981x1486.jpg" alt="Casa 3">
+        </div>
+            <div class="titulo">Casa en venta. Conjunto en Bosa</div>
+            <div class="subtitulo">Precio de venta:</div>
+            <h3>$240.000.000 COP</h3>
+            <div class="info-contenedor">
+                <div class="info-fila">
+                    <div class="info"><h3>Area(m2)</h3></div>
+                    <div class="info1">172m2</div>
+                </div>
+                <div class="info-fila">
+                    <div class="info"><h3>Hab</h3></div>
+                    <div class="info1">2</div>
+                </div>
+                <div class="info-fila">
+                    <div class="info"><h3>Baños</h3></div>
+                    <div class="info1">1</div>
+                </div>
+            </div>
+                <button class="comprar"><a href="../VIEW/compraComprador.php" class="comprar_estilo">Ver Propiedad</a></button>
+            </div>
+    </div>
+    <div class="ventana ventana4"> 4</div>
+        <div class="ventana ventana5"> 5 </div>
+        <div class="ventana ventana6"> 6 </div>
+    <button class="prev"> &lt; </button>
+    <button class="next"> &gt; </button>
+</div>
+<script>
+const ventanaItems = document.querySelectorAll('.ventana');
+const ventanasPorSeccion = 3;
+let currentIndex = 0;
+const totalVentanas = ventanaItems.length;
+
+function mostrarVentanas(index) {
+    ventanaItems.forEach((ventana, idx) => {
+        const inicioSeccion = Math.floor(index / ventanasPorSeccion) * ventanasPorSeccion;
+        const finSeccion = inicioSeccion + ventanasPorSeccion - 1;
+
+        if (idx >= inicioSeccion && idx <= finSeccion) {
+            ventana.style.display = 'block';
+        } else {
+            ventana.style.display = 'none';
+        }
+    });
+}
+
+function nextSeccion() {
+    currentIndex += ventanasPorSeccion;
+    if (currentIndex >= totalVentanas) {
+        currentIndex = 0;
+    }
+    mostrarVentanas(currentIndex);
+}
+
+function prevSeccion() {
+    currentIndex -= ventanasPorSeccion;
+    if (currentIndex < 0) {
+        currentIndex = totalVentanas - ventanasPorSeccion;
+    }
+    mostrarVentanas(currentIndex);
+}
+
+document.querySelector('.next').addEventListener('click', nextSeccion);
+document.querySelector('.prev').addEventListener('click', prevSeccion);
+
+mostrarVentanas(currentIndex); 
+</script>
+</div>
 </body>
 <footer class="footer">
     <div class="footer-content">
