@@ -1,0 +1,84 @@
+html{
+    width: 120%;
+}
+body {
+    background-color: rgba(255, 255, 255, 0.555);
+    background: linear-gradient(to right, #FFFDE4, #005AA7);
+    display: block;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-family: "Open Sans", sans-serif;
+    flex-direction: column;
+    margin: 0;
+    height: 100px;
+    padding: 0;
+    width: 100%;
+  }
+  .header {
+    width: 100%;
+    margin: 0;
+    height: 5em;
+    font-size: 20px;
+    background-color: #ffffff;
+    text-align: left;
+    margin-top: auto;
+    position: relative;
+    margin-bottom: 3em;
+  }
+  .real-state{
+    transform: translateY(30px);
+  }
+
+  .volver {
+    background-color: #329B93;
+    border: none;
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 0.2em;
+    cursor: pointer;
+    width: 150px;
+    margin: 5px;
+    border-radius: 4px;
+    height: 2.7rem;
+    position: flex; 
+    margin-top: 1em;
+    margin-left: 10.4em;
+  }
+  
+  .volver span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .volver span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+  }
+  
+  .volver:hover span {
+    padding-right: 15px;
+  }
+  
+  .volver:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .volver1 {
+    display: relative;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2%;
+    color: #ffffff;
+  }
+
+  .tabla {
+    color: #e05454;
+  }
