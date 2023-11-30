@@ -1,25 +1,20 @@
 <?php
 include("../CONTROLLER/conexion.php");
 
-// Iniciar sesión
 session_start();
 
-// Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['id'])) {
-    header("Location: login.php"); // Redirigir al usuario al formulario de inicio de sesión si no ha iniciado sesión
+    header("Location: iniciosesion1.php"); 
     exit();
 }
 
-// Obtener el ID del usuario logeado
 $idUsuario = $_SESSION['id'];
 
-// Definir variables para mensajes
 $mensaje = "";
 $mensaje_clase = "";
 
-// Verificar si se ha enviado el formulario
 if (isset($_POST['editar'])) {
-    // Obtener los datos del formulario
+
     $nombres = isset($_POST["nombres"]) ? mysqli_real_escape_string($conex, trim($_POST["nombres"])) : '';
     $apellidos = isset($_POST["apellidos"]) ? mysqli_real_escape_string($conex, trim($_POST["apellidos"])) : '';
     $numeroDocumento = isset($_POST["numeroDocumento"]) ? mysqli_real_escape_string($conex, trim($_POST["numeroDocumento"])) : '';
@@ -27,16 +22,14 @@ if (isset($_POST['editar'])) {
     $numeroTelefono = isset($_POST["numeroTelefono"]) ? mysqli_real_escape_string($conex, trim($_POST["numeroTelefono"])) : '';
     $correoElectronico = isset($_POST["correoElectronico"]) ? mysqli_real_escape_string($conex, trim($_POST["correoElectronico"])) : '';
 
-    // Validaciones y actualización de datos
     $errores = [];
 
-    // Verificar que el número de documento y teléfono sean numéricos
     if (!ctype_digit($numeroDocumento) || !ctype_digit($numeroTelefono)) {
         $errores[] = "El número de documento y teléfono deben contener solo dígitos.";
     }
 
     if (empty($errores)) {
-        // Actualizar los datos en la base de datos
+
         $consulta = "UPDATE registro SET nombres='$nombres', apellidos='$apellidos', numeroDocumento='$numeroDocumento', direccion='$direccion', numeroTelefono='$numeroTelefono', correoElectronico='$correoElectronico' WHERE id='$idUsuario'";
         $resultado = mysqli_query($conex, $consulta);
 
@@ -53,58 +46,21 @@ if (isset($_POST['editar'])) {
     }
 }
 
-// Consulta para obtener los datos actuales del usuario
 $consulta_usuario = "SELECT * FROM registro WHERE id='$idUsuario'";
 $resultado_usuario = mysqli_query($conex, $consulta_usuario);
 
-// Verificar si se obtuvieron resultados
 if ($resultado_usuario && mysqli_num_rows($resultado_usuario) > 0) {
     $usuario = mysqli_fetch_assoc($resultado_usuario);
 
-    // Mostrar el formulario con los datos actuales del usuario
     ?>
     <!DOCTYPE html>
     <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/perfilvendedor.css">
         <title>Editar Usuario</title>
         <style>
-            form {
-                background-color: #ffffff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                width: 300px;
-                position: relative;
-            }
-
-            label {
-                display: block;
-                margin-top: 10px;
-            }
-
-            input {
-                width: 100%;
-                padding: 8px;
-                margin-top: 5px;
-                margin-bottom: 10px;
-                box-sizing: border-box;
-            }
-
-            button {
-                background-color: #329B93;
-                color: #ffffff;
-                padding: 10px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-            button:hover {
-                background-color: #206e68;
-            }
-
             .mensaje {
                 position: absolute;
                 top: 0;
@@ -114,12 +70,20 @@ if ($resultado_usuario && mysqli_num_rows($resultado_usuario) > 0) {
                 color: #ffffff;
                 padding: 10px;
                 text-align: center;
-                border-radius: 8px 8px 0 0;
             }
         </style>
-    </head>
+         <div class="header"><img src="http://imgfz.com/i/nzv3l4K.png" style="margin-left: 1em; width: 100px; height: 100px; float: left;"><div class="real-state">Real State</div>
+         <h3><div class="usuario">Usuario: <?php echo $usuario['nombres']; ?></div></h3>
+        </div>
+        </head>
     <body>
-        <h2>Editar Usuario</h2>
+        <br>
+        <div class="container-father">
+        <div class="container">
+
+    <h2>Usuario: <?php echo $usuario['nombres']; ?></h2>
+    <h2>Rol: <?php echo $usuario['Rol']; ?> (Vendedor)</h2>
+        <h3>Editar Usuario</h3>
 
         <div class="mensaje <?php echo $mensaje_clase; ?>"><?php echo $mensaje; ?></div>
 
@@ -142,10 +106,34 @@ if ($resultado_usuario && mysqli_num_rows($resultado_usuario) > 0) {
 
             <label for="correoElectronico">Correo Electrónico:</label>
             <input type="email" name="correoElectronico" value="<?php echo $usuario['correoElectronico']; ?>" required>
-
+            
+            <div class="container-buttons">
             <button type="submit" name="editar">Guardar Cambios</button>
+            <button class="login"><a href="pagVendedor.php" class="login1">Volver</a></button>
+            </div>
+        </div>
+        </div>
         </form>
     </body>
+    <footer class="footer">
+    <div class="footer-content">
+    <div class="footer-heading">Conoce más sobre nosotros</div>
+        <div class="hello">
+        <img src="https://i.postimg.cc/504T57CV/userlmn-c28434f13729b9b1f7f1db10c7eb8d7a.png" width="100px" height="100px" alt="Real State">
+        </div>
+        <div class="footer-nav-copyright">©Real State 2023</div>
+        <div class="footer-nav-link"><a href="">Política de privacidad</a></div>
+        <br><br><br>
+        <div class="footer-nav-contact"><a href="">Contáctenos 3202026512</a></div>
+        <br><br><br>
+        <div class="footer-nav-social">
+            <a href="https://www.instagram.com/"><img src="https://i.postimg.cc/7P7rT5b2/logo-instagram-removebg-preview.png" width="50px" height="50px" alt="Instagram"></a>
+            <a href="https://bit.ly/3RR4ZEE"><img src="https://i.postimg.cc/ZqGBV9md/vecteezy-whatsapp-logo-icon-24996543-361-removebg-preview.png" width="50px" height="50px" alt="WhatsApp"></a>
+            <a href="https://www.facebook.com/"><img src="https://i.postimg.cc/Pqjnyhcq/vecteezy-facebook-png-icon-16716481-104-removebg-preview-1.png" width="50px" height="50px" alt="Facebook"></a>
+            <a href="https://twitter.com/real_sjr"><img src="https://i.postimg.cc/MGQb6JK1/download-removebg-preview-1.png" width="50px" height="50px" alt="Twitter"></a>
+    </div>
+    </div>
+</footer>
     </html>
 <?php
 } else {

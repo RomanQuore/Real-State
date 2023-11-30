@@ -14,38 +14,39 @@ $_SESSION['Usuario']
     <title> Pagina Principal </title>
     <div class="header"><img src="http://imgfz.com/i/nzv3l4K.png" style="margin-left: 1em; width: 100px; height: 100px; float: left;"><div class="real-state">Real State</div>
     <div class="container-select">
-        <div class="select-box">
-            <select id="scrollDownButton1" onchange="redireccionar()">
-                <option disabled selected value>Arriendo</option>
-                <option value="casa">Casas</option>
-                <option value="apartamento">Apartamentos</option>
-                <option value="local">Locales</option>
-            </select>
-            <select id="scrollDownButton2" onchange="redireccionar()">
-                <option disabled selected value>Venta</option>
-                <option value="casa">Casas</option>
-                <option value="apartamento">Apartamentos</option>
-                <option value="local">Locales</option>
-            </select>
-            <select id="scrollDownButton3" onchange="redireccionar()">
-                <option disabled selected value>Permutacion</option>
-                <option value="casa">Casas</option>
-                <option value="apartamento">Apartamentos</option>
-                <option value="local">Locales</option>
-            </select>
-        </div>
-        <div class="a"><p><?php echo $_SESSION['Usuario']; ?></p></div>
-        <div class="container-select2">
-            <select id="accionesSelect" onchange="redireccionar()">
-                <option disabled selected value>Opciones ⚙︎</option>
-                <option value="editar_perfil">Perfil</option>
-                <option value="publicar">Publicar</option>
-                <option value="cerrar_sesion">Cerrar sesión</option>
-            </select>
-        </div>
+    <div class="select-box">
+        <select id="scrollDownButton1" onchange="redireccionar()">
+            <option disabled selected value>Arriendo</option>
+            <option value="casa">Casas</option>
+            <option value="apartamento">Apartamentos</option>
+            <option value="local">Locales</option>
+        </select>
+        <select id="scrollDownButton2" onchange="redireccionar()">
+            <option disabled selected value>Venta</option>
+            <option value="casa">Casas</option>
+            <option value="apartamento">Apartamentos</option>
+            <option value="local">Locales</option>
+        </select>
+        <select id="scrollDownButton3" onchange="redireccionar()">
+            <option disabled selected value>Permutacion</option>
+            <option value="casa">Casas</option>
+            <option value="apartamento">Apartamentos</option>
+            <option value="local">Locales</option>
+        </select>
     </div>
+    <div class="container-select2">
+        <p><?php echo $_SESSION['Usuario']; ?></p>
+        <select id="accionesSelect" onchange="redireccionar()">
+            <option disabled selected value>Opciones ⚙︎</option>
+            <option value="editar_perfil">Perfil</option>
+            <option value="publicar">Publicar</option>
+            <option value="cerrar_sesion">Cerrar sesión</option>
+        </select>
     </div>
-    <form id="cerrarSesionForm" action="../MODEL/cerrarsesion.php" method="POST"></form>
+</div>
+</div>
+<form id="cerrarSesionForm" action="../MODEL/cerrarsesion.php" method="POST"></form>
+
 
 <script>
 function redireccionar() {
@@ -66,7 +67,6 @@ function redireccionar() {
   }
 }
 
-
     function redireccionar() {
     var select = document.getElementById("accionesSelect");
     var opcionSeleccionada = select.value;
@@ -79,7 +79,7 @@ function redireccionar() {
         formCerrarSesion.style.display = "block";
         formCerrarSesion.submit();
     } else if (opcionSeleccionada === "editar_perfil") {
-        window.location.href = "Editarvendedor.php";
+        window.location.href = "../VIEW/Editarvendedor.php";
     }
 }
 </script>
