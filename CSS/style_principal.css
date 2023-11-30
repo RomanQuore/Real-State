@@ -22,16 +22,24 @@ body {
   margin-top: auto;
   position: relative;
 }
+
 .real-state{
   transform: translateY(30px);
-  }
+}
+
 .container-select{
   display: flex;
-  gap: 22em;
 }
+
 .select-box{
   gap: 0.5em;
   margin-left: 5em;
+  justify-content: center;
+}
+
+.container-select2 {
+  display: flex;
+
 }
 
 #accionesSelect {
@@ -306,6 +314,7 @@ background-color: #555;
   border: 1px solid #ccc;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
+  min-width: 15%;
 }
 
 .subcontenedor1 img {
