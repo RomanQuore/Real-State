@@ -94,7 +94,7 @@
     }
     // Mostrar los resultados en una tabla HTML con formularios para editar y crear
     echo "<form method='post'>";
-    echo "<table border='1'>";
+    echo "<table border='0'>";
     echo "<tr><th>ID</th><th>Usuario</th><th>Nombres</th><th>Apellidos</th><th>FechaNac</th><th>TipDoc</th><th>NúmDoc</th><th>Dirección</th><th>NúmTel</th><th>Correo</th><th>Rol</th><th>Activo</th><th>Acciones</th></tr>";
 
     while ($fila = mysqli_fetch_assoc($resultado)) {
@@ -108,8 +108,10 @@
             echo "</td>";
         }
         echo "<td>";
-        echo "<button type='submit' name='eliminar_id' value='{$fila["id"]}'>Eliminar</button>";
-        echo "<button type='submit' name='actualizar_id' value='{$fila["id"]}'>Actualizar</button>";
+        echo "<div class='botones'>";
+        echo "<button type='submit' name='eliminar_id' class='login' value='{$fila["id"]}'>Eliminar</button>";
+        echo "<button type='submit' name='actualizar_id' class='login' value='{$fila["id"]}'>Actualizar</button>";
+        echo "</div>";
         echo "</td>";
         echo "</tr>";
     }
