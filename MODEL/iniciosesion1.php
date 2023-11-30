@@ -52,7 +52,7 @@ if (isset($_POST['Usuario']) && isset($_POST['Contrasena'])) {
                 $_SESSION['Rol'] = $row['Rol'];
                 switch ($row['Rol']) {
                     case 1:
-                        header('location: ../VIEW/php');
+                        header('location: ../VIEW/datosUsuarios.php');
                         exit();
                         break;
                     case 2:
