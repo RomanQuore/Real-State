@@ -122,44 +122,39 @@ $sql = "SELECT
             publicacion.num_contacto
         FROM publicacion 
         INNER JOIN tipo_establ ON publicacion.Id_Tipo_Establ = tipo_establ.id_tipo_establ
-        INNER JOIN tipo_oferta ON publicacion.Id_Tipo_Oferta = tipo_oferta.id_tipo_oferta";
+        INNER JOIN tipo_oferta ON publicacion.Id_Tipo_Oferta = tipo_oferta.id_tipo_oferta
+        LIMIT 1";
 
 $result = $conex->query($sql);
 
 // Verificar si hay resultados
 if ($result) {
-    echo "<table>
-            <tr>
-                <th>Codigo Publicacion</th>
-                <th>Tipo de Establecimiento</th>
-                <th>Tipo de Oferta</th>
-                <th>Imagen</th>
-                <th>Descripción</th>
-                <th>Características</th>
-                <th>Número de Contacto</th>
-            </tr>";
+    echo "<ul>";
 
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>
-                <td>" . $row["id_publicacion"] . "</td>
-                <td>" . $row["tipo_establecimiento"] . "</td>
-                <td>" . $row["tipo_oferta"] . "</td>
-                <td><img src='data:image/jpeg;base64," . base64_encode($row["imagen"]) . "' width='100' height='100' /></td>
-                <td>" . $row["descripcion"] . "</td>
-                <td>" . $row["caracteristicas"] . "</td>
-                <td>" . $row["num_contacto"] . "</td>
-            </tr>";
+        echo "<li>";
+        echo "<strong>Codigo Publicacion:</strong> " . $row["id_publicacion"] . "<br>";
+        echo "<strong>Tipo de Establecimiento:</strong> " . $row["tipo_establecimiento"] . "<br>";
+        echo "<strong>Tipo de Oferta:</strong> " . $row["tipo_oferta"] . "<br>";
+        echo "<strong>Imagen:</strong> <img src='data:image/jpeg;base64," . base64_encode($row["imagen"]) . "' width='100' height='100' /><br>";
+        echo "<strong>Descripción:</strong> " . $row["descripcion"] . "<br>";
+        echo "<strong>Características:</strong> " . $row["caracteristicas"] . "<br>";
+        echo "<strong>Número de Contacto:</strong> " . $row["num_contacto"] . "<br>";
+        echo "</li>";
     }
 
-    echo "</table>";
+    echo "</ul>";
+
+    // Ahora, mostrar el resto de los resultados (si hay más)
+    while ($row = $result->fetch_assoc()) {
+        // Descartar los demás resultados
+    }
 } else {
     echo "Error en la consulta: " . mysqli_error($conex);
 }
-
 // Cerrar la conexión
 $conex->close();
 ?>
-
 
 
             <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
