@@ -72,7 +72,7 @@ function redireccionar() {
     var opcionSeleccionada = select.value;
 
     if (opcionSeleccionada === "publicar") {
-        window.location.href = "../VIEW/publicar.php";
+        window.location.href = "../VIEW/publicarEstablecimiento.php";
     } else if (opcionSeleccionada === "cerrar_sesion") {
 
         var formCerrarSesion = document.getElementById("cerrarSesionForm");
@@ -95,28 +95,73 @@ function redireccionar() {
 </div>
 
 <div class="subcontenedor2">
-
         <div class="ventana ventana1">
-            <div class="imagen">
-            <img src="https://i.postimg.cc/MHQ87Lny/438430723.jpg" alt="Casa 1">
-            </div>
-            <div class="titulo">Apartamento en venta. Fontibon. Bogotá</div>
-            <div class="subtitulo">Precio de venta:</div>
-            <h3>$120.000.000 COP</h3>
-            <div class="info-contenedor">
-                <div class="info-fila">
-                    <div class="info"><h3>Area(m2)</h3></div>
-                    <div class="info1">172m2</div>
-                </div>
-                <div class="info-fila">
-                    <div class="info"><h3>Hab</h3></div>
-                    <div class="info1">2</div>
-                </div>
-                <div class="info-fila">
-                    <div class="info"><h3>Baños</h3></div>
-                    <div class="info1">1</div>
-                </div>
-            </div>
+        <?php
+// Configuración de la conexión a la base de datos
+$host = 'localhost';
+$usuario = 'root';
+$contrasena = '';
+$base_de_datos = 'real_state';
+
+// Conexión a la base de datos
+$conex = new mysqli($host, $usuario, $contrasena, $base_de_datos);
+
+// Verificar la conexión
+if ($conex->connect_error) {
+    die("Error de conexión: " . $conex->connect_error);
+}
+
+// Consulta SQL
+$sql = "SELECT 
+            publicacion.id_publicacion,
+            tipo_establ.Descripcion_Establ AS tipo_establecimiento,
+            tipo_oferta.Descripcion_Oferta AS tipo_oferta,
+            publicacion.imagen,
+            publicacion.descripcion,
+            publicacion.caracteristicas,
+            publicacion.num_contacto
+        FROM publicacion 
+        INNER JOIN tipo_establ ON publicacion.Id_Tipo_Establ = tipo_establ.id_tipo_establ
+        INNER JOIN tipo_oferta ON publicacion.Id_Tipo_Oferta = tipo_oferta.id_tipo_oferta";
+
+$result = $conex->query($sql);
+
+// Verificar si hay resultados
+if ($result) {
+    echo "<table>
+            <tr>
+                <th>Codigo Publicacion</th>
+                <th>Tipo de Establecimiento</th>
+                <th>Tipo de Oferta</th>
+                <th>Imagen</th>
+                <th>Descripción</th>
+                <th>Características</th>
+                <th>Número de Contacto</th>
+            </tr>";
+
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>
+                <td>" . $row["id_publicacion"] . "</td>
+                <td>" . $row["tipo_establecimiento"] . "</td>
+                <td>" . $row["tipo_oferta"] . "</td>
+                <td><img src='data:image/jpeg;base64," . base64_encode($row["imagen"]) . "' width='100' height='100' /></td>
+                <td>" . $row["descripcion"] . "</td>
+                <td>" . $row["caracteristicas"] . "</td>
+                <td>" . $row["num_contacto"] . "</td>
+            </tr>";
+    }
+
+    echo "</table>";
+} else {
+    echo "Error en la consulta: " . mysqli_error($conex);
+}
+
+// Cerrar la conexión
+$conex->close();
+?>
+
+
+
             <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
         </div>
 
