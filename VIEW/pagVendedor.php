@@ -57,10 +57,12 @@ $_SESSION['Usuario'];
             <p><h3>Real State</h3></p>
             <p>Proporcionamos un<br> espacio para facilitar<br> los trámites del<br> cliente en finca raíz, <br> actuando como <br>intermediario en la<br> compra y venta<br> de propieades.</p>
         </div>
+
 <div class="subcontenedor3">
 <button class="prev"> &lt; </button>
     </div>
-        <div class="subcontenedor2">
+
+    <div class="subcontenedor2">
     <?php
     $host = 'localhost';
     $usuario = 'root';
@@ -90,28 +92,30 @@ $_SESSION['Usuario'];
     if ($result && $result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             ?>
-                <div class="ventana ventana1">
-                    <img src="data:image/jpeg;base64,<?php echo base64_encode($row['imagen']); ?>" width="100" height="100" />
-                    <br> <?php echo $row['id_publicacion']; ?><br>
-                    <strong class="strong">Tipo de Establecimiento</strong> <br><?php echo $row['tipo_establecimiento']; ?><br><br>
-                    <strong class="strong">Tipo de Oferta</strong><br> <?php echo $row['tipo_oferta']; ?><br><br>
-                    <strong class="strong">Descripción</strong><br> <?php echo $row['descripcion']; ?><br><br>
-                    <strong class="strong">Características</strong><br> <?php echo $row['caracteristicas']; ?><br><br>
-                    <strong class="strong">Número de Contacto</strong><br> <?php echo $row['num_contacto']; ?><br>
-                    <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
-                </div>
+            <div class="ventana ventana1">
+                <img src="data:image/jpeg;base64,<?php echo base64_encode($row['imagen']); ?>" width="100" height="100" />
+                <br> <?php echo $row['id_publicacion']; ?><br>
+                <strong class="strong">Tipo de Establecimiento</strong> <br><?php echo $row['tipo_establecimiento']; ?><br><br>
+                <strong class="strong">Tipo de Oferta</strong><br> <?php echo $row['tipo_oferta']; ?><br><br>
+                <strong class="strong">Descripción</strong><br> <?php echo $row['descripcion']; ?><br><br>
+                <strong class="strong">Características</strong><br> <?php echo $row['caracteristicas']; ?><br><br>
+                <strong class="strong">Número de Contacto</strong><br> <?php echo $row['num_contacto']; ?><br>
+                
+                <!-- Modificación para el enlace -->
+                <button class="comprar"><a href="../VIEW/compraVendedor.php?id=<?php echo $row['id_publicacion']; ?>" class="comprar_estilo">Ver Propiedad</a></button>
+            </div>
             <?php
         }
     }
 
     $conex->close();
-    ?>
-    </div>
-    <div class="subcontenedor3">
-        <button class="next"> &gt; </button>
-    </div>
+    ?>      
+</div>
+<div class="subcontenedor3">
+    <button class="next"> &gt; </button>
 </div>
 
+</div>
     <script>
         const ventanaItems = document.querySelectorAll('.ventana');
         const ventanasPorSeccion = 3;
