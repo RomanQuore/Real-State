@@ -1,7 +1,6 @@
 <?php
 include("../CONTROLLER/conexion.php");
 
-// Iniciar sesión
 session_start();
 
 if ($conex) {
@@ -9,7 +8,7 @@ if ($conex) {
 }
 
 if (isset($_POST['registrate'])) {
-    // Obtener los datos del formulario
+
     $id = isset($_POST["id"]) ? trim($_POST["id"]) : '';
     $usuario = isset($_POST["Usuario"]) ? mysqli_real_escape_string($conex, trim($_POST["Usuario"])) : '';
     $contrasena = isset($_POST["contrasena"]) ? $_POST["contrasena"] : '';
@@ -24,10 +23,8 @@ if (isset($_POST['registrate'])) {
     $Rol = isset($_POST["Rol"]) ? trim($_POST["Rol"]) : '';
     $activo = isset($_POST["activo"]) ? trim($_POST["activo"]) : '';
 
-    // Validaciones
     $errores = [];
 
-    // Verificar la edad (>18 años) a partir de la fecha de nacimiento
     $fechaActual = new DateTime();
     $fechaNac = new DateTime($fechaNacimiento);
     $edad = $fechaNac->diff($fechaActual)->y;
@@ -35,12 +32,10 @@ if (isset($_POST['registrate'])) {
         $errores[] = "Debes ser mayor de 18 años para registrarte.";
     }
 
-    // Validar la contraseña
     if (!preg_match('/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$/', $contrasena)) {
         $errores[] = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.";
     }
 
-    // Verificar longitud mínima para usuario, nombres y apellidos
     if (strlen($usuario) < 4) {
         $errores[] = "El usuario debe tener al menos 4 caracteres.";
     }
@@ -53,28 +48,23 @@ if (isset($_POST['registrate'])) {
         $errores[] = "El apellido debe tener al menos 4 caracteres.";
     }
 
-    // Verificar que el número de documento y teléfono sean numéricos
     if (!ctype_digit($numeroDocumento) || !ctype_digit($numeroTelefono)) {
         $errores[] = "El número de documento y teléfono deben contener solo dígitos.";
     }
 
     if (empty($errores)) {
-        // Encriptar la contraseña antes de guardarla en la base de datos
         $contrasena_encriptada = password_hash($contrasena, PASSWORD_DEFAULT);
     
-        // Insertar los datos en la base de datos
         $consulta = "INSERT INTO registro (Usuario, Contrasena, nombres, apellidos, fechaNacimiento, tipoDocumento, numeroDocumento, direccion, numeroTelefono, correoElectronico, Rol, activo) 
         VALUES ('$usuario','$contrasena_encriptada','$nombres','$apellidos','$fechaNacimiento','$tipoDocumento','$numeroDocumento','$direccion','$numeroTelefono','$correoElectronico','$Rol','$activo')";
         $resultado = mysqli_query($conex, $consulta);
         
         if ($resultado) {
-            // Obtener el ID del usuario recién registrado
             $id = mysqli_insert_id($conex);
         
-            // Almacenar el ID del usuario en la sesión
             $_SESSION['id'] = $id;
             ?>
-            <h3 class="ok">¡Te has registrado correctamente!</h3>
+            <h3 class="ok" style="color: red;">¡Te has registrado correctamente!</h3>
 <?php
         } else {
 ?>

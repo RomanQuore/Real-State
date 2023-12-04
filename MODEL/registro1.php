@@ -93,7 +93,6 @@ include("registro2.php")
                     <select name="tipoDocumento" id="tipoDocumento" required>
                         <option value=1>Cédula de Ciudadanía</option>
                         <option value=2>Cédula de Extranjería</option>
-                        <option value=3>Tarjeta de Identidad</option>
                     </select>
                 </div>
             </div>

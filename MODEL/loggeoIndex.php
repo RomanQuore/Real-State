@@ -13,12 +13,10 @@
 <h2>Aún no has iniciado sesión en nuestra página</h2>
 <h3>Debes iniciar sesión o Registrarte</h3>
 <hr>
-<center>
 <div class="containter-buttom">
 <button class="login"><a href="iniciosesion1.php" class="login1">Iniciar Sesión</a></button>
 <button class="register"><a href="registro1.php" class="register1">Registrate</a></button>
 </div>
-</center>
 </div>
 </body>
 </body>

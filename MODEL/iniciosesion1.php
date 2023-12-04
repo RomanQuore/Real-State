@@ -12,7 +12,7 @@ if (isset($_SESSION['Rol'])) {
     switch ($_SESSION['Rol']) {
         
         case 1:
-            header('location: ../VIEW/datosUsuarios.php');
+            header('location: ../VIEW/pagAdmin.php');
             exit();
             break;
         case 2:
