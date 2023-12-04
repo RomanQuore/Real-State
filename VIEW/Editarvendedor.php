@@ -73,7 +73,7 @@ if ($resultado_usuario && mysqli_num_rows($resultado_usuario) > 0) {
             }
         </style>
          <div class="header"><img src="http://imgfz.com/i/nzv3l4K.png" style="margin-left: 1em; width: 100px; height: 100px; float: left;"><div class="real-state">Real State</div>
-         <h3><div class="usuario">Usuario: <?php echo $usuario['nombres']; ?></div></h3>
+         <h3><div class="usuario">Usuario: <?php echo $usuario['Usuario']; ?></div></h3>
         </div>
         </head>
     <body>
@@ -81,7 +81,7 @@ if ($resultado_usuario && mysqli_num_rows($resultado_usuario) > 0) {
         <div class="container-father">
         <div class="container">
 
-    <h2>Usuario: <?php echo $usuario['nombres']; ?></h2>
+    <h2>Usuario: <?php echo $usuario['Usuario']; ?></h2>
     <h2>Rol: <?php echo $usuario['Rol']; ?> (Vendedor)</h2>
         <h3>Editar Usuario</h3>
 
