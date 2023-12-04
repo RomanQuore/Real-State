@@ -1,0 +1,108 @@
+body {
+    background-color: rgba(255, 255, 255, 0.555);
+    background: linear-gradient(to right, #FFFDE4, #005AA7);
+    display: block;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-family: "Open Sans", sans-serif;
+    flex-direction: column;
+    margin: 0;
+    height: 100px;
+    padding: 0;
+    width: 100%;
+  }
+  
+  h2 {
+    margin-top: 2em;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+  }
+  
+  .contenedor {
+    margin-top: 2em;
+  }
+  
+  form {
+    text-align: center;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25em;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label,
+  select,
+  input[type="file"],
+  textarea {
+    margin-top: 10px;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  input[type="text"] {
+    width: 50%;
+  }
+  select,
+  input[type="file"],
+  textarea {
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .boton {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .volver {
+    background-color: #329B93;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 10em;
+    height: 3em;
+  }
+
+  .volver1 {
+    display: relative;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2%;
+    color: #ffffff;
+  }
+
+  .volver:hover {
+    background-color: #555;
+  }
+
+  .publicar {
+    background-color: #329B93;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 10em;
+    height: 3em;
+  }
+  
+  .publicar:hover {
+    background-color: #555;
+  }
+  
+  .container {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    margin-top: 40px;
+  }

@@ -165,7 +165,6 @@ body {
     margin-top: 10px;
   }
   
-  /* Estilos para las opciones desplegables */
   #scrollDownOptions {
     width: 100%;
     height: 32px;
@@ -199,7 +198,7 @@ body {
   width: 20em;
   flex-shrink: 0;
   border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0); /* Añade un borde transparente */
+  border: 1px solid rgba(0, 0, 0, 0); 
   background-color: #ffffff;
 }
 
@@ -212,8 +211,8 @@ body {
   flex-shrink: 0;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center; /* Alineación central vertical */
-  text-align: center; /* Alineación central horizontal */
+  align-items: center; 
+  text-align: center; 
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow: hidden;
@@ -225,7 +224,7 @@ body {
 }
 .ventana img {
   max-width: 70% ;
-  margin-left: 15%; /* Centrado horizontal */
+  margin-left: 15%; 
 }
 
 .titulo,
@@ -359,8 +358,8 @@ body {
 
 
   .footer {
-    position: relative; /* Posición relativa para el contenido */
-    width: 100%; /* Ancho completo */
+    position: relative;
+    width: 100%; 
     background-color: #000000;
     color: #ffffff;
   }
@@ -371,20 +370,19 @@ body {
   .footer:before {
       content: "";
       position: absolute;
-      top: 100%; /* Se posiciona después del contenido del footer */
+      top: 100%; 
       left: 0;
       width: 100%;
-      height: 100%; /* Alto suficientemente grande para simular infinitud */
-      background-color: #000000; /* Mismo color de fondo */
+      height: 100%; 
+      background-color: #000000; 
   }
   
   .footer .footer-content {
-      position: relative; /* Posición relativa para el contenido */
-      z-index: 1; /* Coloca el contenido del footer sobre el pseudo-elemento */
-      padding: 20px; /* Ajusta el espaciado interno según tu preferencia */
+      position: relative; 
+      z-index: 1; 
+      padding: 20px; 
   }
-  
-  /* Estilos para los enlaces del footer */
+
   .footer a {
       color: #ffffff;
       text-decoration: none;
@@ -394,34 +392,29 @@ body {
       text-decoration: underline;
   }
   
-  /* Estilos para el elemento de navegación social en el footer */
   .footer-nav-social {
       float: left;
-      width: 15.125em; /* Establece el ancho en "em" */
+      width: 15.125em; 
       display: flex;
   }
   
-  /* Estilos para los enlaces dentro del elemento de navegación social */
   .footer-nav-social a {
-      margin: 0.625em; /* Establece el margen usando "em" para adaptabilidad */
+      margin: 0.625em; 
   }
   
-  /* Estilos para el elemento de contacto en el footer */
   .footer-nav-contact {
       float: left;
-      width: 15.125em; /* Establece el ancho en "em" */
+      width: 15.125em; 
       display: flex;
   }
   
-  /* Estilos para los enlaces dentro del elemento de contacto */
   .footer-nav-contact a {
       color: #eee;
   }
   
-  /* Estilos para el elemento de navegación en el footer */
   .footer-nav-link {
       float: left;
-      width: 15.125em; /* Establece el ancho en "em" */
+      width: 15.125em; 
       display: flex;
   }
   
@@ -430,14 +423,13 @@ body {
       color: #eee;
   }
   
-  /* Estilos para las imágenes dentro del contenido del footer */
   .hello {
-      width: 3.125em; /* Establece el ancho en "em" */
+      width: 3.125em; 
       display: block;
   }
   
   .footer-nav-copyright
   {
-      width: 8.125em; /* Establece el ancho en "em" */
+      width: 8.125em;
       display: block;
   }
