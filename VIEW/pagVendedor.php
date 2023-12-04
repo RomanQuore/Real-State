@@ -98,7 +98,7 @@ $_SESSION['Usuario'];
                     <strong class="strong">Descripción</strong><br> <?php echo $row['descripcion']; ?><br><br>
                     <strong class="strong">Características</strong><br> <?php echo $row['caracteristicas']; ?><br><br>
                     <strong class="strong">Número de Contacto</strong><br> <?php echo $row['num_contacto']; ?><br>
-                    <button class="comprar"><a href="../VIEW/compraComprador.php" class="comprar_estilo">Ver Propiedad</a></button>
+                    <button class="comprar"><a href="../VIEW/compraVendedor.php" class="comprar_estilo">Ver Propiedad</a></button>
                 </div>
             <?php
         }
