@@ -20,8 +20,8 @@ $_SESSION['Usuario'];
                 <p class="usuario"><?php echo $_SESSION['Usuario']; ?></p>
                 <select id="accionesSelect" onchange="redireccionar()">
                     <option disabled selected value>Opciones ⚙︎</option>
-                    <option value="editar_perfil">Perfil</option>
-                    <option value="publicar">Publicar</option>
+                    <option value="editar_perfil">Administrar</option>
+                    <option value="publicar">Eliminar</option>
                     <option value="cerrar_sesion">Cerrar sesión</option>
                 </select>
             </div>
@@ -36,13 +36,13 @@ $_SESSION['Usuario'];
             var opcionSeleccionada = select.value;
 
             if (opcionSeleccionada === "publicar") {
-                window.location.href = "../VIEW/publicarEstablecimiento.php";
+                window.location.href = "../MODEL/eliminar.php";
             } else if (opcionSeleccionada === "cerrar_sesion") {
                 var formCerrarSesion = document.getElementById("cerrarSesionForm");
                 formCerrarSesion.style.display = "block";
                 formCerrarSesion.submit();
             } else if (opcionSeleccionada === "editar_perfil") {
-                window.location.href = "../VIEW/Editarvendedor.php";
+                window.location.href = "../VIEW/datosUsuarios.php";
             }
         }
     </script>

@@ -138,6 +138,7 @@ $conex->close();
         </section>
     </form>
 </body>
+<!--
 <footer class="footer">
     <div class="footer-content">
     <div class="footer-heading">Conoce más sobre nosotros</div>
@@ -157,3 +158,4 @@ $conex->close();
     </div>
     </div>
 </footer>
+                        -->
