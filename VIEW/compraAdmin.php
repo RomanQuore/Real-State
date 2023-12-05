@@ -17,128 +17,81 @@ $_SESSION['Usuario']
 <body>
     <div class="contenedor">
         <div class="ventana1">
-        <?php
-// Obtener el ID de la publicación de la URL
-$id_publicacion = $_GET['id'];
+            <?php
+            if (isset($_GET['id_publicacion']) && !empty($_GET['id_publicacion'])) {
+                $id_publicacion = $_GET['id_publicacion'];
 
-// Resto de tu código para la conexión a la base de datos y la consulta SQL
-$host = 'localhost';
-$usuario = 'root';
-$contrasena = '';
-$base_de_datos = 'real_state';
+                $host = 'localhost';
+                $usuario = 'root';
+                $contrasena = '';
+                $base_de_datos = 'real_state';
 
-$conex = new mysqli($host, $usuario, $contrasena, $base_de_datos);
+                $conex = new mysqli($host, $usuario, $contrasena, $base_de_datos);
 
-if ($conex->connect_error) {
-    die("Error de conexión: " . $conex->connect_error);
-}
+                if ($conex->connect_error) {
+                    die("Error de conexión: " . $conex->connect_error);
+                }
 
-$sql = "SELECT 
-            publicacion.id_publicacion,
-            tipo_establ.Descripcion_Establ AS tipo_establecimiento,
-            tipo_oferta.Descripcion_Oferta AS tipo_oferta,
-            publicacion.imagen,
-            publicacion.descripcion,
-            publicacion.caracteristicas,
-            publicacion.num_contacto
-        FROM publicacion 
-        INNER JOIN tipo_establ ON publicacion.Id_Tipo_Establ = tipo_establ.id_tipo_establ
-        INNER JOIN tipo_oferta ON publicacion.Id_Tipo_Oferta = tipo_oferta.id_tipo_oferta
-        WHERE publicacion.id_publicacion = $id_publicacion";
+                $id_publicacion = $conex->real_escape_string($id_publicacion);
 
-$result_detalle = $conex->query($sql);
+                $sql = "SELECT 
+                            publicacion.id_publicacion,
+                            tipo_establ.Descripcion_Establ AS tipo_establecimiento,
+                            tipo_oferta.Descripcion_Oferta AS tipo_oferta,
+                            publicacion.imagen,
+                            publicacion.descripcion,
+                            publicacion.caracteristicas,
+                            publicacion.num_contacto
+                        FROM publicacion 
+                        INNER JOIN tipo_establ ON publicacion.Id_Tipo_Establ = tipo_establ.id_tipo_establ
+                        INNER JOIN tipo_oferta ON publicacion.Id_Tipo_Oferta = tipo_oferta.id_tipo_oferta
+                        WHERE publicacion.id_publicacion = '$id_publicacion'";
 
-if ($result_detalle && $result_detalle->num_rows > 0) {
-    // Mostrar la información detallada de la publicación
-    $row_detalle = $result_detalle->fetch_assoc();
-    ?>
-    <div class="detalle">
-        <!-- Mostrar la información detallada -->
-        <img src="data:image/jpeg;base64,<?php echo base64_encode($row_detalle['imagen']); ?>" width="100" height="100" />
-        <br> <?php echo $row_detalle['id_publicacion']; ?><br>
-        <strong class="strong">Tipo de Establecimiento</strong> <br><?php echo $row_detalle['tipo_establecimiento']; ?><br><br>
-        <strong class="strong">Tipo de Oferta</strong><br> <?php echo $row_detalle['tipo_oferta']; ?><br><br>
-        <strong class="strong">Descripción</strong><br> <?php echo $row_detalle['descripcion']; ?><br><br>
-        <strong class="strong">Características</strong><br> <?php echo $row_detalle['caracteristicas']; ?><br><br>
-        <strong class="strong">Número de Contacto</strong><br> <?php echo $row_detalle['num_contacto']; ?><br>
-    </div>
-    <?php
-} else {
-    // Manejar el caso en que no se encuentre la publicación
-    echo "Publicación no encontrada";
-}
+                $result_detalle = $conex->query($sql);
 
-// Resto de tu código
-// ...
-
-$conex->close();
-?>
-</div>
-
-
-    </div>
-
-    <form method="POST" action="../CONTROLLER/enviarcomentario.php">
-        <section id="contacto">
-            <div class="contenedor px-4">
-                <div class="fila gx-4 centrar-contenido">
-                    <div class="columna-1g-8">
-                        <h2>Caja de Comentarios</h2>
-                        <div class="columna-xs-12">
-                            <h3>Haz un Comentario</h3>
-                            <div class="grupo-formulario">
-                            <span>Nombre de Usuario</span>
-                                <input class="campo-formulario" name="nombre" type="text" id="nombre" placeholder="Nombre" required>
-                            </div>
-                            <br>
-                            <div class="grupo-formulario">
-                                <span>Comentario</span>
-                                <textarea class="campo-formulario" name="coment" cols="30" placeholder="Escribe tu comentario" required></textarea>
-                            </div>
-                            <span>Calificación</span>
-                            <br>
-                            <p class="clasificacion" required>
-                                <input id="radio1" type="radio" name="estrellas" value="5">
-                                <label for="radio1">★</label>
-                                <input id="radio2" type="radio" name="estrellas" value="4">
-                                <label for="radio2">★</label>
-                                <input id="radio3" type="radio" name="estrellas" value="3">
-                                <label for="radio3">★</label>
-                                <input id="radio4" type="radio" name="estrellas" value="2">
-                                <label for="radio4">★</label>
-                                <input id="radio5" type="radio" name="estrellas" value="1">
-                                <label for="radio5">★</label>
-                            </p>    
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <input class="boton-enviar" type="submit" value="Enviar Comentario">
-                        <?php
-                            $conexion=mysqli_connect("localhost", "root", "", "real_state");
-                            $resultado=mysqli_query($conexion, 'SELECT * FROM coment');
-                        
-                            while($coment = mysqli_fetch_object($resultado)) {
-                        ?>
-                        <br>
-                        <br>
-                        <hr>
-                        <?php echo $coment->nombre; ?>
-                        <br>
-                        <?php echo $coment->Calificacion; ?> estrella(s) <br>
-                        (<?php echo $coment->fecha; ?>) <br>
-                        <hr>
-                        <?php echo $coment->coment; ?>
-                        <?php
-                            }
-                        ?>
+                if ($result_detalle && $result_detalle->num_rows > 0) {
+                    $row_detalle = $result_detalle->fetch_assoc();
+            ?>
+                    <div class="detalle">
+                        <!-- Mostrar la información detallada -->
+                        <img src="data:image/jpeg;base64,<?php echo base64_encode($row_detalle['imagen']); ?>" width="100" height="100" />
+                        <br><?php echo $row_detalle['id_publicacion']; ?><br>
+                        <strong class="strong">Tipo de Establecimiento</strong><br><?php echo $row_detalle['tipo_establecimiento']; ?><br><br>
+                        <strong class="strong">Tipo de Oferta</strong><br><?php echo $row_detalle['tipo_oferta']; ?><br><br>
+                        <strong class="strong">Descripción</strong><br><?php echo $row_detalle['descripcion']; ?><br><br>
+                        <strong class="strong">Características</strong><br><?php echo $row_detalle['caracteristicas']; ?><br><br>
+                        <strong class="strong">Número de Contacto</strong><br><?php echo $row_detalle['num_contacto']; ?><br>
                     </div>
-                </div>
-            </div>
-        </section>
-    </form>
-</body>
-<!--
+
+                    <?php
+                    $sql_comentarios = "SELECT * FROM coment WHERE id_publicacion = '$id_publicacion'";
+                    $result_comentarios = $conex->query($sql_comentarios);
+
+                    if ($result_comentarios && $result_comentarios->num_rows > 0) {
+                        while ($comentario = $result_comentarios->fetch_assoc()) {
+                    ?>
+                            <div class="comentario">
+                                <!-- Mostrar información del comentario -->
+                                <?php echo $comentario['nombre']; ?> - <?php echo $comentario['calificacion']; ?> estrella(s) - <?php echo $comentario['fecha']; ?>
+                                <br>
+                                <?php echo $comentario['comentario']; ?>
+                            </div>
+                        <?php
+                        }
+                    } else {
+                        echo "No hay comentarios para esta publicación.";
+                    }
+                } else {
+                    echo "Publicación no encontrada";
+                }
+
+                $conex->close();
+            }
+            ?>
+        </div>
+    </div>
+        </body>
+
 <footer class="footer">
     <div class="footer-content">
     <div class="footer-heading">Conoce más sobre nosotros</div>
@@ -158,4 +111,3 @@ $conex->close();
     </div>
     </div>
 </footer>
-                        -->
