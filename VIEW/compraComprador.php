@@ -11,81 +11,80 @@
 <body>
     <div class="contenedor">
         <div class="ventana1">
-        <?php
-if (isset($_GET['Id_Publicacion']) && !empty($_GET['Id_Publicacion'])) {
-    $id_publicacion = $_GET['Id_Publicacion'];
+            <?php
+            if (isset($_GET['id_publicacion']) && !empty($_GET['id_publicacion'])) {
+                $id_publicacion = $_GET['id_publicacion'];
 
-    $host = 'localhost';
-    $usuario = 'root';
-    $contrasena = '';
-    $base_de_datos = 'real_state';
+                $host = 'localhost';
+                $usuario = 'root';
+                $contrasena = '';
+                $base_de_datos = 'real_state';
 
-    $conex = new mysqli($host, $usuario, $contrasena, $base_de_datos);
+                $conex = new mysqli($host, $usuario, $contrasena, $base_de_datos);
 
-    if ($conex->connect_error) {
-        die("Error de conexión: " . $conex->connect_error);
-    }
+                if ($conex->connect_error) {
+                    die("Error de conexión: " . $conex->connect_error);
+                }
 
-    $id_publicacion = $conex->real_escape_string($id_publicacion);
+                $id_publicacion = $conex->real_escape_string($id_publicacion);
 
-    $sql = "SELECT 
-                publicacion.Id_Publicacion,
-                tipo_establ.Descripcion_Establ AS tipo_establecimiento,
-                tipo_oferta.Descripcion_Oferta AS tipo_oferta,
-                publicacion.imagen,
-                publicacion.descripcion,
-                publicacion.caracteristicas,
-                publicacion.num_contacto
-            FROM publicacion 
-            INNER JOIN tipo_establ ON publicacion.Id_Tipo_Establ = tipo_establ.id_tipo_establ
-            INNER JOIN tipo_oferta ON publicacion.Id_Tipo_Oferta = tipo_oferta.id_tipo_oferta
-            WHERE publicacion.Id_Publicacion = '$id_publicacion'";
+                $sql = "SELECT 
+                            publicacion.id_publicacion,
+                            tipo_establ.Descripcion_Establ AS tipo_establecimiento,
+                            tipo_oferta.Descripcion_Oferta AS tipo_oferta,
+                            publicacion.imagen,
+                            publicacion.descripcion,
+                            publicacion.caracteristicas,
+                            publicacion.num_contacto
+                        FROM publicacion 
+                        INNER JOIN tipo_establ ON publicacion.Id_Tipo_Establ = tipo_establ.id_tipo_establ
+                        INNER JOIN tipo_oferta ON publicacion.Id_Tipo_Oferta = tipo_oferta.id_tipo_oferta
+                        WHERE publicacion.id_publicacion = '$id_publicacion'";
 
-    $result_detalle = $conex->query($sql);
+                $result_detalle = $conex->query($sql);
 
-    if ($result_detalle && $result_detalle->num_rows > 0) {
-        $row_detalle = $result_detalle->fetch_assoc();
-        ?>
-        <div class="detalle">
-            <!-- Mostrar la información detallada -->
-            <img src="data:image/jpeg;base64,<?php echo base64_encode($row_detalle['imagen']); ?>" width="100" height="100" />
-            <br> <?php echo $row_detalle['Id_Publicacion']; ?><br>
-            <strong class="strong">Tipo de Establecimiento</strong> <br><?php echo htmlspecialchars($row_detalle['Id_Tipo_Establ']); ?><br><br>
-            <strong class="strong">Tipo de Oferta</strong><br> <?php echo htmlspecialchars($row_detalle['Id_Tipo_Oferta']); ?><br><br>
-            <strong class="strong">Descripción</strong><br> <?php echo htmlspecialchars($row_detalle['Descripcion']); ?><br><br>
-            <strong class="strong">Características</strong><br> <?php echo htmlspecialchars($row_detalle['Caracteristicas']); ?><br><br>
-            <strong class="strong">Número de Contacto</strong><br> <?php echo htmlspecialchars($row_detalle['Num_contacto']); ?><br>
-        </div>
+                if ($result_detalle && $result_detalle->num_rows > 0) {
+                    $row_detalle = $result_detalle->fetch_assoc();
+            ?>
+                    <div class="detalle">
+                        <!-- Mostrar la información detallada -->
+                        <img src="data:image/jpeg;base64,<?php echo base64_encode($row_detalle['imagen']); ?>" width="100" height="100" />
+                        <br><?php echo $row_detalle['id_publicacion']; ?><br>
+                        <strong class="strong">Tipo de Establecimiento</strong><br><?php echo $row_detalle['tipo_establecimiento']; ?><br><br>
+                        <strong class="strong">Tipo de Oferta</strong><br><?php echo $row_detalle['tipo_oferta']; ?><br><br>
+                        <strong class="strong">Descripción</strong><br><?php echo $row_detalle['descripcion']; ?><br><br>
+                        <strong class="strong">Características</strong><br><?php echo $row_detalle['caracteristicas']; ?><br><br>
+                        <strong class="strong">Número de Contacto</strong><br><?php echo $row_detalle['num_contacto']; ?><br>
+                    </div>
 
-        <?php
-        $sql_comentarios = "SELECT * FROM coment WHERE Id_Publicacion = '$id_publicacion'";
-        $result_comentarios = $conex->query($sql_comentarios);
+                    <?php
+                    $sql_comentarios = "SELECT * FROM coment WHERE id_publicacion = '$id_publicacion'";
+                    $result_comentarios = $conex->query($sql_comentarios);
 
-        if ($result_comentarios && $result_comentarios->num_rows > 0) {
-            while ($comentario = $result_comentarios->fetch_assoc()) {
-                ?>
-                <div class="comentario">
-                    <!-- Mostrar información del comentario -->
-                    <?php echo htmlspecialchars($comentario['nombre']); ?> - <?php echo htmlspecialchars($comentario['calificacion']); ?> estrella(s) - <?php echo htmlspecialchars($comentario['fecha']); ?>
-                    <br>
-                    <?php echo htmlspecialchars($comentario['comentario']); ?>
-                </div>
-                <?php
+                    if ($result_comentarios && $result_comentarios->num_rows > 0) {
+                        while ($comentario = $result_comentarios->fetch_assoc()) {
+                    ?>
+                            <div class="comentario">
+                                <!-- Mostrar información del comentario -->
+                                <?php echo $comentario['nombre']; ?> - <?php echo $comentario['calificacion']; ?> estrella(s) - <?php echo $comentario['fecha']; ?>
+                                <br>
+                                <?php echo $comentario['comentario']; ?>
+                            </div>
+                        <?php
+                        }
+                    } else {
+                        echo "No hay comentarios para esta publicación.";
+                    }
+                } else {
+                    echo "Publicación no encontrada";
+                }
+
+                $conex->close();
             }
-        } else {
-            echo "No hay comentarios para esta publicación.";
-        }
-    } else {
-        echo "Publicación no encontrada";
-    }
-
-    $conex->close();
-}
-?>
-
-</div>
-</div>
-</body>
+            ?>
+        </div>
+    </div>
+        </body>
 <footer class="footer">
     <div class="footer-content">
     <div class="footer-heading">Conoce más sobre nosotros</div>
