@@ -13,7 +13,7 @@
         <div class="ventana1">
         <?php
 // Obtener el ID de la publicación de la URL
-$id_publicacion = $_GET['id'];
+$id_publicacion = $_GET['Id_Publicacion'];
 
 // Resto de tu código para la conexión a la base de datos y la consulta SQL
 $host = 'localhost';

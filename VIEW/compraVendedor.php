@@ -22,6 +22,7 @@ $_SESSION['Usuario']
 $id_publicacion = $_GET['id'];
 
 // Resto de tu código para la conexión a la base de datos y la consulta SQL
+
 $host = 'localhost';
 $usuario = 'root';
 $contrasena = '';
@@ -73,13 +74,8 @@ if ($result_detalle && $result_detalle->num_rows > 0) {
 
 $conex->close();
 ?>
-
-
 </div>
-
-
     </div>
-
     <form method="POST" action="../CONTROLLER/enviarcomentario.php">
         <section id="contacto">
             <div class="contenedor px-4">
@@ -87,7 +83,7 @@ $conex->close();
                     <div class="columna-1g-8">
                         <h2>Caja de Comentarios</h2>
                         <div class="columna-xs-12">
-                            <h3>Haz un Comentario</h3>
+                            <!-- <h3>Haz un Comentario</h3>
                             <div class="grupo-formulario">
                             <span>Nombre de Usuario</span>
                                 <input class="campo-formulario" name="nombre" type="text" id="nombre" placeholder="Nombre" required>
@@ -98,7 +94,45 @@ $conex->close();
                                 <textarea class="campo-formulario" name="coment" cols="30" placeholder="Escribe tu comentario" required></textarea>
                             </div>
                             <span>Calificación</span>
-                            <br>
+                            <br> -->
+                            <div class="form-group">
+                    <textarea id="comentario_o" class="form-control" name="comentario" cols="30" placeholder="Escribe tu comentario"></textarea>
+                  </div>
+                  </p>
+                  <input style="margin-left: 55px;" class="btn btn-primary" type="submit" value="Enviar Comentario" name="enviarcomentario">
+                  <?php
+                  include('../CONTROLLER/conexion.php');                                                            
+                                                                  if(isset($_POST['enviarcomentario'])){
+                                                                    if(empty($_POST['comentario'])){
+                                                                echo "<script>
+                                                                            window.alert('COMENTARIO VACIO')
+                                                                            </script>";
+                                                            }else
+                                                                if(strlen($_POST['comentario'])>=10){
+                                                                    $comentario = ($_POST['comentario']);
+                                                                    $idcom = $_GET['id_Publicacion'];
+                                                                    $consulta = "INSERT INTO `comentarioProducto`(`id`, `coment`, `id_publicacion`) VALUES ('','$idcom' , '$comentario')";
+
+                                                                    $resultado = mysqli_query($conexion,$consulta);
+                                                                        if ($resultado) {
+                                                                            echo "<script>
+                                                                            window.alert('COMENTARIO EXITOSO')
+                                                                            </script>";
+                                                                                
+                                                                            } else {
+                                                                                echo "<script>
+                                                                                window.alert('COMENTARIO FALLIDO')
+                                                                                </script>";
+                                                                            }
+                                                                }else
+                                                                {
+                                                                    echo "<script>
+                                                                                window.alert('COMENTARIO DEMASIADO CORTO')
+                                                                                </script>";
+                                                                }
+                                                            } 
+                                                            ?>
+
                             <p class="clasificacion" required>
                                 <input id="radio1" type="radio" name="estrellas" value="5">
                                 <label for="radio1">★</label>
@@ -117,9 +151,8 @@ $conex->close();
                         <br>
                         <input class="boton-enviar" type="submit" value="Enviar Comentario">
                         <?php
-                            $conexion=mysqli_connect("localhost", "root", "", "real_state");
-                            $resultado=mysqli_query($conexion, 'SELECT * FROM coment');
-                        
+                            $conex=mysqli_connect("localhost", "root", "", "real_state");
+                            $resultado=mysqli_query($conex, 'SELECT * FROM coment');
                             while($coment = mysqli_fetch_object($resultado)) {
                         ?>
                         <br>
