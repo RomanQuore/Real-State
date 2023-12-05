@@ -102,7 +102,7 @@ $_SESSION['Usuario'];
                 <strong class="strong">Número de Contacto</strong><br> <?php echo $row['num_contacto']; ?><br>
                 
                 <!-- Modificación para el enlace -->
-                <button class="comprar"><a href="../VIEW/compraVendedor.php?id=<?php echo $row['id_publicacion']; ?>" class="comprar_estilo">Ver Propiedad</a></button>
+                <button class="comprar"><a href="../VIEW/compraAdmin.php?id=<?php echo $row['id_publicacion']; ?>" class="comprar_estilo">Ver Propiedad</a></button>
             </div>
             <?php
         }
