@@ -91,7 +91,7 @@ $_SESSION['Usuario']
         </div>
     </div>
         </body>
-<!--
+
 <footer class="footer">
     <div class="footer-content">
     <div class="footer-heading">Conoce más sobre nosotros</div>
