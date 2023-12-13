@@ -69,7 +69,7 @@ if (isset($_POST['Usuario']) && isset($_POST['Contrasena'])) {
                 $error_message = "El Usuario o Contraseña son incorrectos";
             }
         } else {
-            $error_message = "El Usuario o Contraseña son incorrectos";
+            $error_message = "Su cuenta esta suspendida";
         }
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
